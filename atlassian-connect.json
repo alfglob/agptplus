@@ -6,9 +6,9 @@
     "name": "Globant",
     "url": "globant.com"
   },
-  "baseUrl": "http://127.0.0.1:3000",
+  "baseUrl": "https://alfglob.github.io/agptplus",
   "links": {
-    "config": "http://127.0.0.1:3000"
+    "config": "https://alfglob.github.io/agptplus"
   },
   "authentication": {
     "type": "none"
