@@ -1,0 +1,12 @@
+export enum FormActionType {
+  UPDATE_FIELD = 'FORM:UPDATE_FIELD',
+  CLEAR_FIELD = 'FORM:CLEAR_FIELD',
+  CLEAR_ALL = 'FORM:CLEAR_ALL',
+}
+
+export enum FormDataKeys {
+  CP_SYSTEM = 'CP_SYSTEM',
+  CP_JIRA_ID = 'CP_JIRA_ID',
+  CP_US_TYPE = 'CP_US_TYPE',
+  CP_ISSUE_TYPE = 'CP_ISSUE_TYPE',
+}

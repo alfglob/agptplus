@@ -1,0 +1,50 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaVersion": 2020,
+    "project": "./tsconfig.json",
+    "tsconfigRootDir": "./",
+    "warnOnUnsupportedTypeScriptVersion": true
+  },
+  "extends": [
+    "prettier", "airbnb", "airbnb-typescript"
+  ],
+  "settings": {
+    "import/resolver": {
+      "typescript": {}
+    }
+  },
+  "plugins": ["prettier"],
+  "ignorePatterns": ["setupProxy.js", "scripts/*"],
+  "rules": {
+    "import/order": [
+      2,
+      {
+        "groups": ["external", "builtin", "index", "sibling", "parent", "internal", "type"],
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true
+        },
+        "newlines-between": "always-and-inside-groups"
+      }
+    ],
+    "prettier/prettier": 2,
+    "react/function-component-definition": [2, {
+      "namedComponents": "arrow-function",
+      "unnamedComponents": "arrow-function"
+    }],
+    "react/react-in-jsx-scope": 0,
+    "import/no-default-export": 2,
+    "import/prefer-default-export": 0,
+    "object-curly-newline": [2, { "consistent": true }],
+    "max-len": [2, { "code": 140, "ignoreComments": true }],
+    "curly": [2, "all"],
+    "operator-linebreak": 0,
+    "implicit-arrow-linebreak": 0,
+    "quotes": [2,"single"],
+    "no-trailing-spaces": 0,
+    "typescript-eslint/indent":0,
+    "jsx-one-expression-per-line": 0
+  }
+}
