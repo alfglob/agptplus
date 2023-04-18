@@ -23,11 +23,16 @@ export const ConfigurePromptPageComponent = ({ setAppMode, messages, isLoading, 
       return;
     }
     const usType = formData[FormDataKeys.CP_US_TYPE];
-    jiraApi.createJiraIssue(
-      messages[0].message,
-      messages[messages.length - 1].message,
-      usType && usType.length ? usType : undefined,
-    );
+    jiraApi
+      .createJiraIssue(
+        messages[0].message,
+        messages[messages.length - 1].message,
+        usType && usType.length ? usType : undefined,
+      )
+      .then((res) => {
+        const URL_TO_OPEN = `https://alexgptplusplus.atlassian.net/browse/${res.data.key}`;
+        window.open(URL_TO_OPEN, '_blank');
+      });
   };
 
   const buttonEnabled = !isLoading && messages.length >= 2;

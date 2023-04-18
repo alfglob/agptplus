@@ -6,9 +6,9 @@
     "name": "Globant",
     "url": "globant.com"
   },
-  "baseUrl": "http://127.0.0.1:3000",
+  "baseUrl": "https://agpt.lcx06.me",
   "links": {
-    "config": "http://127.0.0.1:3000"
+    "config": "http://agpt.lcx06.me"
   },
   "authentication": {
     "type": "none"
@@ -25,7 +25,7 @@
         "name": {
           "value": "AlexGPT+"
         },
-        "url": "/configure-your-prompt",
+        "url": "/",
         "conditions": [
           {
             "condition": "user_is_logged_in"

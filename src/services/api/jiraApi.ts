@@ -11,12 +11,12 @@ export const jiraApi = {
     })({
       fields: {
         project: {
-          key: 'AL',
+          key: 'JIR',
         },
         summary,
         description,
         issuetype: {
-          name: '10001',
+          name: 'Story',
         },
         label,
       },

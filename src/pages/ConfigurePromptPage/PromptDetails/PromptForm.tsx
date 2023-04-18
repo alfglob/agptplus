@@ -1,5 +1,5 @@
 import { Box, TextField } from '@mui/material';
-import { ChangeEvent, useEffect } from 'react';
+import { ChangeEvent } from 'react';
 
 import { connect } from 'react-redux';
 
@@ -13,7 +13,7 @@ export const PromptFormComponent = ({ system, updateSystemMessage, formData, upd
     updateField({ key: FormDataKeys.CP_SYSTEM, value: ev.target!.value });
   };
 
-  useEffect(() => {
+  /* useEffect(() => {
     const defaultValue =
       'Respond as if you were a product owner. Create a User Story this format: 1. Tittle of the User Story 2. Description ' +
       'with the format "as a user" and Feature and at least 3 Scenario using Gherking. 3.Acceptance criteria 4. Story point ' +
@@ -24,7 +24,7 @@ export const PromptFormComponent = ({ system, updateSystemMessage, formData, upd
       value: defaultValue,
     });
     updateSystemMessage(defaultValue);
-  }, []);
+  }, []); */
 
   const getFieldUpdater = (key: string) => (value: string) => updateField({ key, value });
 
@@ -47,8 +47,18 @@ export const PromptFormComponent = ({ system, updateSystemMessage, formData, upd
       }}
     >
       <TextField
+        multiline
         sx={{
           textarea: {
+            color: '#fff',
+            background: '#004993',
+            borderRadius: '8px',
+            maxHeight: '35px',
+            overflow: 'scroll !important',
+            paddingX: '12px',
+            paddingY: '8px',
+          },
+          input: {
             color: '#fff',
             background: '#004993',
             borderRadius: '8px',
@@ -69,7 +79,6 @@ export const PromptFormComponent = ({ system, updateSystemMessage, formData, upd
         InputProps={{ style: { padding: 0 } }}
         placeholder="Write your prompt for create User Story"
         value={formData[FormDataKeys.CP_SYSTEM] ?? ''}
-        multiline
         onChange={handlePromptChange}
         onBlur={handleBlur}
       />
