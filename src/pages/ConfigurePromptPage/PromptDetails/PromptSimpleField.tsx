@@ -31,7 +31,7 @@ export const PromptSimpleFieldComponent = ({ value, setValue, placeholder }: Pro
         },
         gridColumn: 'span 1 / span 1',
         '@media (max-width: 780px)': {
-          gridColumn: 'span 3 / span 3',
+          gridColumn: 'span 4 / span 4',
         },
       }}
       size="small"

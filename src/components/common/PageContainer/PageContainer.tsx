@@ -8,8 +8,6 @@ import { mapStateToProps } from '../../../store';
 
 import { Header } from '../Header/Header';
 
-import { ResponsiveDrawer } from '../Sidebar';
-
 const styles = {
   pageWrapper: {
     flex: 1,
@@ -21,14 +19,12 @@ export const PageContainerComponent = ({
   sx = {},
   children,
   bgColor = '#1d282e',
-  showSidebar = true,
   headerText = '',
 }: any) => (
   <>
-    <Header title={headerText} showLogo={showSidebar} />
+    <Header title={headerText} />
     <Box sx={styles.pageWrapper} bgcolor={bgColor}>
-      {showSidebar && <ResponsiveDrawer />}
-      <Box sx={{ flexGrow: 1, py: 3, color: 'white', minHeight: '100vh', ...sx }}>
+      <Box sx={{ flexGrow: 1, py: 3, color: 'white', maxHeight: '95vh', ...sx }}>
         {title && (
           <Typography mt={2} mb={3} variant="h4" data-testid="pageTitle">
             {title}

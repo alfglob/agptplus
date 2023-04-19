@@ -1,23 +1,18 @@
 import { Box, Button } from '@mui/material';
-import { useEffect } from 'react';
 import { connect } from 'react-redux';
 
 import { PromptForm } from './PromptDetails/PromptForm';
 
 import { labels } from '../../assets/locale/en';
+import { Chat } from '../../components/Chat/Chat';
+import { ConfidentialSnackbar } from '../../components/common/ConfidentialSnackbar';
 import { PageContainer } from '../../components/common/PageContainer';
 import { jiraApi } from '../../services/api';
 import { mapDispatchToProps, mapStateToProps } from '../../store';
-import { AppMode } from '../../store/app/app.reducer';
 
 import { FormDataKeys } from '../../store/form/action.types';
-import { Chat } from '../StudiosPage/Chat/Chat';
 
-export const ConfigurePromptPageComponent = ({ setAppMode, messages, isLoading, formData }: any) => {
-  useEffect(() => {
-    setAppMode(AppMode.CONFIGURE_PROMPT_MODE);
-  }, []);
-
+export const ConfigurePromptPageComponent = ({ messages, isLoading, formData }: any) => {
   const handleCreateIssue = () => {
     if (messages.length < 2) {
       return;
@@ -36,7 +31,7 @@ export const ConfigurePromptPageComponent = ({ setAppMode, messages, isLoading, 
   };
 
   const buttonEnabled = !isLoading && messages.length >= 2;
-
+  const chatDisabled = !formData[FormDataKeys.CP_SYSTEM];
   return (
     <PageContainer
       showSidebar={false}
@@ -53,7 +48,12 @@ export const ConfigurePromptPageComponent = ({ setAppMode, messages, isLoading, 
       }}
     >
       <PromptForm />
-      <Chat emptyText="Ask AlexGPT+ to test your prompt..." placeholder="Test your prompt" />
+      <ConfidentialSnackbar />
+      <Chat
+        emptyText="Ask AlexGPT+ to test your prompt..."
+        placeholder="Test your prompt"
+        disableChat={chatDisabled ? 'Please select a studio first.' : ''}
+      />
 
       <Button
         disabled={!buttonEnabled}

@@ -3159,3 +3159,31 @@ export const MOCK_DATA = [
     ],
   },
 ];
+
+export const MOCK_CONF_PROMPT_DATA = {
+  'ui-engineering': {
+    id: 'ui-engineering',
+    display_name: 'UI Engineering',
+    prompt: 'Respond as if you were a product owner for UI projects. Create an User Story with this format: \n\n ' +
+    '--- \n\n' +
+    '1. Title: <User story title> \n' +
+    '2. Description: As a user <description> \n - Feature: <feature> \n - Scenarios <write at least 3 using Gherking>:\n   - <Scenario I>\n   - <Scenario II>\n   - <Scenario III> \n   - ... \n' +
+    '3. Acceptance criteria: \n - <Criteria I> \n - <Criteria II> \n - <Criteria III> \n - ... \n\n' +
+    '4. Story points: <amount and argument why you decided that value>. \n\n' +
+    '5. Topics to discuss with each team required: \n - Topic I \n - Topic II \n - ... \n\n' +
+    '6. Additional Documentation: \n - Doc I \n - Doc II \n - ... \n\n' +
+    '7. Unhappy path: <scenario and argument> \n\n' +
+    '8. Business Value (tangible and intangible benefits a business can get from the capabilities of a product): \n',
+    parsers: {
+      scenarios: (content: string) => {
+        const pattern = /Scenario \w+:\s*(.*)/g
+        const matches: string[] = [];
+        let match;
+        while (match = pattern.exec(content)) {
+          matches.push(match[1]);
+        }
+        return matches;
+      }
+    }
+  }
+}

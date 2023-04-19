@@ -7,9 +7,10 @@
     <meta name="theme-color" content="#000000" />
     <meta
       name="description"
-      content="Web site created using create-react-app"
-    />
+      content="AlexGPT+" />
+
     <script src="https://connect-cdn.atl-paas.net/all.js"></script>
+    />
     <!--
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
@@ -32,11 +33,12 @@
             rel="stylesheet"
             href="https://fonts.googleapis.com/icon?family=Material+Icons"
     />
-    <title>React App</title>
+
+    <title>AlexGPT+</title>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
+    <div id="root" class="ac-content"></div>
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
@@ -48,4 +50,21 @@
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
   </body>
+
+  <script>
+    window.onload = function() {
+      console.log('resize');
+      let scrollHeight = document.body.scrollHeight;
+      const observer = new MutationObserver(() => {
+        if (scrollHeight !== document.body.scrollHeight) {
+          scrollHeight = document.body.scrollHeight;
+          if (AP && AP.resize) {
+            AP.resize('100%', `100vh`);
+            AP.sizeToParent();
+          }
+        }
+      });
+      observer.observe(document.getElementById('root'), { attributes: true, childList: true, subtree: true });
+    }
+  </script>
 </html>

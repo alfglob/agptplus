@@ -1,17 +1,18 @@
 import { Alert, Snackbar } from '@mui/material';
+import { useState } from 'react';
 import { connect } from 'react-redux';
 
 import { labels } from '../../../assets/locale/en';
 
-import { mapDispatchToProps, mapStateToProps } from '../../../store';
-
-export const ConfidentialSnackbarComponent = ({ isConfidentialAccept, acceptConfidential }: any) => {
+export const ConfidentialSnackbarComponent = () => {
+  const [isConfidentialAccept, setConfidentialAccept] = useState(localStorage.getItem('confidential_acc') === 'true');
   const handleClose = (event?: React.SyntheticEvent | Event, reason?: string) => {
     if (reason === 'clickaway') {
       return;
     }
 
-    acceptConfidential();
+    localStorage.setItem('confidential_acc', 'true');
+    setConfidentialAccept(true);
   };
   return (
     <Snackbar
@@ -26,4 +27,4 @@ export const ConfidentialSnackbarComponent = ({ isConfidentialAccept, acceptConf
   );
 };
 
-export const ConfidentialSnackbar = connect(mapStateToProps, mapDispatchToProps)(ConfidentialSnackbarComponent);
+export const ConfidentialSnackbar = connect()(ConfidentialSnackbarComponent);

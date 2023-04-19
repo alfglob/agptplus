@@ -6,11 +6,11 @@ import { connect } from 'react-redux';
 
 import { Message } from './Message';
 
-import ChatImg from '../../../assets/images/chatIcon.svg';
-import { labels } from '../../../assets/locale/en';
-import { ErrorAlert } from '../../../components/common/ErrorAlert';
-import { DotsLoading } from '../../../components/common/Loading/Dots';
-import { mapDispatchToProps, mapStateToProps } from '../../../store';
+import ChatImg from '../../assets/images/chatIcon.svg';
+import { labels } from '../../assets/locale/en';
+import { mapDispatchToProps, mapStateToProps } from '../../store';
+import { ErrorAlert } from '../common/ErrorAlert';
+import { DotsLoading } from '../common/Loading/Dots';
 
 const MAX_LEN = 140;
 export const ChatComponent = ({
@@ -20,6 +20,7 @@ export const ChatComponent = ({
   chatLoading,
   emptyText = '',
   placeholder = '',
+  disableChat = '',
 }: any) => {
   const ref = useRef(null);
   useEffect(() => {
@@ -182,12 +183,12 @@ export const ChatComponent = ({
               outline: 'none',
             },
           }}
-          placeholder={placeholder || 'ask to alexGPT+'}
+          placeholder={disableChat.length ? disableChat : placeholder || 'ask to alexGPT+'}
           value={value}
           multiline
           onChange={onChange}
           onKeyDown={onKeyDown}
-          disabled={chatLoading}
+          disabled={chatLoading || !!disableChat}
           endAdornment={
             <InputAdornment position="end">
               <IconButton edge="end" disabled={chatLoading} onClick={addMessageToChat}>

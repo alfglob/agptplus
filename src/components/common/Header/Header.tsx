@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import pathIcon from '../../../assets/images/pathIcon.svg';
 import { mapStateToProps } from '../../../store';
 import { theme } from '../../../theme';
-import { drawerWidth } from '../Sidebar';
 
 const styles = {
   header: {
@@ -22,12 +21,6 @@ const styles = {
   leftSide: {
     display: 'flex',
     alignItems: 'center',
-  },
-  logo: {
-    padding: '14px 16px',
-    background: '#F2F3F5',
-    width: `${drawerWidth}px`,
-    color: '#060607',
   },
   studioTitle: {
     padding: '14px 16px',
@@ -54,13 +47,12 @@ const styles = {
     fontSize: '15px',
   },
 };
-export const HeaderComponent = ({ showLogo = true, openStudio, title }: any) => {
-  const pageTitle = title || openStudio.toLowerCase() || 'general';
+export const HeaderComponent = ({ isLoading, title }: any) => {
+  const pageTitle = title || 'general';
 
   return (
     <AppBar position="fixed" sx={styles.header} data-testid="header" id="header">
       <Box sx={styles.leftSide}>
-        {showLogo && <Box sx={styles.logo}>alexGPT+</Box>}
         <Box sx={styles.studioTitle}>
           <Box
             component="img"
@@ -74,7 +66,7 @@ export const HeaderComponent = ({ showLogo = true, openStudio, title }: any) => 
             }}
             alt="studio-path"
           />
-          <span>{pageTitle}</span>
+          {!isLoading && <span>{pageTitle}</span>}
         </Box>
       </Box>
     </AppBar>

@@ -4,9 +4,9 @@ import { Avatar, Box, IconButton } from '@mui/material';
 import ReactMarkdown from 'react-markdown';
 import { connect } from 'react-redux';
 
-import LogoImg from '../../../assets/images/globantLogo.svg';
-import { mapStateToProps } from '../../../store';
-import { theme } from '../../../theme';
+import LogoImg from '../../assets/images/globantLogo.svg';
+import { mapStateToProps } from '../../store';
+import { theme } from '../../theme';
 
 export const MessageComponent = ({ isGpt, message }: any) => {
   const renderUserMessage = () => (
@@ -34,7 +34,6 @@ export const MessageComponent = ({ isGpt, message }: any) => {
           },
           fontSize: '15px',
         }}
-        src=""
       />
       <Box>{message}</Box>
     </Box>

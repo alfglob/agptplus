@@ -1,34 +1,28 @@
 {
-  "name": "alex-gpt",
+  "name": "alexgpt-jira",
   "version": "0.1.0",
   "private": true,
-  "atlassian-connect-dev-instance-host": "lucian-dev.atlassian.net",
-  "atlassian-connect-prod-instance-host": "lucian-dev.atlassian.net",
-  "atlassian-connect-addon-home": "https://example.com/",
   "dependencies": {
-    "@emotion/react": "^11.10.4",
-    "@emotion/styled": "^11.10.4",
+    "@emotion/react": "^11.10.6",
+    "@emotion/styled": "^11.10.6",
     "@fontsource/roboto": "^4.5.8",
-    "@mui/icons-material": "^5.10.9",
-    "@mui/material": "^5.10.10",
-    "@react-oauth/google": "^0.5.1",
+    "@mui/icons-material": "^5.11.16",
+    "@mui/material": "^5.12.1",
     "@redux-devtools/extension": "^3.2.5",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "@types/jest": "^27.5.2",
-    "@types/node": "^16.18.18",
-    "@types/react": "^18.0.28",
+    "@types/node": "^16.18.23",
+    "@types/react": "^18.0.37",
     "@types/react-dom": "^18.0.11",
-    "axios": "^1.1.3",
+    "axios": "^1.3.5",
     "env-cmd": "^10.1.0",
-    "http-proxy-middleware": "^2.0.6",
-    "jwt-decode": "^3.1.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-markdown": "^8.0.6",
+    "react-markdown": "^8.0.7",
     "react-redux": "^8.0.5",
-    "react-router-dom": "^6.4.2",
+    "react-router-dom": "^6.10.0",
     "react-scripts": "5.0.1",
     "redux": "^4.2.1",
     "typescript": "^4.9.5",
@@ -37,7 +31,6 @@
   "devDependencies": {
     "@testing-library/dom": "^8.19.0",
     "@testing-library/user-event": "^13.5.0",
-    "@types/react-router-dom": "^5.3.3",
     "@types/uuid": "^9.0.1",
     "@typescript-eslint/eslint-plugin": "^5.54.1",
     "@typescript-eslint/parser": "^5.54.1",
@@ -58,8 +51,13 @@
     "start": "env-cmd -f .env.local react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "lint:es": "eslint --ext .js,.jsx,.ts,.tsx src"
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
   },
   "browserslist": {
     "production": [
