@@ -52,7 +52,7 @@ export const ChatComponent = ({
         </Box>
       )}
       {messages.map(({ id, isGpt, message }: any) => (
-        <Message key={id} isGpt={isGpt} message={message} />
+        <Message key={id} isGpt={isGpt} message={message} id={id} />
       ))}
       {chatLoading && (
         <Box

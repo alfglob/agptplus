@@ -30,6 +30,7 @@ export const PromptFormComponent = ({ system, updateSystemMessage, formData, upd
 
   // Temp
   useEffect(() => {
+    updateSystemMessage(MOCK_CONF_PROMPT_DATA['ui-engineering'].prompt);
     updateField({ key: FormDataKeys.CP_SYSTEM, value: MOCK_CONF_PROMPT_DATA['ui-engineering'].id });
   }, []);
 
