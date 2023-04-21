@@ -3,7 +3,7 @@ import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import ModeEditIcon from '@mui/icons-material/ModeEdit';
 import SaveIcon from '@mui/icons-material/Save';
 import { Avatar, Box, IconButton, TextField } from '@mui/material';
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import ReactMarkdown from 'react-markdown';
 import { connect } from 'react-redux';
@@ -12,7 +12,7 @@ import LogoImg from '../../assets/images/globantLogo.svg';
 import { mapDispatchToProps, mapStateToProps } from '../../store';
 import { theme } from '../../theme';
 
-export const MessageComponent = ({ isGpt, message, updateGptMessage }: any) => {
+export const MessageComponent = ({ isGpt, message, updateGptMessage, messages }: any) => {
   const cleanedMessage = useMemo(() => {
     const regex = /(`(SD|ST|ED|ET)[:A-Za-z_]*`)+?/g;
     return message.replaceAll(regex, '');
@@ -20,6 +20,14 @@ export const MessageComponent = ({ isGpt, message, updateGptMessage }: any) => {
 
   const [editing, setEditing] = useState(false);
   const [currentValue, setCurrentValue] = useState(message);
+
+  const editable = isGpt && messages[messages.length - 1] === message;
+
+  useEffect(() => {
+    if (editing && messages[messages.length - 1] !== message) {
+      setEditing(false);
+    }
+  }, [messages]);
 
   const renderUserMessage = () => (
     <Box
@@ -96,7 +104,7 @@ export const MessageComponent = ({ isGpt, message, updateGptMessage }: any) => {
       <IconButton onClick={copyToClipboard} aria-label="copy" sx={{ paddingTop: 0, color: 'grey' }}>
         <ContentCopyIcon />
       </IconButton>
-      {!editing && (
+      {!editing && editable && (
         <IconButton
           onClick={() => setEditing(true)}
           aria-label="edit"
