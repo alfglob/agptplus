@@ -5,13 +5,13 @@ import { connect } from 'react-redux';
 import { labels } from '../../../assets/locale/en';
 
 export const ConfidentialSnackbarComponent = () => {
-  const [isConfidentialAccept, setConfidentialAccept] = useState(localStorage.getItem('confidential_acc') === 'true');
+  const [isConfidentialAccept, setConfidentialAccept] = useState(true);
   const handleClose = (event?: React.SyntheticEvent | Event, reason?: string) => {
     if (reason === 'clickaway') {
       return;
     }
 
-    localStorage.setItem('confidential_acc', 'true');
+    // localStorage.setItem('confidential_acc', 'true');
     setConfidentialAccept(true);
   };
   return (

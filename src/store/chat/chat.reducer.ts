@@ -28,6 +28,11 @@ export const chatReducer = (state = initialState, action: any) => {
       return { messages: [...state.messages, { ...action.payload }], isLoading: false, system: state.system };
     case ChatActionTypes.UPDATE_SYSTEM_MESSAGE:
       return { ...state, system: { current: action.payload, shouldUpdate: true } };
+    case ChatActionTypes.UPDATE_GPT_MESSAGE:
+      // eslint-disable-next-line no-case-declarations
+      const messages = [...(state.messages as { id: string; message: string; isGpt: boolean }[])];
+      messages[messages.length - 1].message = action.payload;
+      return { ...state, messages };
     default:
       return state;
   }

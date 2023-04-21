@@ -11,26 +11,8 @@ import { mapDispatchToProps, mapStateToProps } from '../../../store';
 import { FormDataKeys } from '../../../store/form/action.types';
 import { SettingsContainer } from '../Settings/SettingsContainer';
 
-export const PromptFormComponent = ({ messages, system, updateSystemMessage, formData, updateField }: any) => {
+export const PromptFormComponent = ({ system, updateSystemMessage, formData, updateField }: any) => {
   const [showSettings, setShowSettings] = useState(false);
-
-  const parseSpecialElements = (parsers: { [key: string]: (content: string) => string[] }, message: string) => {
-    const results: { [key: string]: string[] } = {};
-    if (!message.match) {
-      return [];
-    }
-    Object.keys(parsers).forEach((key) => {
-      results[key] = parsers[key](message);
-    });
-    return results;
-  };
-
-  useEffect(() => {
-    const lastMessage = messages[messages.length - 1];
-    if (lastMessage?.isGpt) {
-      parseSpecialElements(MOCK_CONF_PROMPT_DATA['ui-engineering'].parsers, lastMessage.message);
-    }
-  }, [messages]); // TODO: Remove
 
   const getFieldUpdater = (key: string) => (value: string) => updateField({ key, value });
 
@@ -46,7 +28,10 @@ export const PromptFormComponent = ({ messages, system, updateSystemMessage, for
     updateField({ key: FormDataKeys.CP_SYSTEM, value: studio });
   };
 
-  // console.log('Current val', formData[FormDataKeys.CP_SYSTEM]);
+  // Temp
+  useEffect(() => {
+    updateField({ key: FormDataKeys.CP_SYSTEM, value: MOCK_CONF_PROMPT_DATA['ui-engineering'].id });
+  }, []);
 
   return (
     <Box
@@ -85,7 +70,7 @@ export const PromptFormComponent = ({ messages, system, updateSystemMessage, for
             if (!val?.length) {
               return 'Select a studio';
             }
-            return (MOCK_CONF_PROMPT_DATA as any)[val].display_name;
+            return (MOCK_CONF_PROMPT_DATA as any)[val]?.display_name;
           }}
           displayEmpty
           size="small"

@@ -29,6 +29,11 @@ export const updateSystemMessage = (payload: string) => ({
   payload,
 });
 
+export const updateGptMessage = (payload: string) => ({
+  type: ChatActionTypes.UPDATE_GPT_MESSAGE,
+  payload,
+});
+
 export const chatActions = (dispatch: any) => ({
   clearChat: () => dispatch(clearChat()),
   addUserMessage: (payload: any) => dispatch(addUserMessage(payload)),
@@ -36,6 +41,7 @@ export const chatActions = (dispatch: any) => ({
   askOpenAI: (payload: any) => dispatch(askOpenAI(payload)),
   askOpenAISuccess: (payload: any) => dispatch(askOpenAISuccess(payload)),
   updateSystemMessage: (payload: string) => dispatch(updateSystemMessage(payload)),
+  updateGptMessage: (payload: string) => dispatch(updateGptMessage(payload)),
 });
 
 export const chatState = (state: any) => ({

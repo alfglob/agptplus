@@ -1,14 +1,26 @@
+import CloseIcon from '@mui/icons-material/Close';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
-import { Avatar, Box, IconButton } from '@mui/material';
+import ModeEditIcon from '@mui/icons-material/ModeEdit';
+import SaveIcon from '@mui/icons-material/Save';
+import { Avatar, Box, IconButton, TextField } from '@mui/material';
+import { useMemo, useState } from 'react';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import ReactMarkdown from 'react-markdown';
 import { connect } from 'react-redux';
 
 import LogoImg from '../../assets/images/globantLogo.svg';
-import { mapStateToProps } from '../../store';
+import { mapDispatchToProps, mapStateToProps } from '../../store';
 import { theme } from '../../theme';
 
-export const MessageComponent = ({ isGpt, message }: any) => {
+export const MessageComponent = ({ isGpt, message, updateGptMessage }: any) => {
+  const cleanedMessage = useMemo(() => {
+    const regex = /(`(SD|ST|ED|ET)[:A-Za-z_]*`)+?/g;
+    return message.replaceAll(regex, '');
+  }, [message]);
+
+  const [editing, setEditing] = useState(false);
+  const [currentValue, setCurrentValue] = useState(message);
+
   const renderUserMessage = () => (
     <Box
       sx={{
@@ -40,7 +52,7 @@ export const MessageComponent = ({ isGpt, message }: any) => {
   );
 
   const copyToClipboard = () => {
-    navigator.clipboard.writeText(message);
+    navigator.clipboard.writeText(cleanedMessage);
   };
 
   const markdownStyles = {
@@ -54,6 +66,7 @@ export const MessageComponent = ({ isGpt, message }: any) => {
     'ol, ul': {
       marginTop: '10px',
     },
+    width: '100%',
   };
 
   const renderGptMessage = () => (
@@ -64,19 +77,62 @@ export const MessageComponent = ({ isGpt, message }: any) => {
         gap: '18px',
         background: '#EBEDEF',
         alignItems: 'flex-start',
+        position: 'relative',
       }}
     >
       <Box component="img" src={LogoImg} />
       <Box sx={markdownStyles}>
-        <ReactMarkdown>{message}</ReactMarkdown>
+        {!editing && <ReactMarkdown>{cleanedMessage}</ReactMarkdown>}
+        {editing && (
+          <TextField
+            multiline
+            value={currentValue}
+            onChange={(ev) => setCurrentValue(ev.target.value)}
+            fullWidth
+            sx={{ textarea: { color: 'black' }, fieldset: { border: 'none' }, width: '100%' }}
+          />
+        )}
       </Box>
       <IconButton onClick={copyToClipboard} aria-label="copy" sx={{ paddingTop: 0, color: 'grey' }}>
         <ContentCopyIcon />
       </IconButton>
+      {!editing && (
+        <IconButton
+          onClick={() => setEditing(true)}
+          aria-label="edit"
+          sx={{ color: 'grey', position: 'absolute', bottom: 4, right: 4, width: 45, height: 45 }}
+        >
+          <ModeEditIcon />
+        </IconButton>
+      )}
+      {editing && (
+        <>
+          <IconButton
+            onClick={() => {
+              setEditing(false);
+              setCurrentValue(message);
+            }}
+            aria-label="edit"
+            sx={{ color: 'grey', position: 'absolute', bottom: 54, right: 4, width: 45, height: 45 }}
+          >
+            <CloseIcon />
+          </IconButton>
+          <IconButton
+            onClick={() => {
+              setEditing(false);
+              updateGptMessage(currentValue);
+            }}
+            aria-label="edit"
+            sx={{ color: 'grey', position: 'absolute', bottom: 4, right: 4, width: 45, height: 45 }}
+          >
+            <SaveIcon />
+          </IconButton>
+        </>
+      )}
     </Box>
   );
 
   return isGpt ? renderGptMessage() : renderUserMessage();
 };
 
-export const Message = connect(mapStateToProps)(MessageComponent);
+export const Message = connect(mapStateToProps, mapDispatchToProps)(MessageComponent);

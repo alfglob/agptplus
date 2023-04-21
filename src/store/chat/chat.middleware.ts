@@ -1,7 +1,7 @@
 import { askOpenAI, askOpenAISuccess } from './action.creators';
 import { ChatActionTypes } from './action.types';
 
-import { openAIApi } from '../../services/api';
+import { appApi } from '../../services/api';
 import { mapOpenAIResponse } from '../../utils/mapOpenAIResponse';
 
 const CHAT_PRINCIPLES =
@@ -52,7 +52,7 @@ export const chatMiddleware = (store: any) => (next: any) => async (action: any)
       break;
     }
     case ChatActionTypes.ASK_OPEN_AI: {
-      const response = await openAIApi.askOpenAI(action.payload);
+      const response = await appApi.askOpenAI(action.payload);
       store.dispatch(askOpenAISuccess(mapOpenAIResponse(response)));
       break;
     }

@@ -1,38 +1,38 @@
 {
-  "key": "alexgpt-plus",
-  "name": "AlexGPT+",
-  "description": "Integration of AlexGPT+ for JIRA",
-  "vendor": {
-    "name": "Globant",
-    "url": "globant.com"
-  },
-  "baseUrl": "https://jira-example.onrender.com",
-  "links": {
-    "config": "https://jira-example.onrender.com"
-  },
-  "authentication": {
-    "type": "none"
-  },
-  "scopes": [
-    "READ",
-    "WRITE",
-    "ACT_AS_USER"
-  ],
-  "modules": {
-    "generalPages": [
-      {
-        "key": "prompt",
-        "location": "system.top.navigation.bar",
-        "name": {
-          "value": "AlexGPT+"
-        },
-        "url": "/configure-your-prompt",
-        "conditions": [
-          {
-            "condition": "user_is_logged_in"
-          }
+    "key": "alexgpt-plus",
+    "name": "AlexGPT+",
+    "description": "Integration of AlexGPT+ for JIRA",
+    "vendor": {
+        "name": "Globant",
+        "url": "globant.com"
+    },
+    "baseUrl": "https://jira-example.onrender.com",
+    "links": {
+        "config": "https://jira-example.onrender.com"
+    },
+    "authentication": {
+        "type": "none"
+    },
+    "scopes": [
+        "READ",
+        "WRITE",
+        "ACT_AS_USER"
+    ],
+    "modules": {
+        "generalPages": [
+            {
+                "key": "prompt",
+                "location": "system.top.navigation.bar",
+                "name": {
+                    "value": "AlexGPT+"
+                },
+                "url": "/configure-your-prompt",
+                "conditions": [
+                    {
+                        "condition": "user_is_logged_in"
+                    }
+                ]
+            }
         ]
-      }
-    ]
-  }
+    }
 }

@@ -13,35 +13,17 @@ import {
 import { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 
+import { JiraAvatar } from './JiraAvatar';
+
 import { connectApi, JiraUser } from '../../../services/api';
 
 import { mapDispatchToProps, mapStateToProps } from '../../../store';
 
-function stringToColor(string: string) {
-  let hash = 0;
-  let i;
-
-  /* eslint-disable no-bitwise */
-  for (i = 0; i < string.length; i += 1) {
-    hash = string.charCodeAt(i) + ((hash << 5) - hash);
-  }
-
-  const h = hash % 360;
-  return `hsl(${h}, 50%, 70%)`;
-}
-
-function stringAvatar(name: string) {
-  return {
-    sx: {
-      bgcolor: stringToColor(name),
-    },
-    children: `${name.split(' ')[0][0]}${name.split(' ')[1][0]}`,
-  };
-}
-
-export const JiraPopoverComponent = ({ anchorEl, onClose, updateAssignee, settingKey }: any) => {
+export const JiraPopoverComponent = ({ anchorEl, onClose, updateAsignee, settingKey, settings }: any) => {
   const [query, setQuery] = useState('');
   const [users, setUsers] = useState<JiraUser[]>([]);
+  const currentSettings = settings[settingKey];
+  const currentAsignee = currentSettings.asignee;
 
   const fetchData = () => {
     if (!query.length) {
@@ -51,7 +33,11 @@ export const JiraPopoverComponent = ({ anchorEl, onClose, updateAssignee, settin
     connectApi
       .findUsersAndGroups(query)
       .then((data) => {
-        setUsers(data.users.users.filter((user) => user.accountType === 'atlassian'));
+        setUsers(
+          data.users.users.filter(
+            (user) => user.accountType === 'atlassian' && user.accountId !== currentAsignee?.accountId,
+          ),
+        );
       })
       .catch(() => {
         window.AP.flag.create({
@@ -76,7 +62,8 @@ export const JiraPopoverComponent = ({ anchorEl, onClose, updateAssignee, settin
   }, [query]);
 
   const onSelect = (value: JiraUser | null) => {
-    updateAssignee({ key: settingKey, value });
+    updateAsignee({ key: settingKey, value });
+    setQuery('');
     onClose();
   };
 
@@ -131,20 +118,34 @@ export const JiraPopoverComponent = ({ anchorEl, onClose, updateAssignee, settin
       />
       <List sx={{ height: '100%', overflowY: 'auto' }}>
         <ListItem onClick={() => onSelect(null)} disablePadding>
-          <ListItemButton>
+          <ListItemButton selected={!currentAsignee}>
             <ListItemAvatar>
               <Avatar />
             </ListItemAvatar>
             <ListItemText primary="None" />
           </ListItemButton>
         </ListItem>
+        {!!currentAsignee && (
+          <ListItem onClick={onClose} disablePadding>
+            <ListItemButton selected>
+              <ListItemAvatar>
+                <JiraAvatar user={currentAsignee} />
+              </ListItemAvatar>
+              <ListItemText
+                primary={currentAsignee.displayName}
+                primaryTypographyProps={{
+                  style: { textOverflow: 'ellipsis', whiteSpace: 'nowrap', overflow: 'hidden' },
+                }}
+              />
+            </ListItemButton>
+          </ListItem>
+        )}
         {!!users.length &&
           users.map((user) => (
             <ListItem key={user.accountId} onClick={() => onSelect(user)} disablePadding>
               <ListItemButton>
                 <ListItemAvatar>
-                  {/* eslint-disable-next-line react/jsx-props-no-spreading */}
-                  <Avatar src={user.avatarUrl} {...(!user.avatarUrl ? stringAvatar(user.displayName) : {})} />
+                  <JiraAvatar user={user} />
                 </ListItemAvatar>
                 <ListItemText
                   primary={user.displayName}

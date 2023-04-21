@@ -2,6 +2,7 @@ import { Close } from '@mui/icons-material';
 import { Box, IconButton, Paper, Slide } from '@mui/material';
 import { connect } from 'react-redux';
 
+import { LanguagesDialog } from './LanguagesDialog';
 import { OptionCard } from './OptionCard';
 
 import { labels } from '../../../assets/locale/en';
@@ -47,7 +48,11 @@ export const SettingsContainerComponent = ({ show, onClose }: any) => (
           <OptionCard settingKey={SettingsKeys.CREATE_TESTS} displayName="Create Manual Test Cases" />
           <OptionCard settingKey={SettingsKeys.GENERATE_CODE_TESTS} displayName="Generate Code and Unit Test" />
           <OptionCard settingKey={SettingsKeys.GENERATE_UI_EXAMPLES} displayName="Generate UI/UX examples" />
-          <OptionCard settingKey={SettingsKeys.LABEL_TRANSLATIONS} displayName="Languages to translate the labels" />
+          <OptionCard
+            settingKey={SettingsKeys.LABEL_TRANSLATIONS}
+            displayName="Languages to translate the labels"
+            DialogComponent={LanguagesDialog}
+          />
         </Box>
       </Box>
       <Box

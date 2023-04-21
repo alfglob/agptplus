@@ -6,7 +6,7 @@ export const init = () => ({
       ...curr,
       [key]: {
         enabled: false,
-        assignee: null,
+        asignee: null,
         preferences: {},
       },
     }),
@@ -14,8 +14,8 @@ export const init = () => ({
   ),
 });
 
-export const updateAssignee = (payload: any) => ({
-  type: SettingsActionType.UPDATE_ASSIGNEE,
+export const updateAsignee = (payload: any) => ({
+  type: SettingsActionType.UPDATE_ASIGNEE,
   payload,
 });
 
@@ -30,7 +30,7 @@ export const updatePreferences = (payload: any) => ({
 });
 
 export const settingsActions = (dispatch: any) => ({
-  updateAssignee: (payload: any) => dispatch(updateAssignee(payload)),
+  updateAsignee: (payload: any) => dispatch(updateAsignee(payload)),
   toggleSetting: (payload: any) => dispatch(toggleSetting(payload)),
   updatePreferences: (payload: any) => dispatch(updatePreferences(payload)),
 });

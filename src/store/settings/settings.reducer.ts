@@ -6,7 +6,7 @@ const initialState = {
       ...curr,
       [key]: {
         enabled: false,
-        assignee: null,
+        asignee: null,
         preferences: {},
       },
     }),
@@ -21,13 +21,13 @@ export const settingsState = (state: any) => ({
 // eslint-disable-next-line @typescript-eslint/default-param-last
 export const settingsReducer = (state = initialState, action: any) => {
   switch (action.type) {
-    case SettingsActionType.UPDATE_ASSIGNEE:
+    case SettingsActionType.UPDATE_ASIGNEE:
       return {
         settings: {
           ...state.settings,
           [action.payload.key]: {
             ...state.settings[action.payload.key],
-            assignee: action.payload.value,
+            asignee: action.payload.value,
           },
         },
       };
