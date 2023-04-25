@@ -3182,5 +3182,47 @@ export const MOCK_CONF_PROMPT_DATA = {
     '6. Additional Documentation: \n - Doc I \n - Doc II \n - ... \n\n' +
     '7. `SD:UNHAPPY_PATH` `ST`Unhappy path`ET`: `SDESC`<scenario and argument>`EDESC` `ED:UNHAPPY_PATH` \n\n' +
     '8. Business Value (tangible and intangible benefits a business can get from the capabilities of a product): \n'
+  },
+  'scalable-platforms': {
+    id: 'scalable-platforms',
+    display_name: 'Scalable Platforms',
+    prompt: 'Respond as if you were a product owner for scalable platforms projects. Create an User Story with this format: \n\n ' +
+    '--- \n\n' +
+    '1. Title: <User story title> \n' +
+    '2. Description: As a user <description> \n - Feature: <feature> \n - Scenarios <write at least 3 using Gherking>:\n' +
+    '   - `SD:MANUAL_TEST_CASE` `ST`<Scenario Name>`ET`: `SDESC`<Scenario Description>`EDESC` `ED:MANUAL_TEST_CASE`\n' +
+    '   - `SD:MANUAL_TEST_CASE` `ST`<Scenario Name>`ET`: `SDESC`<Scenario Description>`EDESC` `ED:MANUAL_TEST_CASE`\n' +
+    '   - `SD:MANUAL_TEST_CASE` `ST`<Scenario Name>`ET`: `SDESC`<Scenario Description>`EDESC` `ED:MANUAL_TEST_CASE`\n' +
+    '   - `SD:MANUAL_TEST_CASE` ... `ED:MANUAL_TEST_CASE`\n' +
+    '3. Acceptance criteria:\n' +
+    '   - `SD:ACCEPTANCE_CRITERIA` `ST`Criteria 1`ET`: `SDESC`<Criteria Details>`EDESC` `ED:ACCEPTANCE_CRITERIA`\n' +
+    '   - `SD:ACCEPTANCE_CRITERIA` `ST`Criteria 2`ET`: `SDESC`<Criteria Details>`EDESC` `ED:ACCEPTANCE_CRITERIA`\n' +
+    '   - `SD:ACCEPTANCE_CRITERIA` `ST`Criteria 3`ET`: `SDESC`<Criteria Details>`EDESC` `ED:ACCEPTANCE_CRITERIA`\n' +
+    '   - `SD:ACCEPTANCE_CRITERIA` ... `ED:ACCEPTANCE_CRITERIA`\n' +
+    '4. Story points: <amount and argument why you decided that value>. \n\n' +
+    '5. Topics to discuss with each team required: \n - Topic I \n - Topic II \n - ... \n\n' +
+    '6. Additional Documentation: \n - Doc I \n - Doc II \n - ... \n\n' +
+    '7. `SD:UNHAPPY_PATH` `ST`Unhappy path`ET`: `SDESC`<scenario and argument>`EDESC` `ED:UNHAPPY_PATH` \n\n' +
+    '8. Business Value (tangible and intangible benefits a business can get from the capabilities of a product): \n'
+  },
+  'epic': {
+    id: 'epic',
+    display_name: 'Epic',
+    prompt: 'Respond as if you were a product owner. Create all the users stories an for an epic with this format adding as many as you can: \n\n ' +
+    '--- \n\n' +
+    '1. `SD` `ST`<User Story Name>`ET`: `SDESC`<User Story Description>`EDESC` `ED`\n' +
+    '2. `SD` `ST`<User Story Name>`ET`: `SDESC`<User Story Description>`EDESC` `ED`\n' +
+    '3. `SD` `ST`<User Story Name>`ET`: `SDESC`<User Story Description>`EDESC` `ED`\n' +
+    '...\n\n'
+  },
+  'initiative': {
+    id: 'initiative',
+    display_name: 'Initiative',
+    prompt: 'Respond as if you were a product owner creating a new project. Create all the epics with this format adding as many as you can: \n\n ' +
+    '--- \n\n' +
+    '1. `SD` `ST`<Epic Name>`ET`: `SDESC`<Epic Description>`EDESC` `ED`\n' +
+    '2. `SD` `ST`<Epic Name>`ET`: `SDESC`<Epic Description>`EDESC` `ED`\n' +
+    '3. `SD` `ST`<Epic Name>`ET`: `SDESC`<Epic Description>`EDESC` `ED`\n' +
+    '...\n\n'
   }
 }

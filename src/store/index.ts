@@ -4,6 +4,8 @@ import { combineReducers, createStore, applyMiddleware } from 'redux';
 import { chatActions, chatState } from './chat/action.creators';
 import { chatMiddleware } from './chat/chat.middleware';
 import { chatReducer } from './chat/chat.reducer';
+import { extrasActions } from './extras/action.creators';
+import { extrasState, extrasReducer } from './extras/extras.reducer';
 import { formActions } from './form/action.creators';
 import { formReducer, formState } from './form/form.reducer';
 import { settingsActions } from './settings/action.creators';
@@ -13,6 +15,7 @@ const reducers = combineReducers({
   chat: chatReducer,
   form: formReducer,
   settings: settingsReducer,
+  extras: extrasReducer,
 });
 
 export const store = createStore(reducers, {}, composeWithDevTools(applyMiddleware(chatMiddleware)));
@@ -22,9 +25,11 @@ export const mapStateToProps = (state: any) => ({
   ...chatState(state),
   ...formState(state),
   ...settingsState(state),
+  ...extrasState(state),
 });
 export const mapDispatchToProps = (dispatch: any) => ({
   ...chatActions(dispatch),
   ...formActions(dispatch),
   ...settingsActions(dispatch),
+  ...extrasActions(dispatch),
 });

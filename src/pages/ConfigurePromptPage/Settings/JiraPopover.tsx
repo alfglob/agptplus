@@ -19,11 +19,9 @@ import { connectApi, JiraUser } from '../../../services/api';
 
 import { mapDispatchToProps, mapStateToProps } from '../../../store';
 
-export const JiraPopoverComponent = ({ anchorEl, onClose, updateAsignee, settingKey, settings }: any) => {
+export const JiraPopoverComponent = ({ anchorEl, onClose, value, onChange }: any) => {
   const [query, setQuery] = useState('');
   const [users, setUsers] = useState<JiraUser[]>([]);
-  const currentSettings = settings[settingKey];
-  const currentAsignee = currentSettings.asignee;
 
   const fetchData = () => {
     if (!query.length) {
@@ -34,9 +32,7 @@ export const JiraPopoverComponent = ({ anchorEl, onClose, updateAsignee, setting
       .findUsersAndGroups(query)
       .then((data) => {
         setUsers(
-          data.users.users.filter(
-            (user) => user.accountType === 'atlassian' && user.accountId !== currentAsignee?.accountId,
-          ),
+          data.users.users.filter((user) => user.accountType === 'atlassian' && user.accountId !== value?.accountId),
         );
       })
       .catch(() => {
@@ -61,8 +57,9 @@ export const JiraPopoverComponent = ({ anchorEl, onClose, updateAsignee, setting
     };
   }, [query]);
 
-  const onSelect = (value: JiraUser | null) => {
-    updateAsignee({ key: settingKey, value });
+  const onSelect = (val: JiraUser | null) => {
+    // updateAsignee({ key: settingKey, value });
+    onChange(val);
     setQuery('');
     onClose();
   };
@@ -118,21 +115,21 @@ export const JiraPopoverComponent = ({ anchorEl, onClose, updateAsignee, setting
       />
       <List sx={{ height: '100%', overflowY: 'auto' }}>
         <ListItem onClick={() => onSelect(null)} disablePadding>
-          <ListItemButton selected={!currentAsignee}>
+          <ListItemButton selected={!value}>
             <ListItemAvatar>
               <Avatar />
             </ListItemAvatar>
             <ListItemText primary="None" />
           </ListItemButton>
         </ListItem>
-        {!!currentAsignee && (
+        {!!value && (
           <ListItem onClick={onClose} disablePadding>
             <ListItemButton selected>
               <ListItemAvatar>
-                <JiraAvatar user={currentAsignee} />
+                <JiraAvatar user={value} />
               </ListItemAvatar>
               <ListItemText
-                primary={currentAsignee.displayName}
+                primary={value.displayName}
                 primaryTypographyProps={{
                   style: { textOverflow: 'ellipsis', whiteSpace: 'nowrap', overflow: 'hidden' },
                 }}

@@ -10,8 +10,15 @@ import { JiraPopover } from './JiraPopover';
 
 import { mapDispatchToProps, mapStateToProps } from '../../../store';
 
-export const OptionCardComponent = ({ settingKey, displayName, settings, toggleSetting, DialogComponent }: any) => {
-  const [assigneeEl, setAssigneEl] = useState<EventTarget | null>(null);
+export const OptionCardComponent = ({
+  settingKey,
+  displayName,
+  settings,
+  updateAsignee,
+  toggleSetting,
+  DialogComponent,
+}: any) => {
+  const [asigneeEl, setAsigneEl] = useState<EventTarget | null>(null);
   const currentSettings = settings[settingKey];
   const [feedbackOpen, setFeedbackOpen] = useState(false);
   const [showSettings, setShowSettings] = useState(false);
@@ -74,7 +81,7 @@ export const OptionCardComponent = ({ settingKey, displayName, settings, toggleS
           height: 86,
           label: { display: 'flex', flexDirection: 'column' },
         }}
-        onClick={(ev) => setAssigneEl(ev.target)}
+        onClick={(ev) => setAsigneEl(ev.target)}
       >
         {!currentSettings.asignee && <Groups fontSize="large" />}
         {!!currentSettings.asignee && <JiraAvatar user={currentSettings.asignee} />}
@@ -82,7 +89,14 @@ export const OptionCardComponent = ({ settingKey, displayName, settings, toggleS
           Asignee
         </Typography>
       </IconButton>
-      <JiraPopover anchorEl={assigneeEl} onClose={() => setAssigneEl(null)} settingKey={settingKey} />
+      <JiraPopover
+        anchorEl={asigneeEl}
+        onClose={() => setAsigneEl(null)}
+        value={currentSettings.asignee}
+        onChange={(val: any) => {
+          updateAsignee({ key: settingKey, value: val });
+        }}
+      />
       <Typography color="black" sx={{ flex: 1 }} fontWeight="700" fontSize={20} fontFamily="Arial">
         {displayName}
       </Typography>

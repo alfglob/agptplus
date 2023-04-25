@@ -1,5 +1,5 @@
 import SettingsIcon from '@mui/icons-material/Settings';
-import { Box, IconButton, MenuItem, Select } from '@mui/material';
+import { Box, Button, IconButton, MenuItem, Select } from '@mui/material';
 import { useEffect, useState } from 'react';
 
 import { connect } from 'react-redux';
@@ -9,10 +9,23 @@ import { PromptSimpleField } from './PromptSimpleField';
 import { MOCK_CONF_PROMPT_DATA } from '../../../assets/mock/mock-data';
 import { mapDispatchToProps, mapStateToProps } from '../../../store';
 import { FormDataKeys } from '../../../store/form/action.types';
+import { EpicKPI } from '../Extras/EpicKPI';
+import { InitiativeRoadmap } from '../Extras/InitiativeRoadmap';
 import { SettingsContainer } from '../Settings/SettingsContainer';
 
-export const PromptFormComponent = ({ system, updateSystemMessage, formData, updateField }: any) => {
+function getExtraName(key: string) {
+  if (key === MOCK_CONF_PROMPT_DATA.epic.id) {
+    return 'Show the KPI for the epic';
+  }
+  if (key === MOCK_CONF_PROMPT_DATA.initiative.id) {
+    return 'Show the roadmap for the initiative';
+  }
+  return null;
+}
+
+export const PromptFormComponent = ({ system, updateSystemMessage, formData, updateField, messages }: any) => {
   const [showSettings, setShowSettings] = useState(false);
+  const [showExtra, setShowExtra] = useState(false);
 
   const getFieldUpdater = (key: string) => (value: string) => updateField({ key, value });
 
@@ -33,6 +46,9 @@ export const PromptFormComponent = ({ system, updateSystemMessage, formData, upd
     updateSystemMessage(MOCK_CONF_PROMPT_DATA['ui-engineering'].prompt);
     updateField({ key: FormDataKeys.CP_SYSTEM, value: MOCK_CONF_PROMPT_DATA['ui-engineering'].id });
   }, []);
+
+  const currentKey = formData[FormDataKeys.CP_SYSTEM];
+  const extraName = getExtraName(currentKey);
 
   return (
     <Box
@@ -75,7 +91,7 @@ export const PromptFormComponent = ({ system, updateSystemMessage, formData, upd
           }}
           displayEmpty
           size="small"
-          value={formData[FormDataKeys.CP_SYSTEM] ?? ''}
+          value={currentKey ?? ''}
           onChange={handleSelect}
         >
           {Object.values(MOCK_CONF_PROMPT_DATA).map((value) => (
@@ -104,6 +120,27 @@ export const PromptFormComponent = ({ system, updateSystemMessage, formData, upd
         value={formData[FormDataKeys.CP_ISSUE_TYPE] ?? ''}
         setValue={getFieldUpdater(FormDataKeys.CP_ISSUE_TYPE)}
       />
+
+      {!!extraName && (
+        <Button
+          onClick={() => setShowExtra(true)}
+          disabled={messages?.length === 0}
+          sx={{
+            gridColumn: 'span 1 / span 1',
+            '@media (max-width: 780px)': {
+              gridColumn: 'span 4 / span 4',
+            },
+            backgroundColor: '#904EE2',
+            color: '#fff',
+          }}
+        >
+          {extraName}
+        </Button>
+      )}
+      {currentKey === MOCK_CONF_PROMPT_DATA.epic.id && <EpicKPI show={showExtra} onClose={() => setShowExtra(false)} />}
+      {currentKey === MOCK_CONF_PROMPT_DATA.initiative.id && (
+        <InitiativeRoadmap show={showExtra} onClose={() => setShowExtra(false)} />
+      )}
     </Box>
   );
 };
