@@ -1,17 +1,19 @@
 import { Close } from '@mui/icons-material';
-import { Box, CircularProgress, IconButton, Paper, Slide } from '@mui/material';
+import { Box, Button, CircularProgress, IconButton, Paper, Slide } from '@mui/material';
 import { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 
 import { RoadmapCard } from './RoadmapCard';
 
 import { labels } from '../../../assets/locale/en';
+import { GanttChart } from '../../../components/gantt/GanttChart';
 import { appApi } from '../../../services/api';
 import { mapDispatchToProps, mapStateToProps } from '../../../store';
-import { mapRoadmapResponse } from '../../../utils/mapOpenAIResponse';
 
 export const InitiativeRoadmapComponent = ({ show, onClose, messages, roadmap, updateRoadmap }: any) => {
   const [loading, setLoading] = useState(true);
+
+  const [showRoadmap, setShowRoadmap] = useState(false);
 
   useEffect(() => {
     if (!messages.length || !messages[messages.length - 1].isGpt) {
@@ -19,23 +21,26 @@ export const InitiativeRoadmapComponent = ({ show, onClose, messages, roadmap, u
     }
 
     setLoading(true);
+    const regex = /(`(SD|ST|ED|ET)[:A-Za-z_]*`)+?/g;
+    const cleanMessage = messages[messages.length - 1].message.replaceAll(regex, '');
     appApi
       .askOpenAI([
         {
           role: 'user',
-          content: messages[messages.length - 1].message,
+          content: cleanMessage,
         },
         {
           role: 'system',
           content:
-            'Reply only with roadmap of the following epics with an MVP name and the associated epics: \n\n' +
-            '1. `SD:ROADMAP` `ST`<MVP Name>`ET`: `SDESC`<Epics with line breaks>`EDESC` `ED:ROADMAP`\n' +
-            '2. `SD:ROADMAP` `ST`<MVP Name>`ET`: `SDESC`<Epics with line breaks>`EDESC` `ED:ROADMAP`\n' +
-            '3. `SD:ROADMAP` `ST`<MVP Name>`ET`: `SDESC`<Epics with line breaks>`EDESC` `ED:ROADMAP`\n',
+            'Reply only with the roadmap of the following epics with multiple MVPs and the associated ' +
+            'epics in this JSON format: \n\n' +
+            '[{ mvp: "MVP 1", from: "2023-04-26", to: "2023-06-30", epics: [{ epicName: "My epic", from: "2023-04-26", to: ' +
+            '"2026-05-1"}]}]\n',
         },
       ])
       .then((res) => {
-        updateRoadmap(mapRoadmapResponse(res));
+        const message = res.data?.choices[0]?.message?.content ?? '';
+        updateRoadmap(JSON.parse(message));
         setLoading(false);
       })
       .catch(() => {
@@ -72,7 +77,7 @@ export const InitiativeRoadmapComponent = ({ show, onClose, messages, roadmap, u
             height: '80vh',
             display: 'flex',
             flexDirection: 'column',
-            '@media (min-width: 780px)': { width: '60vw' },
+            '@media (min-width: 780px)': { width: showRoadmap ? '95vw' : '60vw' },
           }}
         >
           <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
@@ -94,9 +99,19 @@ export const InitiativeRoadmapComponent = ({ show, onClose, messages, roadmap, u
             }}
           >
             {loading && <CircularProgress />}
-            {roadmap.map((entry: any, index: number) => (
-              <RoadmapCard index={index} key={entry.mvp} />
-            ))}
+            {!loading && (
+              <>
+                {!showRoadmap &&
+                  roadmap.map((entry: any, index: number) => <RoadmapCard index={index} key={entry.mvp} />)}
+                {showRoadmap && <GanttChart mvps={roadmap} />}
+                <Button
+                  sx={{ backgroundColor: '#004993', color: 'white' }}
+                  onClick={() => setShowRoadmap(!showRoadmap)}
+                >
+                  {showRoadmap ? 'Hide the roadmap' : 'Show me the roadmap'}
+                </Button>
+              </>
+            )}
           </Box>
         </Box>
         <Box

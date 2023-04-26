@@ -38,6 +38,12 @@ export const RoadmapCardComponent = ({ index, roadmap, updateRoadmap }: any) => 
     updateRoadmap(clone);
   };
 
+  const updateEpic = (i: number, value: string) => {
+    const clone = [...epics];
+    clone[i].epicName = value;
+    setEpics(clone);
+  };
+
   return (
     <Box
       sx={{
@@ -101,41 +107,26 @@ export const RoadmapCardComponent = ({ index, roadmap, updateRoadmap }: any) => 
         <Typography color="black" fontWeight={700} sx={{ marginTop: 1 }}>
           Epics
         </Typography>
-        {!edit && <Typography color="black">{epics}</Typography>}
-        {edit && (
-          <TextField
-            multiline
-            value={epics}
-            onChange={(ev) => setEpics(ev.target.value)}
-            sx={{
-              flex: 1,
-              fieldset: { border: 'none' },
-              textarea: {
-                color: 'black',
-              },
-            }}
-          />
-        )}
+        {!edit &&
+          epics.map((epic: any) => <Typography key={epic.epicName} color="black">{` • ${epic.epicName}`}</Typography>)}
+        {edit &&
+          epics.map((epic: any, i: number) => (
+            <TextField
+              value={epic.epicName}
+              // eslint-disable-next-line react/no-array-index-key
+              key={i}
+              size="small"
+              onChange={(ev) => updateEpic(i, ev.target.value)}
+              sx={{
+                flex: 1,
+                fieldset: { border: 'none' },
+                input: {
+                  color: 'black',
+                },
+              }}
+            />
+          ))}
       </Box>
-      {/* {!edit && (
-        <Typography color="black" sx={{ flex: 1 }} fontSize={16} fontFamily="Arial">
-          {summary}
-        </Typography>
-      )}
-      {edit && (
-        <TextField
-          multiline
-          value={summary}
-          onChange={(ev) => setSummary(ev.target.value)}
-          sx={{
-            flex: 1,
-            fieldset: { border: 'none' },
-            textarea: {
-              color: 'black',
-            },
-          }}
-        />
-      )} */}
       <IconButton
         sx={{
           color: '#AAB2CB',

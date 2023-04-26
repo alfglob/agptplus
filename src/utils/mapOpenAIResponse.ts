@@ -19,19 +19,3 @@ export const mapKpiResponse = (response: any) => {
 
   return results;
 };
-
-export const mapRoadmapResponse = (response: any) => {
-  const message = response.data?.choices[0]?.message?.content ?? '';
-  const results: { mvp: string; epics: string[] }[] = [];
-  const regex = /`SD:ROADMAP` `ST`([\s\S]*?)`ET`[\s\S]*?`SDESC`([\s\S]*?)`EDESC` `ED:ROADMAP`/g;
-
-  let matches;
-  // eslint-disable-next-line no-cond-assign
-  while ((matches = regex.exec(message)) !== null) {
-    const mvp = matches[1];
-    const epics = matches[2].split('\n');
-    results.push({ mvp, epics });
-  }
-
-  return results;
-};
