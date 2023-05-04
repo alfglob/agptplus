@@ -4,9 +4,10 @@ export const MOCK_DATA_IDS = [
   '--collection-main--category-studios--subcategory-digital--subcategory_level_2-ui-engineering--',
   '--collection-main--category-studios--subcategory-digital--subcategory_level_2-scalable-platforms--',
 ];
-export const getUserStoryRequest = (content: string)=> [
+export const getUserStoryRequest = (content: string) => [
   {
-    content: 'Respond as if you were a product owner. Create a User Story this format: 1. Title of the User Story 2. Description with the format "as a user" and Feature and at least 3 Scenario using Gherking. 3.Acceptance criteria 4. Story point and explain why. 5. topics to discuss. 6. Additional Documentation. 7. Unhappy path. 8. Business Value (tangible and intangible benefics a business can get from the capabilities of a product)',
+    content:
+      'Respond as if you were a product owner. Create a User Story this format: 1. Title of the User Story 2. Description with the format "as a user" and Feature and at least 3 Scenario using Gherking. 3.Acceptance criteria 4. Story point and explain why. 5. topics to discuss. 6. Additional Documentation. 7. Unhappy path. 8. Business Value (tangible and intangible benefics a business can get from the capabilities of a product)',
     role: 'system',
   },
   {
@@ -15,7 +16,8 @@ export const getUserStoryRequest = (content: string)=> [
   },
 ];
 
-export const MARKDOWN_EXAMPLE = '## User Story: Login Functionality\n\nAs a user, I want to be able to login to the system so that I can access my account and utilize the features of the application.\n\n### Acceptance Criteria:\n\n- As a user, I can see a login screen with fields for entering my email and password.\n- As a user, I can enter valid credentials and click the login button to access my account.\n- As a user, I receive an error message if I enter invalid credentials.\n- As a user, I can click on the forgot password link to reset my password in case I forget it.\n- As a user, I can login using my social media accounts like Google, Facebook, and LinkedIn.\n- As a product owner, I can see a record of successful and unsuccessful login attempts for users.';
+export const MARKDOWN_EXAMPLE =
+  '## User Story: Login Functionality\n\nAs a user, I want to be able to login to the system so that I can access my account and utilize the features of the application.\n\n### Acceptance Criteria:\n\n- As a user, I can see a login screen with fields for entering my email and password.\n- As a user, I can enter valid credentials and click the login button to access my account.\n- As a user, I receive an error message if I enter invalid credentials.\n- As a user, I can click on the forgot password link to reset my password in case I forget it.\n- As a user, I can login using my social media accounts like Google, Facebook, and LinkedIn.\n- As a product owner, I can see a record of successful and unsuccessful login attempts for users.';
 export const MOCK_DATA = [
   {
     type: '--collection-main--category-studios--subcategory-digital--subcategory_level_2-product--',
@@ -53,7 +55,7 @@ export const MOCK_DATA = [
             ],
             response: {
               content:
-                'As a shopper, I want to be able to add products to my shopping cart so that I can easily keep track of the items I want to purchase and proceed to checkout when I\'m ready. When I browse through the website, I should be able to find a button or link next to each product that allows me to add it to the cart. Once I click on the button, the selected product should be logged in my cart and I should be able to view the total price of my selected items. Additionally, I should be able to add multiple quantities of the same product or remove products from the cart if I change my mind.',
+                "As a shopper, I want to be able to add products to my shopping cart so that I can easily keep track of the items I want to purchase and proceed to checkout when I'm ready. When I browse through the website, I should be able to find a button or link next to each product that allows me to add it to the cart. Once I click on the button, the selected product should be logged in my cart and I should be able to view the total price of my selected items. Additionally, I should be able to add multiple quantities of the same product or remove products from the cart if I change my mind.",
             },
           },
         ],
@@ -231,7 +233,7 @@ export const MOCK_DATA = [
             ],
             response: {
               content:
-                '\n\nThe key performance metrics for the next UX iteration focusing on the log-in feature could include:\n\n1. Conversion rate: Measure the percentage of users who successfully log in after entering their email and password. This will help determine whether the log-in process is smooth and user-friendly.\n\n2. Error rate: Measure the frequency and type of errors users experience when attempting to log in. With this metric, you can identify areas of the log-in process that may be causing confusion or frustration for users.\n\n3. Time to complete: Measure the amount of time it takes users to log in, from entering their email and password to accessing the app\'s features. If it takes too long to complete the log-in process, users may abandon the app entirely.\n\n4. User engagement: Measure the number of times users access the app\'s features and functions after successfully logging in. This indicates whether the log-in process is not only successful but also encourages users to continue using the app.\n\nBy tracking these metrics, you can identify areas for improvement in the log-in process and ensure that the UX delivers the best possible experience for users.',
+                "\n\nThe key performance metrics for the next UX iteration focusing on the log-in feature could include:\n\n1. Conversion rate: Measure the percentage of users who successfully log in after entering their email and password. This will help determine whether the log-in process is smooth and user-friendly.\n\n2. Error rate: Measure the frequency and type of errors users experience when attempting to log in. With this metric, you can identify areas of the log-in process that may be causing confusion or frustration for users.\n\n3. Time to complete: Measure the amount of time it takes users to log in, from entering their email and password to accessing the app's features. If it takes too long to complete the log-in process, users may abandon the app entirely.\n\n4. User engagement: Measure the number of times users access the app's features and functions after successfully logging in. This indicates whether the log-in process is not only successful but also encourages users to continue using the app.\n\nBy tracking these metrics, you can identify areas for improvement in the log-in process and ensure that the UX delivers the best possible experience for users.",
             },
           },
           {
@@ -498,33 +500,33 @@ export const MOCK_DATA = [
           {
             request: [
               {
-                content: 'is the following code correct? if not, tell me what\'s wrong.',
+                content: "is the following code correct? if not, tell me what's wrong.",
                 role: 'system',
               },
               {
-                content: 'X=7 \nif x = 7 \n print(\'this number is 7\') \n else: \n print(\'this number is not 7\')',
+                content: "X=7 \nif x = 7 \n print('this number is 7') \n else: \n print('this number is not 7')",
                 role: 'user',
               },
             ],
             response: {
               content:
-                'No, the code is not correct. There are a few errors: \n\n1. The variable name is inconsistent. In the first line, it\'s `X` (capital) but in the if statement, it\'s `x` (lowercase). Variable names are case-sensitive in Python, so you need to be consistent. \n\n2. The if statement needs a colon (`:`) at the end. \n\n3. The comparison operator used in the if statement is the assignment operator (`=`) instead of the equality operator (`==`). \n\nHere\'s the corrected code: \n\n```\nx = 7\nif x == 7:\n    print(\'this number is 7\')\nelse:\n    print(\'this number is not 7\')\n```',
+                "No, the code is not correct. There are a few errors: \n\n1. The variable name is inconsistent. In the first line, it's `X` (capital) but in the if statement, it's `x` (lowercase). Variable names are case-sensitive in Python, so you need to be consistent. \n\n2. The if statement needs a colon (`:`) at the end. \n\n3. The comparison operator used in the if statement is the assignment operator (`=`) instead of the equality operator (`==`). \n\nHere's the corrected code: \n\n```\nx = 7\nif x == 7:\n    print('this number is 7')\nelse:\n    print('this number is not 7')\n```",
             },
           },
           {
             request: [
               {
-                content: 'is the following code correct? if not, tell me what\'s wrong.',
+                content: "is the following code correct? if not, tell me what's wrong.",
                 role: 'system',
               },
               {
-                content: 'X=7 \nif x = 7 \n print(\'this number is 7\') \n else: \n print(\'this number is not 7\')',
+                content: "X=7 \nif x = 7 \n print('this number is 7') \n else: \n print('this number is not 7')",
                 role: 'user',
               },
             ],
             response: {
               content:
-                'No, the code is not correct. There are a few errors: \n\n1. The variable name is inconsistent. In the first line, it\'s `X` (capital) but in the if statement, it\'s `x` (lowercase). Variable names are case-sensitive in Python, so you need to be consistent. \n\n2. The if statement needs a colon (`:`) at the end. \n\n3. The comparison operator used in the if statement is the assignment operator (`=`) instead of the equality operator (`==`). \n\nHere\'s the corrected code: \n\n```\nx = 7\nif x == 7:\n    print(\'this number is 7\')\nelse:\n    print(\'this number is not 7\')\n```',
+                "No, the code is not correct. There are a few errors: \n\n1. The variable name is inconsistent. In the first line, it's `X` (capital) but in the if statement, it's `x` (lowercase). Variable names are case-sensitive in Python, so you need to be consistent. \n\n2. The if statement needs a colon (`:`) at the end. \n\n3. The comparison operator used in the if statement is the assignment operator (`=`) instead of the equality operator (`==`). \n\nHere's the corrected code: \n\n```\nx = 7\nif x == 7:\n    print('this number is 7')\nelse:\n    print('this number is not 7')\n```",
             },
           },
         ],
@@ -547,7 +549,7 @@ export const MOCK_DATA = [
               },
               {
                 content:
-                  'var today = new Date();\nvar formattedDate = today.getFullYear() + \'-\' + (today.getMonth()+1) + \'-\' + today.getDate();\nconsole.log(formattedDate);',
+                  "var today = new Date();\nvar formattedDate = today.getFullYear() + '-' + (today.getMonth()+1) + '-' + today.getDate();\nconsole.log(formattedDate);",
                 role: 'user',
               },
             ],
@@ -586,13 +588,13 @@ export const MOCK_DATA = [
                 role: 'system',
               },
               {
-                content: 'How to format (\' yyyy-MM-dd \') in JavaScript',
+                content: "How to format (' yyyy-MM-dd ') in JavaScript",
                 role: 'user',
               },
             ],
             response: {
               content:
-                'var today = new Date();\nvar formattedDate = today.getFullYear() + \'-\' + (today.getMonth()+1) + \'-\' + today.getDate();\nconsole.log(formattedDate);',
+                "var today = new Date();\nvar formattedDate = today.getFullYear() + '-' + (today.getMonth()+1) + '-' + today.getDate();\nconsole.log(formattedDate);",
             },
           },
           {
@@ -775,33 +777,33 @@ export const MOCK_DATA = [
           {
             request: [
               {
-                content: 'is the following code correct? if not, tell me what\'s wrong.',
+                content: "is the following code correct? if not, tell me what's wrong.",
                 role: 'system',
               },
               {
-                content: 'X=7 \nif x = 7 \n print(\'this number is 7\') \n else: \n print(\'this number is not 7\')',
+                content: "X=7 \nif x = 7 \n print('this number is 7') \n else: \n print('this number is not 7')",
                 role: 'user',
               },
             ],
             response: {
               content:
-                'No, the code is not correct. There are a few errors: \n\n1. The variable name is inconsistent. In the first line, it\'s `X` (capital) but in the if statement, it\'s `x` (lowercase). Variable names are case-sensitive in Python, so you need to be consistent. \n\n2. The if statement needs a colon (`:`) at the end. \n\n3. The comparison operator used in the if statement is the assignment operator (`=`) instead of the equality operator (`==`). \n\nHere\'s the corrected code: \n\n```\nx = 7\nif x == 7:\n    print(\'this number is 7\')\nelse:\n    print(\'this number is not 7\')\n```',
+                "No, the code is not correct. There are a few errors: \n\n1. The variable name is inconsistent. In the first line, it's `X` (capital) but in the if statement, it's `x` (lowercase). Variable names are case-sensitive in Python, so you need to be consistent. \n\n2. The if statement needs a colon (`:`) at the end. \n\n3. The comparison operator used in the if statement is the assignment operator (`=`) instead of the equality operator (`==`). \n\nHere's the corrected code: \n\n```\nx = 7\nif x == 7:\n    print('this number is 7')\nelse:\n    print('this number is not 7')\n```",
             },
           },
           {
             request: [
               {
-                content: 'is the following code correct? if not, tell me what\'s wrong.',
+                content: "is the following code correct? if not, tell me what's wrong.",
                 role: 'system',
               },
               {
-                content: 'X=7 \nif x = 7 \n print(\'this number is 7\') \n else: \n print(\'this number is not 7\')',
+                content: "X=7 \nif x = 7 \n print('this number is 7') \n else: \n print('this number is not 7')",
                 role: 'user',
               },
             ],
             response: {
               content:
-                'No, the code is not correct. There are a few errors: \n\n1. The variable name is inconsistent. In the first line, it\'s `X` (capital) but in the if statement, it\'s `x` (lowercase). Variable names are case-sensitive in Python, so you need to be consistent. \n\n2. The if statement needs a colon (`:`) at the end. \n\n3. The comparison operator used in the if statement is the assignment operator (`=`) instead of the equality operator (`==`). \n\nHere\'s the corrected code: \n\n```\nx = 7\nif x == 7:\n    print(\'this number is 7\')\nelse:\n    print(\'this number is not 7\')\n```',
+                "No, the code is not correct. There are a few errors: \n\n1. The variable name is inconsistent. In the first line, it's `X` (capital) but in the if statement, it's `x` (lowercase). Variable names are case-sensitive in Python, so you need to be consistent. \n\n2. The if statement needs a colon (`:`) at the end. \n\n3. The comparison operator used in the if statement is the assignment operator (`=`) instead of the equality operator (`==`). \n\nHere's the corrected code: \n\n```\nx = 7\nif x == 7:\n    print('this number is 7')\nelse:\n    print('this number is not 7')\n```",
             },
           },
         ],
@@ -845,7 +847,7 @@ export const MOCK_DATA = [
             ],
             response: {
               content:
-                'As a shopper, I want to be able to add products to my shopping cart so that I can easily keep track of the items I want to purchase and proceed to checkout when I\'m ready. When I browse through the website, I should be able to find a button or link next to each product that allows me to add it to the cart. Once I click on the button, the selected product should be logged in my cart and I should be able to view the total price of my selected items. Additionally, I should be able to add multiple quantities of the same product or remove products from the cart if I change my mind.',
+                "As a shopper, I want to be able to add products to my shopping cart so that I can easily keep track of the items I want to purchase and proceed to checkout when I'm ready. When I browse through the website, I should be able to find a button or link next to each product that allows me to add it to the cart. Once I click on the button, the selected product should be logged in my cart and I should be able to view the total price of my selected items. Additionally, I should be able to add multiple quantities of the same product or remove products from the cart if I change my mind.",
             },
           },
         ],
@@ -1023,7 +1025,7 @@ export const MOCK_DATA = [
             ],
             response: {
               content:
-                '\n\nThe key performance metrics for the next UX iteration focusing on the log-in feature could include:\n\n1. Conversion rate: Measure the percentage of users who successfully log in after entering their email and password. This will help determine whether the log-in process is smooth and user-friendly.\n\n2. Error rate: Measure the frequency and type of errors users experience when attempting to log in. With this metric, you can identify areas of the log-in process that may be causing confusion or frustration for users.\n\n3. Time to complete: Measure the amount of time it takes users to log in, from entering their email and password to accessing the app\'s features. If it takes too long to complete the log-in process, users may abandon the app entirely.\n\n4. User engagement: Measure the number of times users access the app\'s features and functions after successfully logging in. This indicates whether the log-in process is not only successful but also encourages users to continue using the app.\n\nBy tracking these metrics, you can identify areas for improvement in the log-in process and ensure that the UX delivers the best possible experience for users.',
+                "\n\nThe key performance metrics for the next UX iteration focusing on the log-in feature could include:\n\n1. Conversion rate: Measure the percentage of users who successfully log in after entering their email and password. This will help determine whether the log-in process is smooth and user-friendly.\n\n2. Error rate: Measure the frequency and type of errors users experience when attempting to log in. With this metric, you can identify areas of the log-in process that may be causing confusion or frustration for users.\n\n3. Time to complete: Measure the amount of time it takes users to log in, from entering their email and password to accessing the app's features. If it takes too long to complete the log-in process, users may abandon the app entirely.\n\n4. User engagement: Measure the number of times users access the app's features and functions after successfully logging in. This indicates whether the log-in process is not only successful but also encourages users to continue using the app.\n\nBy tracking these metrics, you can identify areas for improvement in the log-in process and ensure that the UX delivers the best possible experience for users.",
             },
           },
           {
@@ -1191,7 +1193,7 @@ export const MOCK_DATA = [
             ],
             response: {
               content:
-                'Sure, here\'s a sample Jenkins CI/CD pipeline for a calculator app:\n\n1. `Checkout`: Clone the codebase from the repository.\n2. `Build`: Build the calculator app. For instance, this can be done using Maven or Gradle.\n3. `Unit Test`: Run unit tests for the calculator app.\n4. `Code Coverage`: Measure code coverage of the unit tests.\n5. `Lint`: Check for any code style, formatting or syntax issues.\n6. `Package`: Package the built and tested application into a deployable artifact, such as a JAR or WAR.\n7. `Deployment`: Deploy the package to the target environment. For example, you can use AWS Elastic Beanstalk or Kubernetes.\n8. `Test`: Run automated acceptance tests on the deployed app.\n9. `Code Analysis`: Perform static code analysis on the source code to identify potential issues.\n10. `Security Scan`: Perform security scanning of the built package.\n11. `Release`: If all tests and scans pass successfully, promote the artifact for release.\n12. `Rollback`: Rollback to the previous version in case something goes wrong during any stage of the pipeline.\n\nThis pipeline can be configured to run automatically on every code change, ensuring that the application is tested, packaged and deployed to the production environment in a consistent and reliable manner.',
+                "Sure, here's a sample Jenkins CI/CD pipeline for a calculator app:\n\n1. `Checkout`: Clone the codebase from the repository.\n2. `Build`: Build the calculator app. For instance, this can be done using Maven or Gradle.\n3. `Unit Test`: Run unit tests for the calculator app.\n4. `Code Coverage`: Measure code coverage of the unit tests.\n5. `Lint`: Check for any code style, formatting or syntax issues.\n6. `Package`: Package the built and tested application into a deployable artifact, such as a JAR or WAR.\n7. `Deployment`: Deploy the package to the target environment. For example, you can use AWS Elastic Beanstalk or Kubernetes.\n8. `Test`: Run automated acceptance tests on the deployed app.\n9. `Code Analysis`: Perform static code analysis on the source code to identify potential issues.\n10. `Security Scan`: Perform security scanning of the built package.\n11. `Release`: If all tests and scans pass successfully, promote the artifact for release.\n12. `Rollback`: Rollback to the previous version in case something goes wrong during any stage of the pipeline.\n\nThis pipeline can be configured to run automatically on every code change, ensuring that the application is tested, packaged and deployed to the production environment in a consistent and reliable manner.",
             },
           },
           {
@@ -1207,7 +1209,7 @@ export const MOCK_DATA = [
             ],
             response: {
               content:
-                'pipeline {\n  agent any\n  stages {\n    stage(\'Build\') {\n      steps {\n        // build the calculator app\n        sh \'mvn clean package\'\n      }\n    }\n    stage(\'Test\') {\n      steps {\n        // test the calculator app\n        sh \'mvn test\'\n      }\n    }\n    stage(\'Deploy\') {\n      steps {\n        // deploy the calculator app to production environment\n        sh \'kubectl apply -f calculator-app.yaml\'\n      }\n    }\n  }\n',
+                "pipeline {\n  agent any\n  stages {\n    stage('Build') {\n      steps {\n        // build the calculator app\n        sh 'mvn clean package'\n      }\n    }\n    stage('Test') {\n      steps {\n        // test the calculator app\n        sh 'mvn test'\n      }\n    }\n    stage('Deploy') {\n      steps {\n        // deploy the calculator app to production environment\n        sh 'kubectl apply -f calculator-app.yaml'\n      }\n    }\n  }\n",
             },
           },
         ],
@@ -1286,7 +1288,7 @@ export const MOCK_DATA = [
             ],
             response: {
               content:
-                'Sure, here\'s a sample README file for your Jenkins pipeline for an eCommerce web application:\n\n# Jenkins Pipeline for eCommerce Web Application\n\nThis Jenkins pipeline takes care of building, testing, and deploying an eCommerce web application. The pipeline is designed to be easy to use, easy to automate, and can be customized to fit your specific needs.\n\n## Pipeline Overview\n\nThe pipeline consists of the following stages:\n\n### Checkout\n\nThis stage checks out the source code from your repository.\n\n### Build\n\nThis stage builds the web application using Maven.\n\n### Test\n\nThis stage runs unit tests and integration tests to ensure the application is working as expected.\n\n### Package\n\nThis stage packages the application into a WAR file.\n\n### Deploy\n\nThis stage deploys the application to a target environment.\n\n## Configuration\n\nThe pipeline can be configured using environment variables. These variables can be set in Jenkins or in a `.env` file:\n\n- `APP_NAME`: The name of the application.\n- `GIT_REPO`: The URL of the Git repository.\n- `GIT_BRANCH`: The Git branch to build from.\n- `MVN_ARGS`: Additional Maven arguments to use during the build.\n- `TEST_ARGS`: Additional test arguments to use during the test stage.\n- `DEPLOY_USER`: The username to use when deploying the application.\n- `DEPLOY_PASSWORD`: The password to use when deploying the application.\n\n## Usage\n\nTo use the pipeline, simply create a new Jenkins job using the `Jenkinsfile` in the root of the repository. The pipeline will automatically run through the stages outlined above.\n\nIf you need to customize the pipeline, you can modify the `Jenkinsfile` to fit your specific needs. You can also modify the environment variables to change the behavior of the pipeline.\n\n## License\n\nThis pipeline is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.',
+                "Sure, here's a sample README file for your Jenkins pipeline for an eCommerce web application:\n\n# Jenkins Pipeline for eCommerce Web Application\n\nThis Jenkins pipeline takes care of building, testing, and deploying an eCommerce web application. The pipeline is designed to be easy to use, easy to automate, and can be customized to fit your specific needs.\n\n## Pipeline Overview\n\nThe pipeline consists of the following stages:\n\n### Checkout\n\nThis stage checks out the source code from your repository.\n\n### Build\n\nThis stage builds the web application using Maven.\n\n### Test\n\nThis stage runs unit tests and integration tests to ensure the application is working as expected.\n\n### Package\n\nThis stage packages the application into a WAR file.\n\n### Deploy\n\nThis stage deploys the application to a target environment.\n\n## Configuration\n\nThe pipeline can be configured using environment variables. These variables can be set in Jenkins or in a `.env` file:\n\n- `APP_NAME`: The name of the application.\n- `GIT_REPO`: The URL of the Git repository.\n- `GIT_BRANCH`: The Git branch to build from.\n- `MVN_ARGS`: Additional Maven arguments to use during the build.\n- `TEST_ARGS`: Additional test arguments to use during the test stage.\n- `DEPLOY_USER`: The username to use when deploying the application.\n- `DEPLOY_PASSWORD`: The password to use when deploying the application.\n\n## Usage\n\nTo use the pipeline, simply create a new Jenkins job using the `Jenkinsfile` in the root of the repository. The pipeline will automatically run through the stages outlined above.\n\nIf you need to customize the pipeline, you can modify the `Jenkinsfile` to fit your specific needs. You can also modify the environment variables to change the behavior of the pipeline.\n\n## License\n\nThis pipeline is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.",
             },
           },
         ],
@@ -1324,7 +1326,7 @@ export const MOCK_DATA = [
             ],
             response: {
               content:
-                '\n\nSure, here are some best practices for deploying an application on Amazon Web Services:\n\n1. Use AWS Elastic Beanstalk or AWS CodeDeploy: These services automate deployment, scaling, and monitoring of your application.\n\n2. Use AWS CloudFormation: It helps you to create a stack of resources that can be quickly and easily launched in multiple environments.\n\n3. Use AWS Auto Scaling: It helps to automatically adjust capacity based on demand, ensuring your application can handle spikes in traffic.\n\n4. Use Amazon CloudWatch: It lets you to monitor your AWS resources and applications in real-time, so you can detect issues and fix them before they cause a problem.\n\n5. Use Amazon S3: It\'s a highly durable and secure object storage service, perfect for storing static content like images, audio, and video.\n\n6. Use Amazon RDS: It provides managed relational databases that are secure, scalable, and easy to manage.\n\n7. Use Elastic Load Balancing: It distributes incoming traffic across multiple instances, ensuring high availability and scaling.\n\n8. Use AWS Identity and Access Management (IAM): It lets you to create and manage user permissions, ensuring that only authorized users have access to your resources.\n\n9. Use AWS Security Groups: It lets you to manage access to your instances, controlling traffic in and out of your instances.\n\n10. Use AWS CloudTrail: It helps you to track all activity in your AWS account, providing an audit trail for compliance purposes.\n\nBy following these best practices, you can ensure that your application is highly available, easy to scale, and secure in AWS.',
+                "\n\nSure, here are some best practices for deploying an application on Amazon Web Services:\n\n1. Use AWS Elastic Beanstalk or AWS CodeDeploy: These services automate deployment, scaling, and monitoring of your application.\n\n2. Use AWS CloudFormation: It helps you to create a stack of resources that can be quickly and easily launched in multiple environments.\n\n3. Use AWS Auto Scaling: It helps to automatically adjust capacity based on demand, ensuring your application can handle spikes in traffic.\n\n4. Use Amazon CloudWatch: It lets you to monitor your AWS resources and applications in real-time, so you can detect issues and fix them before they cause a problem.\n\n5. Use Amazon S3: It's a highly durable and secure object storage service, perfect for storing static content like images, audio, and video.\n\n6. Use Amazon RDS: It provides managed relational databases that are secure, scalable, and easy to manage.\n\n7. Use Elastic Load Balancing: It distributes incoming traffic across multiple instances, ensuring high availability and scaling.\n\n8. Use AWS Identity and Access Management (IAM): It lets you to create and manage user permissions, ensuring that only authorized users have access to your resources.\n\n9. Use AWS Security Groups: It lets you to manage access to your instances, controlling traffic in and out of your instances.\n\n10. Use AWS CloudTrail: It helps you to track all activity in your AWS account, providing an audit trail for compliance purposes.\n\nBy following these best practices, you can ensure that your application is highly available, easy to scale, and secure in AWS.",
             },
           },
         ],
@@ -1346,7 +1348,7 @@ export const MOCK_DATA = [
             ],
             response: {
               content:
-                'Sure, here\'s a sample GitLab CI pipeline for a simple Node.js project:\n\n```yml\nstages:\n  - build\n  - test\n  - deploy\n\nbuild:\n  stage: build\n  image: node:latest\n  script:\n    - npm install\n    - npm run build\n  artifacts:\n    paths:\n      - build/\n\ntest:\n  stage: test\n  image: node:latest\n  script:\n    - npm install\n    - npm test\n\ndeploy:\n  stage: deploy\n  image: docker:latest\n  dependencies:\n    - build\n  script:\n    - docker build -t myapp .\n    - docker tag myapp:latest myapp:prod\n    - docker push myapp:prod\n  environment:\n    name: production\n    url: https://myapp.com\n  only:\n    - master\n```\n\nThis pipeline has three stages: build, test, and deploy. In the build stage, it installs the dependencies and builds the project, then saves the built artifacts as artifacts for later use. In the test stage, it installs the dependencies and runs the tests. Finally, in the deploy stage, it uses the previously built artifacts to build a Docker container, tags it as `myapp:prod`, and pushes it to a Docker registry. This stage runs only on the master branch and deploys to a production environment.',
+                "Sure, here's a sample GitLab CI pipeline for a simple Node.js project:\n\n```yml\nstages:\n  - build\n  - test\n  - deploy\n\nbuild:\n  stage: build\n  image: node:latest\n  script:\n    - npm install\n    - npm run build\n  artifacts:\n    paths:\n      - build/\n\ntest:\n  stage: test\n  image: node:latest\n  script:\n    - npm install\n    - npm test\n\ndeploy:\n  stage: deploy\n  image: docker:latest\n  dependencies:\n    - build\n  script:\n    - docker build -t myapp .\n    - docker tag myapp:latest myapp:prod\n    - docker push myapp:prod\n  environment:\n    name: production\n    url: https://myapp.com\n  only:\n    - master\n```\n\nThis pipeline has three stages: build, test, and deploy. In the build stage, it installs the dependencies and builds the project, then saves the built artifacts as artifacts for later use. In the test stage, it installs the dependencies and runs the tests. Finally, in the deploy stage, it uses the previously built artifacts to build a Docker container, tags it as `myapp:prod`, and pushes it to a Docker registry. This stage runs only on the master branch and deploys to a production environment.",
             },
           },
           {
@@ -1362,7 +1364,7 @@ export const MOCK_DATA = [
             ],
             response: {
               content:
-                '```\n# Define stages to be executed\nstages:\n  - build\n  - test\n  - deploy\n\n# Declare job for building the application code\nbuild-app:\n  stage: build\n  script:\n    - npm install\n    - npm run build\n\n# Declare job for running unit and integration tests\ntest-app:\n  stage: test\n  script:\n    - npm run test\n\n# Declare job for deploying the application to the staging environment\ndeploy-to-staging:\n  stage: deploy\n  script:\n    - ssh user@staging-server \'cd /var/www/app && git pull origin master && npm install && pm2 restart all\'\n\n# Declare job for deploying the application to the production environment\ndeploy-to-production:\n  stage: deploy\n  script:\n    - ssh user@production-server \'cd /var/www/app && git pull origin master && npm install && pm2 restart all\'\n  only:\n    - master\n```',
+                "```\n# Define stages to be executed\nstages:\n  - build\n  - test\n  - deploy\n\n# Declare job for building the application code\nbuild-app:\n  stage: build\n  script:\n    - npm install\n    - npm run build\n\n# Declare job for running unit and integration tests\ntest-app:\n  stage: test\n  script:\n    - npm run test\n\n# Declare job for deploying the application to the staging environment\ndeploy-to-staging:\n  stage: deploy\n  script:\n    - ssh user@staging-server 'cd /var/www/app && git pull origin master && npm install && pm2 restart all'\n\n# Declare job for deploying the application to the production environment\ndeploy-to-production:\n  stage: deploy\n  script:\n    - ssh user@production-server 'cd /var/www/app && git pull origin master && npm install && pm2 restart all'\n  only:\n    - master\n```",
             },
           },
         ],
@@ -1384,7 +1386,7 @@ export const MOCK_DATA = [
             ],
             response: {
               content:
-                'Sure, here is an example Python script to generate the bill for Google Cloud using the Google Cloud API:\n\n```python\nimport google.auth\nfrom google.cloud import billing_v1\n\n# Set authentication credentials.\ncredentials, project_id = google.auth.default()\n\n# Create a client for the billing API.\nclient = billing_v1.CloudBillingClient(credentials=credentials)\n\n# Set the billing account ID.\nbilling_account_id = \'billingAccounts/ABC123-456DEF-789GHI\'\n\n# Set the time range for the bill you want to generate.\nstart_time = \'2021-08-01T00:00:00Z\'\nend_time = \'2021-08-31T23:59:59Z\'\n\n# Set the currency code you want to display the bill in.\ncurrency_code = \'USD\'\n\n# Generate the bill.\nbill = client.generate_monthly_bill(billing_account_id, start_time, end_time, currency_code=currency_code)\n\n# Print the total amount due on the bill.\nprint(f"Total amount due: {bill.total_amount}")\n```\n\nThis script generates the monthly bill for the month of August 2021 for a Google Cloud billing account with ID `billingAccounts/ABC123-456DEF-789GHI`, in the currency of USD. You can modify the start and end times and the billing account ID to generate bills for different time ranges and billing accounts.',
+                "Sure, here is an example Python script to generate the bill for Google Cloud using the Google Cloud API:\n\n```python\nimport google.auth\nfrom google.cloud import billing_v1\n\n# Set authentication credentials.\ncredentials, project_id = google.auth.default()\n\n# Create a client for the billing API.\nclient = billing_v1.CloudBillingClient(credentials=credentials)\n\n# Set the billing account ID.\nbilling_account_id = 'billingAccounts/ABC123-456DEF-789GHI'\n\n# Set the time range for the bill you want to generate.\nstart_time = '2021-08-01T00:00:00Z'\nend_time = '2021-08-31T23:59:59Z'\n\n# Set the currency code you want to display the bill in.\ncurrency_code = 'USD'\n\n# Generate the bill.\nbill = client.generate_monthly_bill(billing_account_id, start_time, end_time, currency_code=currency_code)\n\n# Print the total amount due on the bill.\nprint(f\"Total amount due: {bill.total_amount}\")\n```\n\nThis script generates the monthly bill for the month of August 2021 for a Google Cloud billing account with ID `billingAccounts/ABC123-456DEF-789GHI`, in the currency of USD. You can modify the start and end times and the billing account ID to generate bills for different time ranges and billing accounts.",
             },
           },
           {
@@ -1400,7 +1402,7 @@ export const MOCK_DATA = [
             ],
             response: {
               content:
-                'Here\'s an example Python script that calculates the bill for AWS based on usage:\n\n```\n# Import the necessary libraries\nimport boto3\n\n# Define your AWS credentials\naws_access_key_id = \'YOUR_AWS_ACCESS_KEY_ID\'\naws_secret_access_key = \'YOUR_AWS_SECRET_ACCESS_KEY\'\n\n# Initialize the boto3 client with the appropriate service and region\nclient = boto3.client(\'ce\', region_name=\'us-east-1\', aws_access_key_id=aws_access_key_id, aws_secret_access_key=aws_secret_access_key)\n\n# Define the time period for which you want to get the bill\nstart_date = \'2021-01-01\'\nend_date = \'2021-01-31\'\n\n# Get the bill for the specified time period\nresponse = client.get_cost_and_usage(TimePeriod={\'Start\': start_date, \'End\': end_date})\n\n# Get the total cost and usage for the specified time period\ntotal_cost = response[\'ResultsByTime\'][0][\'Total\'][\'UnblendedCost\'][\'Amount\']\ntotal_usage = response[\'ResultsByTime\'][0][\'Total\'][\'UsageAmount\'][\'Amount\']\n\n# Print the total cost and usage\nprint(\'Total Cost: $\' + str(total_cost))\nprint(\'Total Usage: \' + str(total_usage) + \' hours\')\n```\n\nThis script uses the AWS Cost Explorer API to get the bill for the specified time period and calculates the total cost and usage. You\'ll need to replace the placeholders for your AWS credentials and specify the time period of interest.',
+                "Here's an example Python script that calculates the bill for AWS based on usage:\n\n```\n# Import the necessary libraries\nimport boto3\n\n# Define your AWS credentials\naws_access_key_id = 'YOUR_AWS_ACCESS_KEY_ID'\naws_secret_access_key = 'YOUR_AWS_SECRET_ACCESS_KEY'\n\n# Initialize the boto3 client with the appropriate service and region\nclient = boto3.client('ce', region_name='us-east-1', aws_access_key_id=aws_access_key_id, aws_secret_access_key=aws_secret_access_key)\n\n# Define the time period for which you want to get the bill\nstart_date = '2021-01-01'\nend_date = '2021-01-31'\n\n# Get the bill for the specified time period\nresponse = client.get_cost_and_usage(TimePeriod={'Start': start_date, 'End': end_date})\n\n# Get the total cost and usage for the specified time period\ntotal_cost = response['ResultsByTime'][0]['Total']['UnblendedCost']['Amount']\ntotal_usage = response['ResultsByTime'][0]['Total']['UsageAmount']['Amount']\n\n# Print the total cost and usage\nprint('Total Cost: $' + str(total_cost))\nprint('Total Usage: ' + str(total_usage) + ' hours')\n```\n\nThis script uses the AWS Cost Explorer API to get the bill for the specified time period and calculates the total cost and usage. You'll need to replace the placeholders for your AWS credentials and specify the time period of interest.",
             },
           },
         ],
@@ -1422,7 +1424,7 @@ export const MOCK_DATA = [
             ],
             response: {
               content:
-                'Sure, here\'s an example Groovy script that deploys code to both dev and prod branches in Jenkins:\n\n```\n// Set up authentication credentials\ndef credsId = \'my-credentials-id\'\ndef jenkins = Jenkins.getInstance()\ndef mycreds = jenkins.getDescriptor(\'hudson.plugins.git.UserRemoteConfig\').getCredentials(credsId)\n\n// Checkout dev branch\nnode {\n    stage(\'checkout dev\') {\n        git credentialsId: credsId,\n            url: \'https://github.com/myrepo.git\',\n            branch: \'dev\'\n        }\n    }\n    // Build and deploy to dev\n    stage(\'build and deploy to dev\') {\n        sh \'mvn clean package\'\n        sh \'deploy-to-dev.sh\'\n    }\n}\n\n// Checkout prod branch\nnode {\n    stage(\'checkout prod\') {\n        git credentialsId: credsId,\n            url: \'https://github.com/myrepo.git\',\n            branch: \'prod\'\n        }\n    }\n    // Build and deploy to prod\n    stage(\'build and deploy to prod\') {\n        sh \'mvn clean package\'\n        sh \'deploy-to-prod.sh\'\n    }\n}\n```\n\nAssuming you have set up the appropriate credentials and shell scripts, this script should checkout the dev and prod branches from your GitHub repository, build and deploy the code to each branch.',
+                "Sure, here's an example Groovy script that deploys code to both dev and prod branches in Jenkins:\n\n```\n// Set up authentication credentials\ndef credsId = 'my-credentials-id'\ndef jenkins = Jenkins.getInstance()\ndef mycreds = jenkins.getDescriptor('hudson.plugins.git.UserRemoteConfig').getCredentials(credsId)\n\n// Checkout dev branch\nnode {\n    stage('checkout dev') {\n        git credentialsId: credsId,\n            url: 'https://github.com/myrepo.git',\n            branch: 'dev'\n        }\n    }\n    // Build and deploy to dev\n    stage('build and deploy to dev') {\n        sh 'mvn clean package'\n        sh 'deploy-to-dev.sh'\n    }\n}\n\n// Checkout prod branch\nnode {\n    stage('checkout prod') {\n        git credentialsId: credsId,\n            url: 'https://github.com/myrepo.git',\n            branch: 'prod'\n        }\n    }\n    // Build and deploy to prod\n    stage('build and deploy to prod') {\n        sh 'mvn clean package'\n        sh 'deploy-to-prod.sh'\n    }\n}\n```\n\nAssuming you have set up the appropriate credentials and shell scripts, this script should checkout the dev and prod branches from your GitHub repository, build and deploy the code to each branch.",
             },
           },
           {
@@ -1438,7 +1440,7 @@ export const MOCK_DATA = [
             ],
             response: {
               content:
-                'Sure, here\'s an example Groovy script that deploys code to both dev and prod branches in Jenkins:\n\n```\n// Set up authentication credentials\ndef credsId = \'my-credentials-id\'\ndef jenkins = Jenkins.getInstance()\ndef mycreds = jenkins.getDescriptor(\'hudson.plugins.git.UserRemoteConfig\').getCredentials(credsId)\n\n// Checkout dev branch\nnode {\n    stage(\'checkout dev\') {\n        git credentialsId: credsId,\n            url: \'https://github.com/myrepo.git\',\n            branch: \'dev\'\n        }\n    }\n    // Build and deploy to dev\n    stage(\'build and deploy to dev\') {\n        sh \'mvn clean package\'\n        sh \'deploy-to-dev.sh\'\n    }\n}\n\n// Checkout prod branch\nnode {\n    stage(\'checkout prod\') {\n        git credentialsId: credsId,\n            url: \'https://github.com/myrepo.git\',\n            branch: \'prod\'\n        }\n    }\n    // Build and deploy to prod\n    stage(\'build and deploy to prod\') {\n        sh \'mvn clean package\'\n        sh \'deploy-to-prod.sh\'\n    }\n}\n```\n\nAssuming you have set up the appropriate credentials and shell scripts, this script should checkout the dev and prod branches from your GitHub repository, build and deploy the code to each branch.',
+                "Sure, here's an example Groovy script that deploys code to both dev and prod branches in Jenkins:\n\n```\n// Set up authentication credentials\ndef credsId = 'my-credentials-id'\ndef jenkins = Jenkins.getInstance()\ndef mycreds = jenkins.getDescriptor('hudson.plugins.git.UserRemoteConfig').getCredentials(credsId)\n\n// Checkout dev branch\nnode {\n    stage('checkout dev') {\n        git credentialsId: credsId,\n            url: 'https://github.com/myrepo.git',\n            branch: 'dev'\n        }\n    }\n    // Build and deploy to dev\n    stage('build and deploy to dev') {\n        sh 'mvn clean package'\n        sh 'deploy-to-dev.sh'\n    }\n}\n\n// Checkout prod branch\nnode {\n    stage('checkout prod') {\n        git credentialsId: credsId,\n            url: 'https://github.com/myrepo.git',\n            branch: 'prod'\n        }\n    }\n    // Build and deploy to prod\n    stage('build and deploy to prod') {\n        sh 'mvn clean package'\n        sh 'deploy-to-prod.sh'\n    }\n}\n```\n\nAssuming you have set up the appropriate credentials and shell scripts, this script should checkout the dev and prod branches from your GitHub repository, build and deploy the code to each branch.",
             },
           },
         ],
@@ -1466,7 +1468,7 @@ export const MOCK_DATA = [
             ],
             response: {
               content:
-                '\n\nCertainly, as a cybersecurity specialist, I can help you develop an effective cybersecurity strategy for mobile app. Here are some steps you can take:\n\n1. Identify and prioritize your mobile app\'s potential vulnerabilities: Consider the various risks your app might face, such as data breaches, malicious attacks or unauthorized access. Create a list of potential threats and rank them from high to low risk.\n\n2. Implement strong authentication and password policies: Use industry-standard encryption algorithms to ensure the safety and privacy of users\' data. Additionally, enforce strong password policies that require a combination of uppercase and lowercase letters, numbers, and symbols.\n\n3. Apply network security measures: Ensure secure data transmission between the mobile app and web server through Transport Layer Security (TLS) which is a protocol to encrypt data during transmission to secure against intrusion.\n\n4. Regularly update your mobile app: Keep your mobile app up-to-date with the latest security patches and software updates, as outdated software can have security vulnerabilities that hackers can exploit.\n\n5. Conduct regular security testing: Perform regular security testing to prevent data and security breaches, and to ensure that the security controls and protocols established in the app are performing as expected.\n\n6. Monitor user activity: Monitor user activity within the mobile app to detect unusual, concerning or malicious activities that may indicate security risks or breaches.\n\n7. Continuously educate users: Educate mobile app users on best practices in cybersecurity, and continuously remind them of the potential risks of using the app and how to protect their personal data.\n\nBy implementing these strategies, you can ensure that your mobile app is secure and reliable, protecting your users from potential risks and providing a highly secure and enhanced user experience.',
+                "\n\nCertainly, as a cybersecurity specialist, I can help you develop an effective cybersecurity strategy for mobile app. Here are some steps you can take:\n\n1. Identify and prioritize your mobile app's potential vulnerabilities: Consider the various risks your app might face, such as data breaches, malicious attacks or unauthorized access. Create a list of potential threats and rank them from high to low risk.\n\n2. Implement strong authentication and password policies: Use industry-standard encryption algorithms to ensure the safety and privacy of users' data. Additionally, enforce strong password policies that require a combination of uppercase and lowercase letters, numbers, and symbols.\n\n3. Apply network security measures: Ensure secure data transmission between the mobile app and web server through Transport Layer Security (TLS) which is a protocol to encrypt data during transmission to secure against intrusion.\n\n4. Regularly update your mobile app: Keep your mobile app up-to-date with the latest security patches and software updates, as outdated software can have security vulnerabilities that hackers can exploit.\n\n5. Conduct regular security testing: Perform regular security testing to prevent data and security breaches, and to ensure that the security controls and protocols established in the app are performing as expected.\n\n6. Monitor user activity: Monitor user activity within the mobile app to detect unusual, concerning or malicious activities that may indicate security risks or breaches.\n\n7. Continuously educate users: Educate mobile app users on best practices in cybersecurity, and continuously remind them of the potential risks of using the app and how to protect their personal data.\n\nBy implementing these strategies, you can ensure that your mobile app is secure and reliable, protecting your users from potential risks and providing a highly secure and enhanced user experience.",
             },
           },
           {
@@ -1713,7 +1715,7 @@ export const MOCK_DATA = [
             ],
             response: {
               content:
-                '\n\nSure, here is the script using Python:\n\n```\n#!/bin/bash\n\n# Install Sublist3r and Eyewitness\nsudo apt-get install sublist3r eyewitness\n\n# Get the target domain from the user\nread -p \'Enter the target domain: \' domain\n\n# Run Sublist3r to get the subdomains\necho \'Enumerating subdomains with Sublist3r...\'\nsublist3r -d $domain -o subdomains.txt\n\n# Take screenshots with Eyewitness\necho \'Taking screenshots with Eyewitness...\'\neyewitness --web -f subdomains.txt --no-prompt\n```\n\nTo use the script, save the code above in a file with a `.sh` extension (e.g., `subdomain_enum.sh`). Then, in a terminal window, navigate to the directory where you saved the script and run the following command:\n\n```\nchmod u+x subdomain_enum.sh\n```\n\nThis will make the script executable. Finally, run the script using:\n\n```\n./subdomain_enum.sh\n```\n\nThe script will prompt you to enter the target domain. After providing the domain, it will use Sublist3r to enumerate subdomains and save the results to a file called `subdomains.txt`. Then, it will call Eyewitness to take screenshots of each subdomain and save them to a folder called `eyewitness` in the current directory',
+                "\n\nSure, here is the script using Python:\n\n```\n#!/bin/bash\n\n# Install Sublist3r and Eyewitness\nsudo apt-get install sublist3r eyewitness\n\n# Get the target domain from the user\nread -p 'Enter the target domain: ' domain\n\n# Run Sublist3r to get the subdomains\necho 'Enumerating subdomains with Sublist3r...'\nsublist3r -d $domain -o subdomains.txt\n\n# Take screenshots with Eyewitness\necho 'Taking screenshots with Eyewitness...'\neyewitness --web -f subdomains.txt --no-prompt\n```\n\nTo use the script, save the code above in a file with a `.sh` extension (e.g., `subdomain_enum.sh`). Then, in a terminal window, navigate to the directory where you saved the script and run the following command:\n\n```\nchmod u+x subdomain_enum.sh\n```\n\nThis will make the script executable. Finally, run the script using:\n\n```\n./subdomain_enum.sh\n```\n\nThe script will prompt you to enter the target domain. After providing the domain, it will use Sublist3r to enumerate subdomains and save the results to a file called `subdomains.txt`. Then, it will call Eyewitness to take screenshots of each subdomain and save them to a folder called `eyewitness` in the current directory",
             },
           },
         ],
@@ -1742,7 +1744,7 @@ export const MOCK_DATA = [
             ],
             response: {
               content:
-                '\n\n```\nimport pandas as pd\nimport numpy as np\nimport unittest\n\nclass TestMarkOutliers(unittest.TestCase):\n    \n    def test_mark_outliers(self):\n        dataframe = pd.DataFrame({\'A\': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],\n                                  \'B\': [10, 20, 30, 11, 12, 13, 40, 15, 16, 17],\n                                  \'C\': [100, 200, 300, 400, 500, 600, 700, 800, 900, 1000]})\n        expected_output = pd.DataFrame({\'A\': [False, False, False, False, False, False, False, False, False, False],\n                                         \'B\': [False, False, False, False, False, False, True, False, False, False],\n                                         \'C\': [False, False, False, True, True, True, True, True, True, True]})\n        np.testing.assert_array_equal(mark_outliers(dataframe), expected_output)\n\nif __name__ == \'__main__\':\n    unittest.main(argv=[\'first-arg-is-ignored\'], exit=False)\n```',
+                "\n\n```\nimport pandas as pd\nimport numpy as np\nimport unittest\n\nclass TestMarkOutliers(unittest.TestCase):\n    \n    def test_mark_outliers(self):\n        dataframe = pd.DataFrame({'A': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],\n                                  'B': [10, 20, 30, 11, 12, 13, 40, 15, 16, 17],\n                                  'C': [100, 200, 300, 400, 500, 600, 700, 800, 900, 1000]})\n        expected_output = pd.DataFrame({'A': [False, False, False, False, False, False, False, False, False, False],\n                                         'B': [False, False, False, False, False, False, True, False, False, False],\n                                         'C': [False, False, False, True, True, True, True, True, True, True]})\n        np.testing.assert_array_equal(mark_outliers(dataframe), expected_output)\n\nif __name__ == '__main__':\n    unittest.main(argv=['first-arg-is-ignored'], exit=False)\n```",
             },
           },
           {
@@ -1753,7 +1755,7 @@ export const MOCK_DATA = [
               },
               {
                 content:
-                  '```python\nimport pandas as pd\nfrom sklearn.model_selection import train_test_split\n\n# Load data\ndata = pd.read_csv(\'data.csv\')\n\n# Create revenue categories\ndata[\'rev_categories\'] = pd.qcut(data[\'revenue\'], q=4, labels=False)\n\n# Split data into sample A and B, stratified on revenue\nA, B = train_test_split(data, test_size=0.5, stratify=data[\'rev_categories\'], random_state=42)\n```',
+                  "```python\nimport pandas as pd\nfrom sklearn.model_selection import train_test_split\n\n# Load data\ndata = pd.read_csv('data.csv')\n\n# Create revenue categories\ndata['rev_categories'] = pd.qcut(data['revenue'], q=4, labels=False)\n\n# Split data into sample A and B, stratified on revenue\nA, B = train_test_split(data, test_size=0.5, stratify=data['rev_categories'], random_state=42)\n```",
                 role: 'user',
               },
             ],
@@ -1799,7 +1801,7 @@ export const MOCK_DATA = [
             ],
             response: {
               content:
-                '```python\nimport pandas as pd\nfrom sklearn.model_selection import train_test_split\n\n# Load data\ndata = pd.read_csv(\'data.csv\')\n\n# Create revenue categories\ndata[\'rev_categories\'] = pd.qcut(data[\'revenue\'], q=4, labels=False)\n\n# Split data into sample A and B, stratified on revenue\nA, B = train_test_split(data, test_size=0.5, stratify=data[\'rev_categories\'], random_state=42)\n```',
+                "```python\nimport pandas as pd\nfrom sklearn.model_selection import train_test_split\n\n# Load data\ndata = pd.read_csv('data.csv')\n\n# Create revenue categories\ndata['rev_categories'] = pd.qcut(data['revenue'], q=4, labels=False)\n\n# Split data into sample A and B, stratified on revenue\nA, B = train_test_split(data, test_size=0.5, stratify=data['rev_categories'], random_state=42)\n```",
             },
           },
         ],
@@ -1833,7 +1835,7 @@ export const MOCK_DATA = [
               },
               {
                 content:
-                  '```python\nimport pandas as pd\nfrom sklearn.model_selection import train_test_split\n\n# Load data\ndata = pd.read_csv(\'data.csv\')\n\n# Create revenue categories\ndata[\'rev_categories\'] = pd.qcut(data[\'revenue\'], q=4, labels=False)\n\n# Split data into sample A and B, stratified on revenue\nA, B = train_test_split(data, test_size=0.5, stratify=data[\'rev_categories\'], random_state=42)\n```',
+                  "```python\nimport pandas as pd\nfrom sklearn.model_selection import train_test_split\n\n# Load data\ndata = pd.read_csv('data.csv')\n\n# Create revenue categories\ndata['rev_categories'] = pd.qcut(data['revenue'], q=4, labels=False)\n\n# Split data into sample A and B, stratified on revenue\nA, B = train_test_split(data, test_size=0.5, stratify=data['rev_categories'], random_state=42)\n```",
                 role: 'user',
               },
             ],
@@ -1873,13 +1875,13 @@ export const MOCK_DATA = [
               },
               {
                 content:
-                  '```python\nimport pandas as pd\nfrom sklearn.model_selection import train_test_split\n\n# Load data\ndata = pd.read_csv(\'data.csv\')\n\n# Create revenue categories\ndata[\'rev_categories\'] = pd.qcut(data[\'revenue\'], q=4, labels=False)\n\n# Split data into sample A and B, stratified on revenue\nA, B = train_test_split(data, test_size=0.5, stratify=data[\'rev_categories\'], random_state=42)\n```',
+                  "```python\nimport pandas as pd\nfrom sklearn.model_selection import train_test_split\n\n# Load data\ndata = pd.read_csv('data.csv')\n\n# Create revenue categories\ndata['rev_categories'] = pd.qcut(data['revenue'], q=4, labels=False)\n\n# Split data into sample A and B, stratified on revenue\nA, B = train_test_split(data, test_size=0.5, stratify=data['rev_categories'], random_state=42)\n```",
                 role: 'user',
               },
             ],
             response: {
               content:
-                '# Documentation\n\n## Objective\nThe objective of the code is to split the provided dataset into two samples A and B, stratified on revenue.\n\n## Input\nThe input of this code is a CSV file named "data.csv" containing the dataset to be used for splitting. \n\n## Dependencies\nThe code requires the following dependencies:\n * pandas: A Python data analysis library used to read CSV files and manipulate data.\n * scikit-learn (sklearn): A Python library for machine learning used to split the dataset into training and testing subsets.\n\n## Output\nThe output of this code are two datasets, A and B, which are stratified on revenue.\n\n## Description\n* **Step 1**: The CSV file is read using the `read_csv` function from pandas library and stored in the variable `data`. \n* **Step 2**: A new column named "rev_categories" is added to the dataset `data` through the pandas qcut method which will divide the \'revenue\' variable data into 4 equal parts based on quantiles.\n* **Step 3**: The dataset `data` is split into two samples `A` and `B` of equal size (test_size=0.5) by taking a stratified sample of rows based on the "rev_categories" variable that was created in step 2 using the `train_test_split` method of sklearn library.\n* **Step 4**: A and B datasets are returned as outputs.\n\n## Example\n```python\nimport pandas as pd\nfrom sklearn.model_selection import train_test_split\n\n# Load data\ndata = pd.read_csv(\'data.csv\')\n\n# Create revenue categories\ndata[\'rev_categories\'] = pd.qcut(data[\'revenue\'], q=4, labels=False)\n\n# Split data into sample A and B, stratified on revenue\nA, B = train_test_split(data, test_size=0.5, stratify=data[\'rev_categories\'], random_state=42)\n```\nIn this example, the code reads the CSV file \'data.csv\', adds a new column to the dataset storing that data in `data`. Then, Stratified sampling is performed using the `train_test_split` method from sklearn to split data into two samples `A` and `B`. Finally, `A` and `B` datasets are returned as outputs.',
+                "# Documentation\n\n## Objective\nThe objective of the code is to split the provided dataset into two samples A and B, stratified on revenue.\n\n## Input\nThe input of this code is a CSV file named \"data.csv\" containing the dataset to be used for splitting. \n\n## Dependencies\nThe code requires the following dependencies:\n * pandas: A Python data analysis library used to read CSV files and manipulate data.\n * scikit-learn (sklearn): A Python library for machine learning used to split the dataset into training and testing subsets.\n\n## Output\nThe output of this code are two datasets, A and B, which are stratified on revenue.\n\n## Description\n* **Step 1**: The CSV file is read using the `read_csv` function from pandas library and stored in the variable `data`. \n* **Step 2**: A new column named \"rev_categories\" is added to the dataset `data` through the pandas qcut method which will divide the 'revenue' variable data into 4 equal parts based on quantiles.\n* **Step 3**: The dataset `data` is split into two samples `A` and `B` of equal size (test_size=0.5) by taking a stratified sample of rows based on the \"rev_categories\" variable that was created in step 2 using the `train_test_split` method of sklearn library.\n* **Step 4**: A and B datasets are returned as outputs.\n\n## Example\n```python\nimport pandas as pd\nfrom sklearn.model_selection import train_test_split\n\n# Load data\ndata = pd.read_csv('data.csv')\n\n# Create revenue categories\ndata['rev_categories'] = pd.qcut(data['revenue'], q=4, labels=False)\n\n# Split data into sample A and B, stratified on revenue\nA, B = train_test_split(data, test_size=0.5, stratify=data['rev_categories'], random_state=42)\n```\nIn this example, the code reads the CSV file 'data.csv', adds a new column to the dataset storing that data in `data`. Then, Stratified sampling is performed using the `train_test_split` method from sklearn to split data into two samples `A` and `B`. Finally, `A` and `B` datasets are returned as outputs.",
             },
           },
         ],
@@ -1966,35 +1968,35 @@ export const MOCK_DATA = [
           {
             request: [
               {
-                content: 'is the following code correct? if not, tell me what\'s wrong.',
+                content: "is the following code correct? if not, tell me what's wrong.",
                 role: 'system',
               },
               {
                 content:
-                  'import pandas as pd\nfrom sklearn.linear_model import LinearRegresion\ndata= pd.read_csv(\'data.csv)\ndata[\'day_of_week]= data[\'day_of_week\'].replace({\'Monday\':1, \'Tuesday\':2, \'Wedneday\':3, \'Thrusday\':4, \'Friday\':5, \'Saturday\':6, \'Sunday\':7})\n X = data[[\'day_of_week\']]\ny = data[\'revenue\']\nmodel=LinearRegresion()\n model.fig(X,y)\n day = \'Tuesday\'\nrevenue=model.predit([[day]])\nprint(f\'The predicted revenue on day {day} is {revenue[0]})',
+                  "import pandas as pd\nfrom sklearn.linear_model import LinearRegresion\ndata= pd.read_csv('data.csv)\ndata['day_of_week]= data['day_of_week'].replace({'Monday':1, 'Tuesday':2, 'Wedneday':3, 'Thrusday':4, 'Friday':5, 'Saturday':6, 'Sunday':7})\n X = data[['day_of_week']]\ny = data['revenue']\nmodel=LinearRegresion()\n model.fig(X,y)\n day = 'Tuesday'\nrevenue=model.predit([[day]])\nprint(f'The predicted revenue on day {day} is {revenue[0]})",
                 role: 'user',
               },
             ],
             response: {
               content:
-                'There are a few errors in the code. Here\'s a corrected version:\n\n```\nimport pandas as pd\nfrom sklearn.linear_model import LinearRegression\n\ndata = pd.read_csv(\'data.csv\')\ndata[\'day_of_week\'] = data[\'day_of_week\'].replace({\'Monday\': 1, \'Tuesday\': 2, \'Wednesday\': 3, \'Thursday\': 4, \'Friday\': 5, \'Saturday\': 6, \'Sunday\': 7})\n\nX = data[[\'day_of_week\']]\ny = data[\'revenue\']\n\nmodel = LinearRegression()\nmodel.fit(X, y)\n\nday = 2 # Tuesday\nrevenue = model.predict([[day]])\nprint(f\'The predicted revenue on day {day} is {revenue[0]}\')\n```\n\nHere\'s what was changed:\n- Line 4: `LinearRegresion` is misspelled, it should be `LinearRegression`.\n- Line 5: The `data.csv` file name is missing a closing quote.\n- Line 6: `day_of_week` is misspelled for Wednesday and Thursday.\n- Line 8: `fig` should be `fit` to train the model.\n- Line 11: We need to pass a numerical value for the day, not a string. We can use `2` instead of `\'Tuesday\'`.\n- Line 12: `predict` is misspelled. Also, we don\'t need double brackets around `day` because it\'s a single value, not an array.\n- Line 13: There\'s a closing parenthesis missing at the end of the line.',
+                "There are a few errors in the code. Here's a corrected version:\n\n```\nimport pandas as pd\nfrom sklearn.linear_model import LinearRegression\n\ndata = pd.read_csv('data.csv')\ndata['day_of_week'] = data['day_of_week'].replace({'Monday': 1, 'Tuesday': 2, 'Wednesday': 3, 'Thursday': 4, 'Friday': 5, 'Saturday': 6, 'Sunday': 7})\n\nX = data[['day_of_week']]\ny = data['revenue']\n\nmodel = LinearRegression()\nmodel.fit(X, y)\n\nday = 2 # Tuesday\nrevenue = model.predict([[day]])\nprint(f'The predicted revenue on day {day} is {revenue[0]}')\n```\n\nHere's what was changed:\n- Line 4: `LinearRegresion` is misspelled, it should be `LinearRegression`.\n- Line 5: The `data.csv` file name is missing a closing quote.\n- Line 6: `day_of_week` is misspelled for Wednesday and Thursday.\n- Line 8: `fig` should be `fit` to train the model.\n- Line 11: We need to pass a numerical value for the day, not a string. We can use `2` instead of `'Tuesday'`.\n- Line 12: `predict` is misspelled. Also, we don't need double brackets around `day` because it's a single value, not an array.\n- Line 13: There's a closing parenthesis missing at the end of the line.",
             },
           },
           {
             request: [
               {
-                content: 'is the following code correct? if not, tell me what\'s wrong.',
+                content: "is the following code correct? if not, tell me what's wrong.",
                 role: 'system',
               },
               {
                 content:
-                  'import pandas as pd\nfrom sklearn.linear_model import LinearRegresion\ndata= pd.read_csv(\'data.csv)\ndata[\'day_of_week]= data[\'day_of_week\'].replace({\'Monday\':1, \'Tuesday\':2, \'Wedneday\':3, \'Thrusday\':4, \'Friday\':5, \'Saturday\':6, \'Sunday\':7})\n X = data[[\'day_of_week\']]\ny = data[\'revenue\']\nmodel=LinearRegresion()\n model.fig(X,y)\n day = \'Tuesday\'\nrevenue=model.predit([[day]])\nprint(f\'The predicted revenue on day {day} is {revenue[0]})',
+                  "import pandas as pd\nfrom sklearn.linear_model import LinearRegresion\ndata= pd.read_csv('data.csv)\ndata['day_of_week]= data['day_of_week'].replace({'Monday':1, 'Tuesday':2, 'Wedneday':3, 'Thrusday':4, 'Friday':5, 'Saturday':6, 'Sunday':7})\n X = data[['day_of_week']]\ny = data['revenue']\nmodel=LinearRegresion()\n model.fig(X,y)\n day = 'Tuesday'\nrevenue=model.predit([[day]])\nprint(f'The predicted revenue on day {day} is {revenue[0]})",
                 role: 'user',
               },
             ],
             response: {
               content:
-                'There are a few errors in the code. Here\'s a corrected version:\n\n```\nimport pandas as pd\nfrom sklearn.linear_model import LinearRegression\n\ndata = pd.read_csv(\'data.csv\')\ndata[\'day_of_week\'] = data[\'day_of_week\'].replace({\'Monday\': 1, \'Tuesday\': 2, \'Wednesday\': 3, \'Thursday\': 4, \'Friday\': 5, \'Saturday\': 6, \'Sunday\': 7})\n\nX = data[[\'day_of_week\']]\ny = data[\'revenue\']\n\nmodel = LinearRegression()\nmodel.fit(X, y)\n\nday = 2 # Tuesday\nrevenue = model.predict([[day]])\nprint(f\'The predicted revenue on day {day} is {revenue[0]}\')\n```\n\nHere\'s what was changed:\n- Line 4: `LinearRegresion` is misspelled, it should be `LinearRegression`.\n- Line 5: The `data.csv` file name is missing a closing quote.\n- Line 6: `day_of_week` is misspelled for Wednesday and Thursday.\n- Line 8: `fig` should be `fit` to train the model.\n- Line 11: We need to pass a numerical value for the day, not a string. We can use `2` instead of `\'Tuesday\'`.\n- Line 12: `predict` is misspelled. Also, we don\'t need double brackets around `day` because it\'s a single value, not an array.\n- Line 13: There\'s a closing parenthesis missing at the end of the line.',
+                "There are a few errors in the code. Here's a corrected version:\n\n```\nimport pandas as pd\nfrom sklearn.linear_model import LinearRegression\n\ndata = pd.read_csv('data.csv')\ndata['day_of_week'] = data['day_of_week'].replace({'Monday': 1, 'Tuesday': 2, 'Wednesday': 3, 'Thursday': 4, 'Friday': 5, 'Saturday': 6, 'Sunday': 7})\n\nX = data[['day_of_week']]\ny = data['revenue']\n\nmodel = LinearRegression()\nmodel.fit(X, y)\n\nday = 2 # Tuesday\nrevenue = model.predict([[day]])\nprint(f'The predicted revenue on day {day} is {revenue[0]}')\n```\n\nHere's what was changed:\n- Line 4: `LinearRegresion` is misspelled, it should be `LinearRegression`.\n- Line 5: The `data.csv` file name is missing a closing quote.\n- Line 6: `day_of_week` is misspelled for Wednesday and Thursday.\n- Line 8: `fig` should be `fit` to train the model.\n- Line 11: We need to pass a numerical value for the day, not a string. We can use `2` instead of `'Tuesday'`.\n- Line 12: `predict` is misspelled. Also, we don't need double brackets around `day` because it's a single value, not an array.\n- Line 13: There's a closing parenthesis missing at the end of the line.",
             },
           },
         ],
@@ -2103,7 +2105,7 @@ export const MOCK_DATA = [
             ],
             response: {
               content:
-                'Sure, I\'d be happy to create a research plan as a UX/UI designer. Here are the steps I would take to create a research plan:\n\n1. Define the research problem: The first step is to identify the core research question or problem that needs to be addressed. This may involve reviewing existing user data, conducting stakeholder interviews, and analyzing market research.\n\n2. Determine the research goals: Once the research problem is identified, it\'s important to define specific goals for the research. For example, these may include improving user engagement, increasing conversions, or identifying pain points in the current user experience.\n\n3. Develop research hypotheses: With defined goals, hypotheses can be developed to guide the research process, such as "Users are abandoning the shopping cart because of complex checkout processes."\n\n4. Define the research methodology: Based on the research goals and hypotheses, select the appropriate research methodology. This could include user interviews, usability testing, surveys, or competitive analysis.\n\n5. Recruit research participants: Identify potential participants for the research study, which will depend on the selected research methodology. If conducting user interviews, for example, recruiting participants could involve conducting a screening survey to identify target individuals.\n\n6. Collect data: Conduct research using the selected methodology, collecting data on user behavior, attitudes, and preferences.\n\n7. Analyze data: Once data is collected, it\'s important to conduct a thorough analysis to identify key patterns and insights.\n\n8. Develop insights and recommendations: With an understanding of user needs and behaviors, develop insights that can inform recommendations for improving the user experience. This may include changes to the product, messaging, or user interface.\n\n9. Present findings and recommendations: Finally, present findings and recommendations to stakeholders and other relevant team members, with clear actions and next steps identified.\n\nIn summary, a thorough research plan should include identifying the research problem, defining research goals and hypotheses, selecting a methodology, recruiting participants, collecting data, analyzing data, developing insights, and presenting findings and recommendations.',
+                "Sure, I'd be happy to create a research plan as a UX/UI designer. Here are the steps I would take to create a research plan:\n\n1. Define the research problem: The first step is to identify the core research question or problem that needs to be addressed. This may involve reviewing existing user data, conducting stakeholder interviews, and analyzing market research.\n\n2. Determine the research goals: Once the research problem is identified, it's important to define specific goals for the research. For example, these may include improving user engagement, increasing conversions, or identifying pain points in the current user experience.\n\n3. Develop research hypotheses: With defined goals, hypotheses can be developed to guide the research process, such as \"Users are abandoning the shopping cart because of complex checkout processes.\"\n\n4. Define the research methodology: Based on the research goals and hypotheses, select the appropriate research methodology. This could include user interviews, usability testing, surveys, or competitive analysis.\n\n5. Recruit research participants: Identify potential participants for the research study, which will depend on the selected research methodology. If conducting user interviews, for example, recruiting participants could involve conducting a screening survey to identify target individuals.\n\n6. Collect data: Conduct research using the selected methodology, collecting data on user behavior, attitudes, and preferences.\n\n7. Analyze data: Once data is collected, it's important to conduct a thorough analysis to identify key patterns and insights.\n\n8. Develop insights and recommendations: With an understanding of user needs and behaviors, develop insights that can inform recommendations for improving the user experience. This may include changes to the product, messaging, or user interface.\n\n9. Present findings and recommendations: Finally, present findings and recommendations to stakeholders and other relevant team members, with clear actions and next steps identified.\n\nIn summary, a thorough research plan should include identifying the research problem, defining research goals and hypotheses, selecting a methodology, recruiting participants, collecting data, analyzing data, developing insights, and presenting findings and recommendations.",
             },
           },
           {
@@ -2220,7 +2222,7 @@ export const MOCK_DATA = [
             ],
             response: {
               content:
-                '\n\nThe key performance metrics for the next UX iteration focusing on the log-in feature could include:\n\n1. Conversion rate: Measure the percentage of users who successfully log in after entering their email and password. This will help determine whether the log-in process is smooth and user-friendly.\n\n2. Error rate: Measure the frequency and type of errors users experience when attempting to log in. With this metric, you can identify areas of the log-in process that may be causing confusion or frustration for users.\n\n3. Time to complete: Measure the amount of time it takes users to log in, from entering their email and password to accessing the app\'s features. If it takes too long to complete the log-in process, users may abandon the app entirely.\n\n4. User engagement: Measure the number of times users access the app\'s features and functions after successfully logging in. This indicates whether the log-in process is not only successful but also encourages users to continue using the app.\n\nBy tracking these metrics, you can identify areas for improvement in the log-in process and ensure that the UX delivers the best possible experience for users.',
+                "\n\nThe key performance metrics for the next UX iteration focusing on the log-in feature could include:\n\n1. Conversion rate: Measure the percentage of users who successfully log in after entering their email and password. This will help determine whether the log-in process is smooth and user-friendly.\n\n2. Error rate: Measure the frequency and type of errors users experience when attempting to log in. With this metric, you can identify areas of the log-in process that may be causing confusion or frustration for users.\n\n3. Time to complete: Measure the amount of time it takes users to log in, from entering their email and password to accessing the app's features. If it takes too long to complete the log-in process, users may abandon the app entirely.\n\n4. User engagement: Measure the number of times users access the app's features and functions after successfully logging in. This indicates whether the log-in process is not only successful but also encourages users to continue using the app.\n\nBy tracking these metrics, you can identify areas for improvement in the log-in process and ensure that the UX delivers the best possible experience for users.",
             },
           },
           {
@@ -2304,7 +2306,7 @@ export const MOCK_DATA = [
             ],
             response: {
               content:
-                'Subject: Take Your Athletic Performance to the Next Level with Our Online Sport Training Program\n\nDear [First Name],\n\nAre you tired of not seeing results in your sport performance? Do you want to take your skills to the next level?\n\nOur online sport training program can help you achieve your goals. We offer comprehensive training in your sport - from basketball to football and everything in between. Our training program is designed specifically to help you achieve your personal best and gives you the tools to succeed in your sport.\n\nWe understand that life can be unpredictable and that\'s why we\'re proud to offer a 90-day money-back guarantee. We\'re confident in our program and we know that you\'ll see results too.\n\nAnd best of all, our program is only $29.99 - that\'s less than a dollar per day for expert online training.\n\nOur program will help you:\n\n- Improve your agility and quickness\n- Boost your speed and endurance\n- Develop proper technique and form\n- Increase your strength and power\n- Enhance your mental toughness and confidence\n\nWe know that you\'re serious about your sport and we want to help you succeed. Our online sport training program is here to help you achieve your goals.\n\nDon\'t wait any longer, sign up today and start your journey towards becoming a better athlete.\n\nSincerely,\n\n[Your Name]',
+                "Subject: Take Your Athletic Performance to the Next Level with Our Online Sport Training Program\n\nDear [First Name],\n\nAre you tired of not seeing results in your sport performance? Do you want to take your skills to the next level?\n\nOur online sport training program can help you achieve your goals. We offer comprehensive training in your sport - from basketball to football and everything in between. Our training program is designed specifically to help you achieve your personal best and gives you the tools to succeed in your sport.\n\nWe understand that life can be unpredictable and that's why we're proud to offer a 90-day money-back guarantee. We're confident in our program and we know that you'll see results too.\n\nAnd best of all, our program is only $29.99 - that's less than a dollar per day for expert online training.\n\nOur program will help you:\n\n- Improve your agility and quickness\n- Boost your speed and endurance\n- Develop proper technique and form\n- Increase your strength and power\n- Enhance your mental toughness and confidence\n\nWe know that you're serious about your sport and we want to help you succeed. Our online sport training program is here to help you achieve your goals.\n\nDon't wait any longer, sign up today and start your journey towards becoming a better athlete.\n\nSincerely,\n\n[Your Name]",
             },
           },
           {
@@ -2321,7 +2323,7 @@ export const MOCK_DATA = [
             ],
             response: {
               content:
-                'Dear [Name],\n\nWe hope this message finds you well. We wanted to take a moment to thank you for choosing to enhance your skills through our online training program on [Application Name].\n\nWe understand how challenging it can be to learn new skills in today\'s fast-paced world, and we commend you for taking the initiative to invest in yourself. Our online training program is designed to help you achieve your personal and professional development goals, and we are thrilled to have you as a part of our community.\n\nAs a new member, we want to ensure that you have access to all the tools and resources required for your success. Therefore, we have prepared a welcome guide that outlines everything you need to know to get started with our online training program. \n\nThis guide includes details about your program, best practices for studying effectively, and how to prepare for your assessments. And if you ever need additional support along the way, you can always reach out to our customer service team. \n\nThank you again for trusting us with your education, and don\'t hesitate to let us know how we can help you succeed. We look forward to partnering with you on this exciting journey.\n\nSincerely,\n\n[Your Name]\n\nMarketing Specialist at [Application Name]',
+                "Dear [Name],\n\nWe hope this message finds you well. We wanted to take a moment to thank you for choosing to enhance your skills through our online training program on [Application Name].\n\nWe understand how challenging it can be to learn new skills in today's fast-paced world, and we commend you for taking the initiative to invest in yourself. Our online training program is designed to help you achieve your personal and professional development goals, and we are thrilled to have you as a part of our community.\n\nAs a new member, we want to ensure that you have access to all the tools and resources required for your success. Therefore, we have prepared a welcome guide that outlines everything you need to know to get started with our online training program. \n\nThis guide includes details about your program, best practices for studying effectively, and how to prepare for your assessments. And if you ever need additional support along the way, you can always reach out to our customer service team. \n\nThank you again for trusting us with your education, and don't hesitate to let us know how we can help you succeed. We look forward to partnering with you on this exciting journey.\n\nSincerely,\n\n[Your Name]\n\nMarketing Specialist at [Application Name]",
             },
           },
         ],
@@ -2360,7 +2362,7 @@ export const MOCK_DATA = [
             ],
             response: {
               content:
-                '\n\nAttention all sports enthusiasts! 🏆 \n\nAre you ready to take your game to the next level? 🚀 Look no further than the online sport training program recommended by none other than tennis legend Rafael Nadal himself! 🎾\n\nWith personalized training sessions and top-notch instruction from some of the world\'s best coaches, this program is the perfect way to achieve your athletic goals. Plus, it\'s all online, so you can work out from the comfort of your own home! 🏠\n\nDon\'t let another day go by without reaching your full potential. Join the program trusted by the pros - sign up today and get ready to crush your fitness goals! 💪 #TrainLikeNadal #OnlineSportTraining #AthleticGoals #FitnessJourney.',
+                "\n\nAttention all sports enthusiasts! 🏆 \n\nAre you ready to take your game to the next level? 🚀 Look no further than the online sport training program recommended by none other than tennis legend Rafael Nadal himself! 🎾\n\nWith personalized training sessions and top-notch instruction from some of the world's best coaches, this program is the perfect way to achieve your athletic goals. Plus, it's all online, so you can work out from the comfort of your own home! 🏠\n\nDon't let another day go by without reaching your full potential. Join the program trusted by the pros - sign up today and get ready to crush your fitness goals! 💪 #TrainLikeNadal #OnlineSportTraining #AthleticGoals #FitnessJourney.",
             },
           },
         ],
@@ -2399,7 +2401,7 @@ export const MOCK_DATA = [
             ],
             response: {
               content:
-                'Sure, here\'s a Twitter thread based on an online sport training program that is recommended by Rafael Nadal:\n\nTweet 1: Are you looking to improve your athletic performance? Look no further than the online sport training program recommended by none other than tennis superstar Rafael Nadal!\n\nTweet 2: This online training program covers a wide range of sports and is designed by some of the best coaches in the world, to help athletes improve their skills, strength, and stamina.\n\nTweet 3: Whether you\'re a pro-athlete or an amateur, this training program caters to every level of athlete. You can choose from a range of customizable training plans that are tailored to your individual needs.\n\nTweet 4: With this training program, you\'ll gain access to some of the best training facilities around the world, along with expert guidance from top coaches, nutritionists, and fitness trainers.\n\nTweet 5: Rafael Nadal has personally collaborated with the coaches behind this online training program, to ensure that it is of the highest standard and will help you achieve your athletic goals.\n\nTweet 6: Don\'t wait any longer to take your athletic performance to the next level! Sign up for the online sport training program recommended by Rafael Nadal and join the countless athletes who have already seen results. #TrainLikeNadal\n\nTweet 7: So, whether you want to improve your tennis swing, run a faster mile, or increase your overall fitness, this online training program will help you achieve your goals. Sign up now and start your journey to success! #TrainLikeNadal',
+                "Sure, here's a Twitter thread based on an online sport training program that is recommended by Rafael Nadal:\n\nTweet 1: Are you looking to improve your athletic performance? Look no further than the online sport training program recommended by none other than tennis superstar Rafael Nadal!\n\nTweet 2: This online training program covers a wide range of sports and is designed by some of the best coaches in the world, to help athletes improve their skills, strength, and stamina.\n\nTweet 3: Whether you're a pro-athlete or an amateur, this training program caters to every level of athlete. You can choose from a range of customizable training plans that are tailored to your individual needs.\n\nTweet 4: With this training program, you'll gain access to some of the best training facilities around the world, along with expert guidance from top coaches, nutritionists, and fitness trainers.\n\nTweet 5: Rafael Nadal has personally collaborated with the coaches behind this online training program, to ensure that it is of the highest standard and will help you achieve your athletic goals.\n\nTweet 6: Don't wait any longer to take your athletic performance to the next level! Sign up for the online sport training program recommended by Rafael Nadal and join the countless athletes who have already seen results. #TrainLikeNadal\n\nTweet 7: So, whether you want to improve your tennis swing, run a faster mile, or increase your overall fitness, this online training program will help you achieve your goals. Sign up now and start your journey to success! #TrainLikeNadal",
             },
           },
         ],
@@ -2460,7 +2462,7 @@ export const MOCK_DATA = [
             ],
             response: {
               content:
-                'Sure, here\'s a product description for an online spinning class:\n\nIntroducing our online spinning class! Are you tired of the same old workout routine? Looking for a fun and energizing way to get your heart pumping and burn some serious calories? Look no further than our online spinning class!\n\nWith top-rated instructors and the latest in stationary bike technology, our online spinning class delivers a high-intensity cardio workout that is perfect for anyone looking to take their fitness to the next level. Whether you\'re a seasoned athlete or just starting out on your fitness journey, our classes are designed to provide a challenging and invigorating workout that will leave you feeling stronger, healthier, and more energized than ever before!\n\nOur immersive virtual studios bring the energy and excitement of a traditional spin class right to your home. With live and on-demand classes available to fit any schedule, you can spin your way to your health and fitness goals anytime, anywhere.\n\nSo why wait? Sign up for our online spinning class today and start experiencing the best workout of your life!',
+                "Sure, here's a product description for an online spinning class:\n\nIntroducing our online spinning class! Are you tired of the same old workout routine? Looking for a fun and energizing way to get your heart pumping and burn some serious calories? Look no further than our online spinning class!\n\nWith top-rated instructors and the latest in stationary bike technology, our online spinning class delivers a high-intensity cardio workout that is perfect for anyone looking to take their fitness to the next level. Whether you're a seasoned athlete or just starting out on your fitness journey, our classes are designed to provide a challenging and invigorating workout that will leave you feeling stronger, healthier, and more energized than ever before!\n\nOur immersive virtual studios bring the energy and excitement of a traditional spin class right to your home. With live and on-demand classes available to fit any schedule, you can spin your way to your health and fitness goals anytime, anywhere.\n\nSo why wait? Sign up for our online spinning class today and start experiencing the best workout of your life!",
             },
           },
           {
@@ -2476,7 +2478,7 @@ export const MOCK_DATA = [
             ],
             response: {
               content:
-                '\n\nIntroducing the ultimate tennis racket, recommended by none other than the tennis legend Rafael Nadal himself. This high-performance racket has been designed to meet the needs of serious players who demand the best, no matter their skill level.\n\nCrafted from top-quality materials, this tennis racket boasts a sturdy and durable frame that can withstand even the most intense gameplay. The design incorporates the latest technology in racquet construction, resulting in unparalleled accuracy and power.\n\nYou\'ll feel like a pro when you hold this racket, thanks to its comfortable grip and balanced weight distribution. The special stringing pattern adds more control to your shots, allowing you to dominate the court with ease.\n\nDesigned to meet the needs of both beginner and advanced players, this tennis racket is a must-have for any player looking to improve their game. Don\'t miss out on this opportunity to take your tennis skills to the next level - order now and experience the power of Rafael Nadal\'s favourite tennis racket!',
+                "\n\nIntroducing the ultimate tennis racket, recommended by none other than the tennis legend Rafael Nadal himself. This high-performance racket has been designed to meet the needs of serious players who demand the best, no matter their skill level.\n\nCrafted from top-quality materials, this tennis racket boasts a sturdy and durable frame that can withstand even the most intense gameplay. The design incorporates the latest technology in racquet construction, resulting in unparalleled accuracy and power.\n\nYou'll feel like a pro when you hold this racket, thanks to its comfortable grip and balanced weight distribution. The special stringing pattern adds more control to your shots, allowing you to dominate the court with ease.\n\nDesigned to meet the needs of both beginner and advanced players, this tennis racket is a must-have for any player looking to improve their game. Don't miss out on this opportunity to take your tennis skills to the next level - order now and experience the power of Rafael Nadal's favourite tennis racket!",
             },
           },
         ],
@@ -2544,7 +2546,7 @@ export const MOCK_DATA = [
             ],
             response: {
               content:
-                'Subject: Take Your Athletic Performance to the Next Level with Our Online Sport Training Program\n\nDear [First Name],\n\nAre you tired of not seeing results in your sport performance? Do you want to take your skills to the next level?\n\nOur online sport training program can help you achieve your goals. We offer comprehensive training in your sport - from basketball to football and everything in between. Our training program is designed specifically to help you achieve your personal best and gives you the tools to succeed in your sport.\n\nWe understand that life can be unpredictable and that\'s why we\'re proud to offer a 90-day money-back guarantee. We\'re confident in our program and we know that you\'ll see results too.\n\nAnd best of all, our program is only $29.99 - that\'s less than a dollar per day for expert online training.\n\nOur program will help you:\n\n- Improve your agility and quickness\n- Boost your speed and endurance\n- Develop proper technique and form\n- Increase your strength and power\n- Enhance your mental toughness and confidence\n\nWe know that you\'re serious about your sport and we want to help you succeed. Our online sport training program is here to help you achieve your goals.\n\nDon\'t wait any longer, sign up today and start your journey towards becoming a better athlete.\n\nSincerely,\n\n[Your Name]',
+                "Subject: Take Your Athletic Performance to the Next Level with Our Online Sport Training Program\n\nDear [First Name],\n\nAre you tired of not seeing results in your sport performance? Do you want to take your skills to the next level?\n\nOur online sport training program can help you achieve your goals. We offer comprehensive training in your sport - from basketball to football and everything in between. Our training program is designed specifically to help you achieve your personal best and gives you the tools to succeed in your sport.\n\nWe understand that life can be unpredictable and that's why we're proud to offer a 90-day money-back guarantee. We're confident in our program and we know that you'll see results too.\n\nAnd best of all, our program is only $29.99 - that's less than a dollar per day for expert online training.\n\nOur program will help you:\n\n- Improve your agility and quickness\n- Boost your speed and endurance\n- Develop proper technique and form\n- Increase your strength and power\n- Enhance your mental toughness and confidence\n\nWe know that you're serious about your sport and we want to help you succeed. Our online sport training program is here to help you achieve your goals.\n\nDon't wait any longer, sign up today and start your journey towards becoming a better athlete.\n\nSincerely,\n\n[Your Name]",
             },
           },
           {
@@ -2561,7 +2563,7 @@ export const MOCK_DATA = [
             ],
             response: {
               content:
-                'Dear [Name],\n\nWe hope this message finds you well. We wanted to take a moment to thank you for choosing to enhance your skills through our online training program on [Application Name].\n\nWe understand how challenging it can be to learn new skills in today\'s fast-paced world, and we commend you for taking the initiative to invest in yourself. Our online training program is designed to help you achieve your personal and professional development goals, and we are thrilled to have you as a part of our community.\n\nAs a new member, we want to ensure that you have access to all the tools and resources required for your success. Therefore, we have prepared a welcome guide that outlines everything you need to know to get started with our online training program. \n\nThis guide includes details about your program, best practices for studying effectively, and how to prepare for your assessments. And if you ever need additional support along the way, you can always reach out to our customer service team. \n\nThank you again for trusting us with your education, and don\'t hesitate to let us know how we can help you succeed. We look forward to partnering with you on this exciting journey.\n\nSincerely,\n\n[Your Name]\n\nMarketing Specialist at [Application Name]',
+                "Dear [Name],\n\nWe hope this message finds you well. We wanted to take a moment to thank you for choosing to enhance your skills through our online training program on [Application Name].\n\nWe understand how challenging it can be to learn new skills in today's fast-paced world, and we commend you for taking the initiative to invest in yourself. Our online training program is designed to help you achieve your personal and professional development goals, and we are thrilled to have you as a part of our community.\n\nAs a new member, we want to ensure that you have access to all the tools and resources required for your success. Therefore, we have prepared a welcome guide that outlines everything you need to know to get started with our online training program. \n\nThis guide includes details about your program, best practices for studying effectively, and how to prepare for your assessments. And if you ever need additional support along the way, you can always reach out to our customer service team. \n\nThank you again for trusting us with your education, and don't hesitate to let us know how we can help you succeed. We look forward to partnering with you on this exciting journey.\n\nSincerely,\n\n[Your Name]\n\nMarketing Specialist at [Application Name]",
             },
           },
         ],
@@ -2600,7 +2602,7 @@ export const MOCK_DATA = [
             ],
             response: {
               content:
-                '\n\nAttention all sports enthusiasts! 🏆 \n\nAre you ready to take your game to the next level? 🚀 Look no further than the online sport training program recommended by none other than tennis legend Rafael Nadal himself! 🎾\n\nWith personalized training sessions and top-notch instruction from some of the world\'s best coaches, this program is the perfect way to achieve your athletic goals. Plus, it\'s all online, so you can work out from the comfort of your own home! 🏠\n\nDon\'t let another day go by without reaching your full potential. Join the program trusted by the pros - sign up today and get ready to crush your fitness goals! 💪 #TrainLikeNadal #OnlineSportTraining #AthleticGoals #FitnessJourney.',
+                "\n\nAttention all sports enthusiasts! 🏆 \n\nAre you ready to take your game to the next level? 🚀 Look no further than the online sport training program recommended by none other than tennis legend Rafael Nadal himself! 🎾\n\nWith personalized training sessions and top-notch instruction from some of the world's best coaches, this program is the perfect way to achieve your athletic goals. Plus, it's all online, so you can work out from the comfort of your own home! 🏠\n\nDon't let another day go by without reaching your full potential. Join the program trusted by the pros - sign up today and get ready to crush your fitness goals! 💪 #TrainLikeNadal #OnlineSportTraining #AthleticGoals #FitnessJourney.",
             },
           },
         ],
@@ -2639,7 +2641,7 @@ export const MOCK_DATA = [
             ],
             response: {
               content:
-                'Sure, here\'s a Twitter thread based on an online sport training program that is recommended by Rafael Nadal:\n\nTweet 1: Are you looking to improve your athletic performance? Look no further than the online sport training program recommended by none other than tennis superstar Rafael Nadal!\n\nTweet 2: This online training program covers a wide range of sports and is designed by some of the best coaches in the world, to help athletes improve their skills, strength, and stamina.\n\nTweet 3: Whether you\'re a pro-athlete or an amateur, this training program caters to every level of athlete. You can choose from a range of customizable training plans that are tailored to your individual needs.\n\nTweet 4: With this training program, you\'ll gain access to some of the best training facilities around the world, along with expert guidance from top coaches, nutritionists, and fitness trainers.\n\nTweet 5: Rafael Nadal has personally collaborated with the coaches behind this online training program, to ensure that it is of the highest standard and will help you achieve your athletic goals.\n\nTweet 6: Don\'t wait any longer to take your athletic performance to the next level! Sign up for the online sport training program recommended by Rafael Nadal and join the countless athletes who have already seen results. #TrainLikeNadal\n\nTweet 7: So, whether you want to improve your tennis swing, run a faster mile, or increase your overall fitness, this online training program will help you achieve your goals. Sign up now and start your journey to success! #TrainLikeNadal',
+                "Sure, here's a Twitter thread based on an online sport training program that is recommended by Rafael Nadal:\n\nTweet 1: Are you looking to improve your athletic performance? Look no further than the online sport training program recommended by none other than tennis superstar Rafael Nadal!\n\nTweet 2: This online training program covers a wide range of sports and is designed by some of the best coaches in the world, to help athletes improve their skills, strength, and stamina.\n\nTweet 3: Whether you're a pro-athlete or an amateur, this training program caters to every level of athlete. You can choose from a range of customizable training plans that are tailored to your individual needs.\n\nTweet 4: With this training program, you'll gain access to some of the best training facilities around the world, along with expert guidance from top coaches, nutritionists, and fitness trainers.\n\nTweet 5: Rafael Nadal has personally collaborated with the coaches behind this online training program, to ensure that it is of the highest standard and will help you achieve your athletic goals.\n\nTweet 6: Don't wait any longer to take your athletic performance to the next level! Sign up for the online sport training program recommended by Rafael Nadal and join the countless athletes who have already seen results. #TrainLikeNadal\n\nTweet 7: So, whether you want to improve your tennis swing, run a faster mile, or increase your overall fitness, this online training program will help you achieve your goals. Sign up now and start your journey to success! #TrainLikeNadal",
             },
           },
         ],
@@ -2700,7 +2702,7 @@ export const MOCK_DATA = [
             ],
             response: {
               content:
-                'Sure, here\'s a product description for an online spinning class:\n\nIntroducing our online spinning class! Are you tired of the same old workout routine? Looking for a fun and energizing way to get your heart pumping and burn some serious calories? Look no further than our online spinning class!\n\nWith top-rated instructors and the latest in stationary bike technology, our online spinning class delivers a high-intensity cardio workout that is perfect for anyone looking to take their fitness to the next level. Whether you\'re a seasoned athlete or just starting out on your fitness journey, our classes are designed to provide a challenging and invigorating workout that will leave you feeling stronger, healthier, and more energized than ever before!\n\nOur immersive virtual studios bring the energy and excitement of a traditional spin class right to your home. With live and on-demand classes available to fit any schedule, you can spin your way to your health and fitness goals anytime, anywhere.\n\nSo why wait? Sign up for our online spinning class today and start experiencing the best workout of your life!',
+                "Sure, here's a product description for an online spinning class:\n\nIntroducing our online spinning class! Are you tired of the same old workout routine? Looking for a fun and energizing way to get your heart pumping and burn some serious calories? Look no further than our online spinning class!\n\nWith top-rated instructors and the latest in stationary bike technology, our online spinning class delivers a high-intensity cardio workout that is perfect for anyone looking to take their fitness to the next level. Whether you're a seasoned athlete or just starting out on your fitness journey, our classes are designed to provide a challenging and invigorating workout that will leave you feeling stronger, healthier, and more energized than ever before!\n\nOur immersive virtual studios bring the energy and excitement of a traditional spin class right to your home. With live and on-demand classes available to fit any schedule, you can spin your way to your health and fitness goals anytime, anywhere.\n\nSo why wait? Sign up for our online spinning class today and start experiencing the best workout of your life!",
             },
           },
           {
@@ -2716,7 +2718,7 @@ export const MOCK_DATA = [
             ],
             response: {
               content:
-                '\n\nIntroducing the ultimate tennis racket, recommended by none other than the tennis legend Rafael Nadal himself. This high-performance racket has been designed to meet the needs of serious players who demand the best, no matter their skill level.\n\nCrafted from top-quality materials, this tennis racket boasts a sturdy and durable frame that can withstand even the most intense gameplay. The design incorporates the latest technology in racquet construction, resulting in unparalleled accuracy and power.\n\nYou\'ll feel like a pro when you hold this racket, thanks to its comfortable grip and balanced weight distribution. The special stringing pattern adds more control to your shots, allowing you to dominate the court with ease.\n\nDesigned to meet the needs of both beginner and advanced players, this tennis racket is a must-have for any player looking to improve their game. Don\'t miss out on this opportunity to take your tennis skills to the next level - order now and experience the power of Rafael Nadal\'s favourite tennis racket!',
+                "\n\nIntroducing the ultimate tennis racket, recommended by none other than the tennis legend Rafael Nadal himself. This high-performance racket has been designed to meet the needs of serious players who demand the best, no matter their skill level.\n\nCrafted from top-quality materials, this tennis racket boasts a sturdy and durable frame that can withstand even the most intense gameplay. The design incorporates the latest technology in racquet construction, resulting in unparalleled accuracy and power.\n\nYou'll feel like a pro when you hold this racket, thanks to its comfortable grip and balanced weight distribution. The special stringing pattern adds more control to your shots, allowing you to dominate the court with ease.\n\nDesigned to meet the needs of both beginner and advanced players, this tennis racket is a must-have for any player looking to improve their game. Don't miss out on this opportunity to take your tennis skills to the next level - order now and experience the power of Rafael Nadal's favourite tennis racket!",
             },
           },
         ],
@@ -2837,7 +2839,7 @@ export const MOCK_DATA = [
             ],
             response: {
               content:
-                'ESP32 and Arduino are different types of development boards that serve different purposes. \n\nArduino is a microcontroller board that is widely used for prototyping and creating simple to complex electronic projects. It has a large community of users, and there are many libraries and resources available to help you get started with programming.\n\nESP32 is a low-cost, low-power consumption Wi-Fi and Bluetooth-enabled development board that has the capabilities of both a microcontroller and a Wi-Fi/Bluetooth module. It is ideal for IoT projects and can connect to the internet via Wi-Fi. ESP32 is known for its low power consumption and good performance.\n\nIn terms of which one is better, it really depends on your project requirements. If you need to connect to the internet or use Bluetooth in your project, then ESP32 is the better option. If you\'re looking for a simple and easy-to-use board for prototyping, then Arduino might be a better choice. Ultimately, it\'s important to assess your project needs and choose the board that fits those needs best.',
+                "ESP32 and Arduino are different types of development boards that serve different purposes. \n\nArduino is a microcontroller board that is widely used for prototyping and creating simple to complex electronic projects. It has a large community of users, and there are many libraries and resources available to help you get started with programming.\n\nESP32 is a low-cost, low-power consumption Wi-Fi and Bluetooth-enabled development board that has the capabilities of both a microcontroller and a Wi-Fi/Bluetooth module. It is ideal for IoT projects and can connect to the internet via Wi-Fi. ESP32 is known for its low power consumption and good performance.\n\nIn terms of which one is better, it really depends on your project requirements. If you need to connect to the internet or use Bluetooth in your project, then ESP32 is the better option. If you're looking for a simple and easy-to-use board for prototyping, then Arduino might be a better choice. Ultimately, it's important to assess your project needs and choose the board that fits those needs best.",
             },
           },
         ],
@@ -2875,7 +2877,7 @@ export const MOCK_DATA = [
             ],
             response: {
               content:
-                'As an AI language model, I do not have personal opinions, but I can provide you with some information about the Matter protocol in IoT. \n\nThe Matter protocol, formerly known as Project CHIP (Connected Home over IP), is a new standard for smart home devices that aims to make them more secure, reliable, and interoperable across different ecosystems. It\'s designed to simplify the development of IoT devices by providing a universal, open-source standard that can work with a variety of smart home platforms, including Amazon Alexa, Apple HomeKit, and Google Assistant.\n\nOne of the key benefits of the Matter protocol is that it uses a common language between devices, allowing them to communicate seamlessly with each other. This will enable users to mix and match devices from different brands, without worrying about compatibility issues. Additionally, the protocol offers enhanced security features to protect users from hacking and other cybersecurity threats.\n\nOverall, the Matter protocol has the potential to revolutionize the IoT industry by improving device interoperability and security. However, its success will depend on how widely it is adopted by device manufacturers and smart home platforms.',
+                "As an AI language model, I do not have personal opinions, but I can provide you with some information about the Matter protocol in IoT. \n\nThe Matter protocol, formerly known as Project CHIP (Connected Home over IP), is a new standard for smart home devices that aims to make them more secure, reliable, and interoperable across different ecosystems. It's designed to simplify the development of IoT devices by providing a universal, open-source standard that can work with a variety of smart home platforms, including Amazon Alexa, Apple HomeKit, and Google Assistant.\n\nOne of the key benefits of the Matter protocol is that it uses a common language between devices, allowing them to communicate seamlessly with each other. This will enable users to mix and match devices from different brands, without worrying about compatibility issues. Additionally, the protocol offers enhanced security features to protect users from hacking and other cybersecurity threats.\n\nOverall, the Matter protocol has the potential to revolutionize the IoT industry by improving device interoperability and security. However, its success will depend on how widely it is adopted by device manufacturers and smart home platforms.",
             },
           },
         ],
@@ -2903,7 +2905,7 @@ export const MOCK_DATA = [
             ],
             response: {
               content:
-                '\n\nSure, here are some test cases for the login functionality:\n\n1. Invalid Credentials: The login should fail if the user enters invalid credentials, such as the wrong username or password. The system should display an error message.\n\n2. Empty Credentials: The login should fail if the user leaves the username or password fields empty. The system should display an error message.\n\n3. Valid Credentials: The login should succeed if the user enters valid credentials. The system should redirect the user to the home page.\n\n4. Case Sensitivity: The login should be case sensitive. The system should not accept a username or password that is entered in the wrong case.\n\n5. Maximum login attempts: There should be a maximum number of login attempts, after which the user is locked out. The system should display an error message after the maximum attempts have been reached.\n\n6. Account Lockout: After a certain number of failed login attempts, the user\'s account should be locked out for a specified time period. The system should display a message with the remaining time for the account to unlock.\n\n7. Cancel button: The login screen should have a cancel button that takes the user back to the home page without login.\n\n8. Session timeout: The system should automatically log out a user if there is no activity for a set period of time. The system should redirect the user to the login page upon timeout.\n\n9. Remember me: The login screen should have a checkbox to allow the user to save their login information. On subsequent logins, the system should automatically populate the username and password.\n\n10. Multiple user login: The system should allow multiple users to log in at the same time using different credentials on different browsers or devices.\n\nThese are just a few possible test cases for the login functionality. Depending on the software application, there may be additional test cases that need to be considered.',
+                "\n\nSure, here are some test cases for the login functionality:\n\n1. Invalid Credentials: The login should fail if the user enters invalid credentials, such as the wrong username or password. The system should display an error message.\n\n2. Empty Credentials: The login should fail if the user leaves the username or password fields empty. The system should display an error message.\n\n3. Valid Credentials: The login should succeed if the user enters valid credentials. The system should redirect the user to the home page.\n\n4. Case Sensitivity: The login should be case sensitive. The system should not accept a username or password that is entered in the wrong case.\n\n5. Maximum login attempts: There should be a maximum number of login attempts, after which the user is locked out. The system should display an error message after the maximum attempts have been reached.\n\n6. Account Lockout: After a certain number of failed login attempts, the user's account should be locked out for a specified time period. The system should display a message with the remaining time for the account to unlock.\n\n7. Cancel button: The login screen should have a cancel button that takes the user back to the home page without login.\n\n8. Session timeout: The system should automatically log out a user if there is no activity for a set period of time. The system should redirect the user to the login page upon timeout.\n\n9. Remember me: The login screen should have a checkbox to allow the user to save their login information. On subsequent logins, the system should automatically populate the username and password.\n\n10. Multiple user login: The system should allow multiple users to log in at the same time using different credentials on different browsers or devices.\n\nThese are just a few possible test cases for the login functionality. Depending on the software application, there may be additional test cases that need to be considered.",
             },
           },
           {
@@ -2958,7 +2960,7 @@ export const MOCK_DATA = [
             ],
             response: {
               content:
-                '\n\nGreat! Selenium is a popular open source automation testing tool that is used for web application testing. Here are the initial steps to learn Selenium:\n\n1. Learn basic programming concepts: Selenium leverages object-oriented programming languages such as Java, Python, and C#, so it is best to learn the fundamental concepts of any of these languages. You don\'t need to be an expert in programming languages, but a basic understanding of programming concepts such as control flow, variables, loops, functions, and data types will surely help while writing test scripts.\n\n2. Learn Selenium WebDriver: The Selenium WebDriver is the core of Selenium. It is responsible for interacting with the browser and automating actions such as clicking links and entering data. You can start by writing simple WebDriver scripts to automate some basic tasks, such as opening a website, entering text, and clicking a button.\n\n3. Learn about TestNG: TestNG is a testing framework that is widely used for Selenium. It provides multiple features such as the ability to group test cases, parameterizing tests, and running tests in parallel. Learn about TestNG annotations such as @Test, @BeforeMethod, @AfterMethod, and @DataProvider.\n\n4. Learn basic HTML, CSS & JavaScript: As Selenium WebDriver works closely with the HTML DOM elements of a web page to interact and manipulate them, it’s important to have a basic understanding of HTML and CSS. It’s also necessary to have a good understanding of JavaScript as it\'s used to perform JavaScript actions such as document.getElementsByTagName() or document.getElementByName().\n\n5. Learn Selenium IDE: Selenium IDE is a simpler, easier-to-use alternative to WebDriver. It’s an integrated development environment that rapidly creates automated test scripts. Selenium IDE is a good starting point for beginners, and it provides an insight into developing test scripts.\n\n6. Practice, practice, practice: The only key to mastering Selenium is to practice a lot. Write more and more code to automate different types of scenarios, such as login and registration pages, searching for a product, navigating between pages, verifying data on the page, handling alerts, alerts, and pop-ups, etc.\n\nI hope these steps will help you in your journey to learn Selenium. Good luck!',
+                "\n\nGreat! Selenium is a popular open source automation testing tool that is used for web application testing. Here are the initial steps to learn Selenium:\n\n1. Learn basic programming concepts: Selenium leverages object-oriented programming languages such as Java, Python, and C#, so it is best to learn the fundamental concepts of any of these languages. You don't need to be an expert in programming languages, but a basic understanding of programming concepts such as control flow, variables, loops, functions, and data types will surely help while writing test scripts.\n\n2. Learn Selenium WebDriver: The Selenium WebDriver is the core of Selenium. It is responsible for interacting with the browser and automating actions such as clicking links and entering data. You can start by writing simple WebDriver scripts to automate some basic tasks, such as opening a website, entering text, and clicking a button.\n\n3. Learn about TestNG: TestNG is a testing framework that is widely used for Selenium. It provides multiple features such as the ability to group test cases, parameterizing tests, and running tests in parallel. Learn about TestNG annotations such as @Test, @BeforeMethod, @AfterMethod, and @DataProvider.\n\n4. Learn basic HTML, CSS & JavaScript: As Selenium WebDriver works closely with the HTML DOM elements of a web page to interact and manipulate them, it’s important to have a basic understanding of HTML and CSS. It’s also necessary to have a good understanding of JavaScript as it's used to perform JavaScript actions such as document.getElementsByTagName() or document.getElementByName().\n\n5. Learn Selenium IDE: Selenium IDE is a simpler, easier-to-use alternative to WebDriver. It’s an integrated development environment that rapidly creates automated test scripts. Selenium IDE is a good starting point for beginners, and it provides an insight into developing test scripts.\n\n6. Practice, practice, practice: The only key to mastering Selenium is to practice a lot. Write more and more code to automate different types of scenarios, such as login and registration pages, searching for a product, navigating between pages, verifying data on the page, handling alerts, alerts, and pop-ups, etc.\n\nI hope these steps will help you in your journey to learn Selenium. Good luck!",
             },
           },
         ],
@@ -3125,33 +3127,33 @@ export const MOCK_DATA = [
           {
             request: [
               {
-                content: 'is the following code correct? if not, tell me what\'s wrong.',
+                content: "is the following code correct? if not, tell me what's wrong.",
                 role: 'system',
               },
               {
-                content: 'X=7 \nif x = 7 \n print(\'this number is 7\') \n else: \n print(\'this number is not 7\')',
+                content: "X=7 \nif x = 7 \n print('this number is 7') \n else: \n print('this number is not 7')",
                 role: 'user',
               },
             ],
             response: {
               content:
-                'No, the code is not correct. There are a few errors: \n\n1. The variable name is inconsistent. In the first line, it\'s `X` (capital) but in the if statement, it\'s `x` (lowercase). Variable names are case-sensitive in Python, so you need to be consistent. \n\n2. The if statement needs a colon (`:`) at the end. \n\n3. The comparison operator used in the if statement is the assignment operator (`=`) instead of the equality operator (`==`). \n\nHere\'s the corrected code: \n\n```\nx = 7\nif x == 7:\n    print(\'this number is 7\')\nelse:\n    print(\'this number is not 7\')\n```',
+                "No, the code is not correct. There are a few errors: \n\n1. The variable name is inconsistent. In the first line, it's `X` (capital) but in the if statement, it's `x` (lowercase). Variable names are case-sensitive in Python, so you need to be consistent. \n\n2. The if statement needs a colon (`:`) at the end. \n\n3. The comparison operator used in the if statement is the assignment operator (`=`) instead of the equality operator (`==`). \n\nHere's the corrected code: \n\n```\nx = 7\nif x == 7:\n    print('this number is 7')\nelse:\n    print('this number is not 7')\n```",
             },
           },
           {
             request: [
               {
-                content: 'is the following code correct? if not, tell me what\'s wrong.',
+                content: "is the following code correct? if not, tell me what's wrong.",
                 role: 'system',
               },
               {
-                content: 'X=7 \nif x = 7 \n print(\'this number is 7\') \n else: \n print(\'this number is not 7\')',
+                content: "X=7 \nif x = 7 \n print('this number is 7') \n else: \n print('this number is not 7')",
                 role: 'user',
               },
             ],
             response: {
               content:
-                'No, the code is not correct. There are a few errors: \n\n1. The variable name is inconsistent. In the first line, it\'s `X` (capital) but in the if statement, it\'s `x` (lowercase). Variable names are case-sensitive in Python, so you need to be consistent. \n\n2. The if statement needs a colon (`:`) at the end. \n\n3. The comparison operator used in the if statement is the assignment operator (`=`) instead of the equality operator (`==`). \n\nHere\'s the corrected code: \n\n```\nx = 7\nif x == 7:\n    print(\'this number is 7\')\nelse:\n    print(\'this number is not 7\')\n```',
+                "No, the code is not correct. There are a few errors: \n\n1. The variable name is inconsistent. In the first line, it's `X` (capital) but in the if statement, it's `x` (lowercase). Variable names are case-sensitive in Python, so you need to be consistent. \n\n2. The if statement needs a colon (`:`) at the end. \n\n3. The comparison operator used in the if statement is the assignment operator (`=`) instead of the equality operator (`==`). \n\nHere's the corrected code: \n\n```\nx = 7\nif x == 7:\n    print('this number is 7')\nelse:\n    print('this number is not 7')\n```",
             },
           },
         ],
@@ -3164,65 +3166,154 @@ export const MOCK_CONF_PROMPT_DATA = {
   'ui-engineering': {
     id: 'ui-engineering',
     display_name: 'UI Engineering',
-    prompt: 'Respond as if you were a product owner for UI projects. Create an User Story with this format: \n\n ' +
-    '--- \n\n' +
-    '1. Title: <User story title> \n' +
-    '2. Description: As a user <description> \n - Feature: <feature> \n - Scenarios <write at least 3 using Gherking>:\n' +
-    '   - `SD:MANUAL_TEST_CASE` `ST`<Scenario Name>`ET`: `SDESC`<Scenario Description>`EDESC` `ED:MANUAL_TEST_CASE`\n' +
-    '   - `SD:MANUAL_TEST_CASE` `ST`<Scenario Name>`ET`: `SDESC`<Scenario Description>`EDESC` `ED:MANUAL_TEST_CASE`\n' +
-    '   - `SD:MANUAL_TEST_CASE` `ST`<Scenario Name>`ET`: `SDESC`<Scenario Description>`EDESC` `ED:MANUAL_TEST_CASE`\n' +
-    '   - `SD:MANUAL_TEST_CASE` ... `ED:MANUAL_TEST_CASE`\n' +
-    '3. Acceptance criteria:\n' +
-    '   - `SD:ACCEPTANCE_CRITERIA` `ST`Criteria 1`ET`: `SDESC`<Criteria Details>`EDESC` `ED:ACCEPTANCE_CRITERIA`\n' +
-    '   - `SD:ACCEPTANCE_CRITERIA` `ST`Criteria 2`ET`: `SDESC`<Criteria Details>`EDESC` `ED:ACCEPTANCE_CRITERIA`\n' +
-    '   - `SD:ACCEPTANCE_CRITERIA` `ST`Criteria 3`ET`: `SDESC`<Criteria Details>`EDESC` `ED:ACCEPTANCE_CRITERIA`\n' +
-    '   - `SD:ACCEPTANCE_CRITERIA` ... `ED:ACCEPTANCE_CRITERIA`\n' +
-    '4. Story points: <amount and argument why you decided that value>. \n\n' +
-    '5. Topics to discuss with each team required: \n - Topic I \n - Topic II \n - ... \n\n' +
-    '6. Additional Documentation: \n - Doc I \n - Doc II \n - ... \n\n' +
-    '7. `SD:UNHAPPY_PATH` `ST`Unhappy path`ET`: `SDESC`<scenario and argument>`EDESC` `ED:UNHAPPY_PATH` \n\n' +
-    '8. Business Value (tangible and intangible benefits a business can get from the capabilities of a product): \n'
+    prompt:
+      'Respond as if you were a product owner for UI projects. Create an User Story with this format: \n\n ' +
+      '--- \n\n' +
+      '1. Title: <User story title> \n' +
+      '2. Description: As a user <description> \n - Feature: <feature> \n - Scenarios <write at least 3 using Gherking>:\n' +
+      '   - `SD:MANUAL_TEST_CASE` `ST`<Scenario Name>`ET`: `SDESC`<Scenario Description>`EDESC` `ED:MANUAL_TEST_CASE`\n' +
+      '   - `SD:MANUAL_TEST_CASE` `ST`<Scenario Name>`ET`: `SDESC`<Scenario Description>`EDESC` `ED:MANUAL_TEST_CASE`\n' +
+      '   - `SD:MANUAL_TEST_CASE` `ST`<Scenario Name>`ET`: `SDESC`<Scenario Description>`EDESC` `ED:MANUAL_TEST_CASE`\n' +
+      '   - `SD:MANUAL_TEST_CASE` ... `ED:MANUAL_TEST_CASE`\n' +
+      '3. Acceptance criteria:\n' +
+      '   - `SD:ACCEPTANCE_CRITERIA` `ST`Criteria 1`ET`: `SDESC`<Criteria Details>`EDESC` `ED:ACCEPTANCE_CRITERIA`\n' +
+      '   - `SD:ACCEPTANCE_CRITERIA` `ST`Criteria 2`ET`: `SDESC`<Criteria Details>`EDESC` `ED:ACCEPTANCE_CRITERIA`\n' +
+      '   - `SD:ACCEPTANCE_CRITERIA` `ST`Criteria 3`ET`: `SDESC`<Criteria Details>`EDESC` `ED:ACCEPTANCE_CRITERIA`\n' +
+      '   - `SD:ACCEPTANCE_CRITERIA` ... `ED:ACCEPTANCE_CRITERIA`\n' +
+      '4. Story points: <amount and argument why you decided that value>. \n\n' +
+      '5. Topics to discuss with each team required: \n - Topic I \n - Topic II \n - ... \n\n' +
+      '6. Additional Documentation: \n - Doc I \n - Doc II \n - ... \n\n' +
+      '7. `SD:UNHAPPY_PATH` `ST`Unhappy path`ET`: `SDESC`<scenario and argument>`EDESC` `ED:UNHAPPY_PATH` \n\n' +
+      '8. Business Value (tangible and intangible benefits a business can get from the capabilities of a product): \n',
   },
   'scalable-platforms': {
     id: 'scalable-platforms',
     display_name: 'Scalable Platforms',
-    prompt: 'Respond as if you were a product owner for scalable platforms projects. Create an User Story with this format: \n\n ' +
-    '--- \n\n' +
-    '1. Title: <User story title> \n' +
-    '2. Description: As a user <description> \n - Feature: <feature> \n - Scenarios <write at least 3 using Gherking>:\n' +
-    '   - `SD:MANUAL_TEST_CASE` `ST`<Scenario Name>`ET`: `SDESC`<Scenario Description>`EDESC` `ED:MANUAL_TEST_CASE`\n' +
-    '   - `SD:MANUAL_TEST_CASE` `ST`<Scenario Name>`ET`: `SDESC`<Scenario Description>`EDESC` `ED:MANUAL_TEST_CASE`\n' +
-    '   - `SD:MANUAL_TEST_CASE` `ST`<Scenario Name>`ET`: `SDESC`<Scenario Description>`EDESC` `ED:MANUAL_TEST_CASE`\n' +
-    '   - `SD:MANUAL_TEST_CASE` ... `ED:MANUAL_TEST_CASE`\n' +
-    '3. Acceptance criteria:\n' +
-    '   - `SD:ACCEPTANCE_CRITERIA` `ST`Criteria 1`ET`: `SDESC`<Criteria Details>`EDESC` `ED:ACCEPTANCE_CRITERIA`\n' +
-    '   - `SD:ACCEPTANCE_CRITERIA` `ST`Criteria 2`ET`: `SDESC`<Criteria Details>`EDESC` `ED:ACCEPTANCE_CRITERIA`\n' +
-    '   - `SD:ACCEPTANCE_CRITERIA` `ST`Criteria 3`ET`: `SDESC`<Criteria Details>`EDESC` `ED:ACCEPTANCE_CRITERIA`\n' +
-    '   - `SD:ACCEPTANCE_CRITERIA` ... `ED:ACCEPTANCE_CRITERIA`\n' +
-    '4. Story points: <amount and argument why you decided that value>. \n\n' +
-    '5. Topics to discuss with each team required: \n - Topic I \n - Topic II \n - ... \n\n' +
-    '6. Additional Documentation: \n - Doc I \n - Doc II \n - ... \n\n' +
-    '7. `SD:UNHAPPY_PATH` `ST`Unhappy path`ET`: `SDESC`<scenario and argument>`EDESC` `ED:UNHAPPY_PATH` \n\n' +
-    '8. Business Value (tangible and intangible benefits a business can get from the capabilities of a product): \n'
+    prompt:
+      'Respond as if you were a product owner for scalable platforms projects. Create an User Story with this format: \n\n ' +
+      '--- \n\n' +
+      '1. Title: <User story title> \n' +
+      '2. Description: As a user <description> \n - Feature: <feature> \n - Scenarios <write at least 3 using Gherking>:\n' +
+      '   - `SD:MANUAL_TEST_CASE` `ST`<Scenario Name>`ET`: `SDESC`<Scenario Description>`EDESC` `ED:MANUAL_TEST_CASE`\n' +
+      '   - `SD:MANUAL_TEST_CASE` `ST`<Scenario Name>`ET`: `SDESC`<Scenario Description>`EDESC` `ED:MANUAL_TEST_CASE`\n' +
+      '   - `SD:MANUAL_TEST_CASE` `ST`<Scenario Name>`ET`: `SDESC`<Scenario Description>`EDESC` `ED:MANUAL_TEST_CASE`\n' +
+      '   - `SD:MANUAL_TEST_CASE` ... `ED:MANUAL_TEST_CASE`\n' +
+      '3. Acceptance criteria:\n' +
+      '   - `SD:ACCEPTANCE_CRITERIA` `ST`Criteria 1`ET`: `SDESC`<Criteria Details>`EDESC` `ED:ACCEPTANCE_CRITERIA`\n' +
+      '   - `SD:ACCEPTANCE_CRITERIA` `ST`Criteria 2`ET`: `SDESC`<Criteria Details>`EDESC` `ED:ACCEPTANCE_CRITERIA`\n' +
+      '   - `SD:ACCEPTANCE_CRITERIA` `ST`Criteria 3`ET`: `SDESC`<Criteria Details>`EDESC` `ED:ACCEPTANCE_CRITERIA`\n' +
+      '   - `SD:ACCEPTANCE_CRITERIA` ... `ED:ACCEPTANCE_CRITERIA`\n' +
+      '4. Story points: <amount and argument why you decided that value>. \n\n' +
+      '5. Topics to discuss with each team required: \n - Topic I \n - Topic II \n - ... \n\n' +
+      '6. Additional Documentation: \n - Doc I \n - Doc II \n - ... \n\n' +
+      '7. `SD:UNHAPPY_PATH` `ST`Unhappy path`ET`: `SDESC`<scenario and argument>`EDESC` `ED:UNHAPPY_PATH` \n\n' +
+      '8. Business Value (tangible and intangible benefits a business can get from the capabilities of a product): \n',
   },
-  'epic': {
+  epic: {
     id: 'epic',
     display_name: 'Epic',
-    prompt: 'Respond as if you were a product owner. Create all the users stories an for an epic with this format adding as many as you can: \n\n ' +
-    '--- \n\n' +
-    '1. `SD` `ST`<User Story Name>`ET`: `SDESC`<User Story Description>`EDESC` `ED`\n' +
-    '2. `SD` `ST`<User Story Name>`ET`: `SDESC`<User Story Description>`EDESC` `ED`\n' +
-    '3. `SD` `ST`<User Story Name>`ET`: `SDESC`<User Story Description>`EDESC` `ED`\n' +
-    '...\n\n'
+    prompt:
+      'Respond as if you were a product owner. Create all the users stories an for an epic with this format adding as many as you can: \n\n ' +
+      '--- \n\n' +
+      '1. `SD` `ST`<User Story Name>`ET`: `SDESC`<User Story Description>`EDESC` `ED`\n' +
+      '2. `SD` `ST`<User Story Name>`ET`: `SDESC`<User Story Description>`EDESC` `ED`\n' +
+      '3. `SD` `ST`<User Story Name>`ET`: `SDESC`<User Story Description>`EDESC` `ED`\n' +
+      '...\n\n',
   },
-  'initiative': {
+  initiative: {
     id: 'initiative',
     display_name: 'Initiative',
-    prompt: 'Respond as if you were a product owner creating a new project. Create all the epics with this format adding as many as you can: \n\n ' +
-    '--- \n\n' +
-    '1. `SD` `ST`<Epic Name>`ET`: `SDESC`<Epic Description>`EDESC` `ED`\n' +
-    '2. `SD` `ST`<Epic Name>`ET`: `SDESC`<Epic Description>`EDESC` `ED`\n' +
-    '3. `SD` `ST`<Epic Name>`ET`: `SDESC`<Epic Description>`EDESC` `ED`\n' +
-    '...\n\n'
-  }
+    prompt:
+      'Respond as if you were a product owner creating a new project. Create all the epics with this format adding as many as you can: \n\n ' +
+      '--- \n\n' +
+      '1. `SD` `ST`<Epic Name>`ET`: `SDESC`<Epic Description>`EDESC` `ED`\n' +
+      '2. `SD` `ST`<Epic Name>`ET`: `SDESC`<Epic Description>`EDESC` `ED`\n' +
+      '3. `SD` `ST`<Epic Name>`ET`: `SDESC`<Epic Description>`EDESC` `ED`\n' +
+      '...\n\n',
+  },
+  'project-setup-confluence': {
+    id: 'project-setup-confluence',
+    display_name: 'Project Setup Confluence',
+    prompt:
+      'Respond as if you were a product owner creating the Confluence page of a project. Create all the section with this format adding as many as you can: \n\n ' +
+      '--- \n\n' +
+      '1.- Welcome to the Wagon\n' +
+      '  a) Description of the project.\n' +
+      '     a1) ...\n' +
+      '  b)Tech\n' +
+      '  c) Onboarding process\n\n' +
+      '2.- Governance\n' +
+      '  a) Scrum\n' +
+      '    i. Story Points\n' +
+      '  b) People\n' +
+      '    i. Stakeholders\n' +
+      '    ii. Delivery Team\n' +
+      '    iii. Product Team\n' +
+      '    iv. Tech Team\n' +
+      '    v. Chart\n' +
+      '  c) Team structure\n' +
+      '  d) Vacation\n' +
+      '3.- RoadMap\n' +
+      '...\n\n',
+  },
+};
+
+interface ConfluenceType {
+  [key: string]: {
+    id: string;
+    display_name: string;
+    groups: {
+      name: string;
+      groups: {
+        name: string;
+        prompt?: string;
+        groups?: { name: string, prompt: string }[]
+      }[];
+    }[];
+  };
 }
+
+export const MOCK_CONF_CONFLUENCE: ConfluenceType = {
+  'ui-engineering': {
+    id: 'ui-engineering',
+    display_name: 'UI Engineering',
+    groups: [
+      {
+        name: 'Welcome to the Wagon!',
+        groups: [
+          {
+            name: 'Project Description',
+            prompt: 'You are a Product Owner writing the description of a project for the documentation in Confluence.',
+          },
+          {
+            name: 'Technologies',
+            prompt: 'You are a Product Owner describing the technologies to create the UI of a project in Confluence',
+          },
+          {
+            name: 'Onboarding',
+            prompt: 'You are a Product Owner describing the onboarding process of a UI project for Confluence',
+          },
+        ],
+      },
+      {
+        name: 'Governance',
+        groups: [
+          {
+            name: 'Scrum',
+            prompt: 'You are a Product Owner describing the events and guidelines for Scrum in a project of software',
+          },
+          {
+            name: 'Team',
+            prompt:
+              'You are a Product Owner describing the roles in a software project such as: StakeHolder, QA, Android Developer, ...',
+          },
+          {
+            name: 'Vacation',
+            prompt:
+              'You are a Product Owner writing the instructions and guidelines to request vacation in a software project',
+          },
+        ],
+      },
+    ],
+  },
+};

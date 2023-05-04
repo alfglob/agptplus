@@ -14,6 +14,9 @@ import { theme } from '../../theme';
 
 export const MessageComponent = ({ isGpt, message, updateGptMessage, messages, id }: any) => {
   const cleanedMessage = useMemo(() => {
+    if (!message) {
+      return '';
+    }
     const regex = /(`(SD|ST|ED|ET)[:A-Za-z_]*`)+?/g;
     return message.replaceAll(regex, '');
   }, [message]);

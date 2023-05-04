@@ -22,8 +22,12 @@ export const chatMiddleware = (store: any) => (next: any) => async (action: any)
       break;
     }
     case ChatActionTypes.ADD_USER_MESSAGE: {
-      const { messages, system } = store.getState().chat;
+      const { messages, system, isLoading } = store.getState().chat;
       const requestMessage = [];
+
+      if (isLoading) {
+        break;
+      }
 
       const previousMessages = messages.reduce(
         (curr: any, val: any) => [

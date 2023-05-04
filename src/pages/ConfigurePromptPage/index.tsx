@@ -1,9 +1,12 @@
 import { Box, Button } from '@mui/material';
+import { useState } from 'react';
 import { connect } from 'react-redux';
 
+import { ProjectSetupContainer } from './Confluence/ProjectSetupContainer';
 import { PromptForm } from './PromptDetails/PromptForm';
 
 import { labels } from '../../assets/locale/en';
+import { MOCK_CONF_PROMPT_DATA } from '../../assets/mock/mock-data';
 import { Chat } from '../../components/Chat/Chat';
 import { ConfidentialSnackbar } from '../../components/common/ConfidentialSnackbar';
 import { PageContainer } from '../../components/common/PageContainer';
@@ -26,15 +29,14 @@ const parseSpecialElements = (message: string) => {
     results[token] = results[token] ? [...results[token], obj] : [obj];
   }
 
-  console.log('Results', results);
   return results;
 };
 
-export const ConfigurePromptPageComponent = ({ messages, isLoading, formData }: any) => {
+export const ConfigurePromptPageComponent = ({ messages, isLoading, formData, setConfluencePrompt }: any) => {
+  const currentKey = formData[FormDataKeys.CP_SYSTEM];
+  const [showProjectSetup, setShowProjectSetup] = useState(false);
+
   const handleCreateIssue = () => {
-    if (messages.length < 2) {
-      return;
-    }
     const usType = formData[FormDataKeys.CP_US_TYPE];
     const regex = /(`(SD|ST|ED|ET)[:A-Za-z_]*`)+?/g;
     const chatMessage = messages[messages.length - 1].message.replaceAll(regex, '');
@@ -57,8 +59,26 @@ export const ConfigurePromptPageComponent = ({ messages, isLoading, formData }: 
       });
   };
 
-  const buttonEnabled = !isLoading && messages.length >= 2;
-  const chatDisabled = !formData[FormDataKeys.CP_SYSTEM];
+  const handleSendBtn = () => {
+    if (messages.length < 2) {
+      return;
+    }
+
+    if (currentKey === MOCK_CONF_PROMPT_DATA['project-setup-confluence'].id) {
+      setConfluencePrompt(messages[0].message);
+      setShowProjectSetup(true);
+    } else {
+      handleCreateIssue();
+    }
+  };
+
+  const confluenceEnabled =
+    currentKey !== MOCK_CONF_PROMPT_DATA['project-setup-confluence'].id ||
+    (!!formData[FormDataKeys.CP_CONFLUENCE_SPACE] && !!formData[FormDataKeys.CP_CONFLUENCE_STUDIO]);
+  const buttonEnabled = !isLoading && messages.length >= 2 && confluenceEnabled;
+  const chatDisabled = !currentKey;
+  const extraName =
+    currentKey === MOCK_CONF_PROMPT_DATA['project-setup-confluence'].id ? 'Setup Confluence' : 'Send to JIRA';
   return (
     <PageContainer
       showSidebar={false}
@@ -84,7 +104,7 @@ export const ConfigurePromptPageComponent = ({ messages, isLoading, formData }: 
 
       <Button
         disabled={!buttonEnabled}
-        onClick={handleCreateIssue}
+        onClick={handleSendBtn}
         sx={{
           backgroundColor: '#004993',
           color: '#fff',
@@ -93,8 +113,9 @@ export const ConfigurePromptPageComponent = ({ messages, isLoading, formData }: 
           marginTop: '16px',
         }}
       >
-        Send to JIRA
+        {extraName}
       </Button>
+      <ProjectSetupContainer show={showProjectSetup} onClose={() => setShowProjectSetup(false)} />
       <Box
         sx={{
           marginTop: '14px',

@@ -6,7 +6,9 @@ import { connect } from 'react-redux';
 
 import { PromptSimpleField } from './PromptSimpleField';
 
-import { MOCK_CONF_PROMPT_DATA } from '../../../assets/mock/mock-data';
+import { SpaceSelector } from './SpaceSelector';
+
+import { MOCK_CONF_CONFLUENCE, MOCK_CONF_PROMPT_DATA } from '../../../assets/mock/mock-data';
 import { mapDispatchToProps, mapStateToProps } from '../../../store';
 import { FormDataKeys } from '../../../store/form/action.types';
 import { EpicKPI } from '../Extras/EpicKPI';
@@ -39,6 +41,15 @@ export const PromptFormComponent = ({ system, updateSystemMessage, formData, upd
       updateSystemMessage(data.prompt);
     }
     updateField({ key: FormDataKeys.CP_SYSTEM, value: studio });
+  };
+
+  const handleConfluenceStudioSelect = (ev: any) => {
+    const studio = ev.target.value;
+    const data = MOCK_CONF_CONFLUENCE[studio];
+    if (!studio) {
+      return;
+    }
+    updateField({ key: FormDataKeys.CP_CONFLUENCE_STUDIO, value: data.id });
   };
 
   // Temp
@@ -78,6 +89,7 @@ export const PromptFormComponent = ({ system, updateSystemMessage, formData, upd
               color: '#fff',
               zIndex: 1,
             },
+
             root: {
               padding: 0,
             },
@@ -105,21 +117,73 @@ export const PromptFormComponent = ({ system, updateSystemMessage, formData, upd
         </IconButton>
       </Box>
 
-      <PromptSimpleField
-        placeholder="Jira ID"
-        value={formData[FormDataKeys.CP_JIRA_ID] ?? ''}
-        setValue={getFieldUpdater(FormDataKeys.CP_JIRA_ID)}
-      />
-      <PromptSimpleField
-        placeholder="US Type (Front/Backend/Data)"
-        value={formData[FormDataKeys.CP_US_TYPE] ?? ''}
-        setValue={getFieldUpdater(FormDataKeys.CP_US_TYPE)}
-      />
-      <PromptSimpleField
-        placeholder="Issue Type (US/Task/Epic)"
-        value={formData[FormDataKeys.CP_ISSUE_TYPE] ?? ''}
-        setValue={getFieldUpdater(FormDataKeys.CP_ISSUE_TYPE)}
-      />
+      {currentKey !== MOCK_CONF_PROMPT_DATA['project-setup-confluence'].id && (
+        <>
+          <PromptSimpleField
+            placeholder="Jira ID"
+            value={formData[FormDataKeys.CP_JIRA_ID] ?? ''}
+            setValue={getFieldUpdater(FormDataKeys.CP_JIRA_ID)}
+          />
+          <PromptSimpleField
+            placeholder="US Type (Front/Backend/Data)"
+            value={formData[FormDataKeys.CP_US_TYPE] ?? ''}
+            setValue={getFieldUpdater(FormDataKeys.CP_US_TYPE)}
+          />
+          <PromptSimpleField
+            placeholder="Issue Type (US/Task/Epic)"
+            value={formData[FormDataKeys.CP_ISSUE_TYPE] ?? ''}
+            setValue={getFieldUpdater(FormDataKeys.CP_ISSUE_TYPE)}
+          />
+        </>
+      )}
+      {currentKey === MOCK_CONF_PROMPT_DATA['project-setup-confluence'].id && (
+        <>
+          <SpaceSelector
+            placeholder="Space"
+            value={formData[FormDataKeys.CP_CONFLUENCE_SPACE] ?? ''}
+            onSpaceSelect={(space) => {
+              updateField({ key: FormDataKeys.CP_CONFLUENCE_SPACE, value: space.id });
+            }}
+          />
+          <Select
+            sx={{
+              fieldset: {
+                border: 'none',
+                color: '#fff',
+                background: '#004993',
+                borderRadius: '8px',
+                paddingX: '12px',
+                paddingY: '8px',
+              },
+              div: {
+                color: '#fff',
+                zIndex: 1,
+              },
+
+              root: {
+                padding: 0,
+              },
+              flexGrow: 1,
+            }}
+            renderValue={(val) => {
+              if (!val?.length) {
+                return 'Select a studio';
+              }
+              return MOCK_CONF_CONFLUENCE[val]?.display_name ?? 'Select a studio';
+            }}
+            displayEmpty
+            size="small"
+            value={formData[FormDataKeys.CP_CONFLUENCE_STUDIO] ?? ''}
+            onChange={handleConfluenceStudioSelect}
+          >
+            {Object.values(MOCK_CONF_CONFLUENCE).map((value) => (
+              <MenuItem key={value.id} value={value.id} onClick={handleConfluenceStudioSelect}>
+                {value.display_name}
+              </MenuItem>
+            ))}
+          </Select>
+        </>
+      )}
 
       {!!extraName && (
         <Button
