@@ -2,8 +2,14 @@ import { createBrowserRouter, createRoutesFromElements, Route } from 'react-rout
 
 import { APP_ROUTES } from './config/routes';
 
-import { ConfigurePromptPage } from './pages/ConfigurePromptPage';
+import { ConfluencePage } from './pages/ConfluencePage';
+import { JiraPage } from './pages/JiraPage';
 
 export const router = createBrowserRouter(
-  createRoutesFromElements(<Route index path={APP_ROUTES.CONFIGURE_PROMPT} element={<ConfigurePromptPage />} />),
+  createRoutesFromElements(
+    <>
+      <Route index path={APP_ROUTES.JIRA} element={<JiraPage />} />
+      <Route index path={APP_ROUTES.CONFLUENCE} element={<ConfluencePage />} />
+    </>,
+  ),
 );

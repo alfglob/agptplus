@@ -6,9 +6,9 @@
         "name": "Globant",
         "url": "globant.com"
     },
-    "baseUrl": "https://jira-example.onrender.com",
+    "baseUrl": "https://agpt.lcx06.me",
     "links": {
-        "config": "https://jira-example.onrender.com"
+        "config": "https://agpt.lcx06.me"
     },
     "authentication": {
         "type": "none"

@@ -1,44 +1,87 @@
 import { axiosBaseQuery } from './base.query';
 
-import { appHttp } from '../app.http.interceptor';
+import { getApiClient } from '../app.http.interceptor';
+
+export interface JiraUser {
+  accountId: string;
+  accountType: string;
+  name: string;
+  key: string;
+  html: string;
+  displayName: string;
+  avatarUrl: string;
+}
+
+export interface JiraGroup {
+  name: string;
+  html: string;
+  groupId: string;
+}
+
+export interface SpaceData {
+  id: number;
+  key: string;
+  name: string;
+}
 
 export const appApi = {
   askOpenAI: (messages: any) =>
     axiosBaseQuery({
-      url: '/proxychat',
+      url: '/ext/chat',
       method: 'POST',
-      instance: appHttp,
-    })({
-      model: 'gpt-3.5-turbo',
-      messages,
-      temperature: 0.1,
-    }),
+      instance: getApiClient(),
+    })({ messages }),
 
   createJiraIssue: (summary: string, description: string, label?: string) =>
     axiosBaseQuery({
-      url: '/proxyjira',
+      url: '/jira/issue',
       method: 'POST',
-      instance: appHttp,
+      instance: getApiClient(),
     })({
       fields: {
-        project: { key: 'JIR' },
-        issuetype: { name: 'Story' },
+        project: 'JIR',
+        issuetype: 'Story',
         summary,
         description,
         ...(label ? { labels: [label] } : {}),
       },
     }),
 
-  createScenario: (type: string, parentIssueKey: string, summary: string, description: string) =>
+  createScenario: (type: string, parent: string, summary: string, description: string) =>
     axiosBaseQuery({
-      url: '/proxychatgptwithscenario',
+      url: '/jira/scenario',
       method: 'POST',
-      instance: appHttp,
+      instance: getApiClient(),
     })({
       type,
-      projectkey: 'JIR',
-      parentIssueKey,
+      project: 'JIR',
+      parent,
       summary,
       description,
+    }),
+
+  findUsersAndGroups: async (query: string) =>
+    axiosBaseQuery({
+      url: `/jira/search?s=${query}`,
+      method: 'GET',
+      instance: getApiClient(),
+    })(),
+  getSpaceData: async () =>
+    axiosBaseQuery({
+      url: '/confluence/spaces',
+      method: 'GET',
+      instance: getApiClient(),
+    })(),
+
+  createPage: async (spaceId: number, title: string, body: string, parentId?: number) =>
+    axiosBaseQuery({
+      url: '/confluence/page',
+      method: 'POST',
+      instance: getApiClient(),
+    })({
+      spaceId,
+      title,
+      body,
+      ...(parentId ? { parentId } : {}),
     }),
 };

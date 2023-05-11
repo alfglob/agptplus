@@ -3162,7 +3162,7 @@ export const MOCK_DATA = [
   },
 ];
 
-export const MOCK_CONF_PROMPT_DATA = {
+export const MOCK_CONF_JIRA_PROMPT_DATA = {
   'ui-engineering': {
     id: 'ui-engineering',
     display_name: 'UI Engineering',
@@ -3231,8 +3231,11 @@ export const MOCK_CONF_PROMPT_DATA = {
       '3. `SD` `ST`<Epic Name>`ET`: `SDESC`<Epic Description>`EDESC` `ED`\n' +
       '...\n\n',
   },
-  'project-setup-confluence': {
-    id: 'project-setup-confluence',
+};
+
+export const MOCK_CONF_CONFLUENCE_PROMPT_DATA = {
+  'project-setup': {
+    id: 'project-setup',
     display_name: 'Project Setup Confluence',
     prompt:
       'Respond as if you were a product owner creating the Confluence page of a project. Create all the section with this format adding as many as you can: \n\n ' +
@@ -3259,7 +3262,6 @@ export const MOCK_CONF_PROMPT_DATA = {
 };
 
 interface ConfluenceType {
-  [key: string]: {
     id: string;
     display_name: string;
     groups: {
@@ -3270,10 +3272,9 @@ interface ConfluenceType {
         groups?: { name: string, prompt: string }[]
       }[];
     }[];
-  };
 }
 
-export const MOCK_CONF_CONFLUENCE: ConfluenceType = {
+export const MOCK_CONF_PROJECT_SETUP: { [key: string]: ConfluenceType } = {
   'ui-engineering': {
     id: 'ui-engineering',
     display_name: 'UI Engineering',
@@ -3311,6 +3312,35 @@ export const MOCK_CONF_CONFLUENCE: ConfluenceType = {
             name: 'Vacation',
             prompt:
               'You are a Product Owner writing the instructions and guidelines to request vacation in a software project',
+          },
+        ],
+      },
+      {
+        name: 'Manual Tests',
+        groups: [
+          {
+            name: 'Requirement Understanding',
+            prompt: 'You are a Product Owner describing the requirement understanding phase in a project of software',
+          },
+          {
+            name: 'Manual Test Plan and Strategy',
+            prompt: 'You are a Product Owner describing the manual test plan and strategy phase in a project of software',
+          },
+          {
+            name: 'Test Case Creation',
+            prompt: 'You are a Product Owner describing the test case creation phase in a project of software',
+          },
+          {
+            name: 'Test Case Execution and defect Logging',
+            prompt: 'You are a Product Owner describing the test case execution and defect logging phase in a project of software',
+          },
+          {
+            name: 'Retesting and Regression',
+            prompt: 'You are a Product Owner describing the retesting and regression phase in a project of software',
+          },
+          {
+            name: 'Test report sharing',
+            prompt: 'You are a Product Owner describing the test report sharing phase in a project of software',
           },
         ],
       },

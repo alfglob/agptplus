@@ -1,3 +1,4 @@
 export const APP_ROUTES = {
-  CONFIGURE_PROMPT: '/configure-your-prompt',
+  CONFLUENCE: '/front/confluence',
+  JIRA: '/front/jira',
 };

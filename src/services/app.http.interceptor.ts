@@ -1,42 +1,55 @@
-import axios from 'axios';
+import axios, { AxiosInstance } from 'axios';
 
-const BASE_URL = 'https://world43434.onrender.com/api/chatgpt/';
+let appHttp: AxiosInstance = axios.create({ baseURL: process.env.PUBLIC_URL });
 
-export const appHttp = axios.create({});
-appHttp.interceptors.request.use(
-  async (config: any) => {
-    // Added for development to stop waiting for a reply, it needs to be in development mode and have mock=true in local storage.
-    if (
-      // process.env.NODE_ENV === 'development' && // Disabled for render in prod
-      localStorage.getItem('mock') === 'true' &&
-      config.url === '/proxychat'
-    ) {
-      // eslint-disable-next-line no-param-reassign
-      config.adapter = (conf: any) =>
-        new Promise((resolve) => {
-          const res = {
-            data: {
-              id: (Math.random() + 1).toString(36).substring(7),
-              choices: [{ message: { content: config.data.messages.pop().content } }],
-            },
-            status: 200,
-            statusText: 'OK',
-            headers: { 'content-type': 'text/plain; charset=utf-8' },
-            config: conf,
-            request: {},
-          };
+export async function initAppClient() {
+  const token = await window.AP.context.getToken();
+  appHttp = axios.create({
+    baseURL: process.env.PUBLIC_URL,
+    headers: {
+      Authorization: `JWT ${token}`,
+    },
+  });
 
-          resolve(res);
-        });
-    }
-    return {
-      ...config,
-      baseURL: BASE_URL,
-      headers: {
-        ...config.headers,
-        accept: 'application/json',
-      },
-    };
-  },
-  (error) => Promise.reject(error),
-);
+  appHttp.interceptors.request.use(
+    async (config: any) => {
+      // Added for development to stop waiting for a reply, it needs to be in development mode and have mock=true in local storage.
+      if (
+        // process.env.NODE_ENV === 'development' && // Disabled for render in prod
+        localStorage.getItem('mock') === 'true' &&
+        config.url === '/proxychat'
+      ) {
+        // eslint-disable-next-line no-param-reassign
+        config.adapter = (conf: any) =>
+          new Promise((resolve) => {
+            const res = {
+              data: {
+                id: (Math.random() + 1).toString(36).substring(7),
+                choices: [{ message: { content: config.data.messages.pop().content } }],
+              },
+              status: 200,
+              statusText: 'OK',
+              headers: { 'content-type': 'text/plain; charset=utf-8' },
+              config: conf,
+              request: {},
+            };
+
+            resolve(res);
+          });
+      }
+      return {
+        ...config,
+        baseURL: process.env.PUBLIC_URL,
+        headers: {
+          ...config.headers,
+          accept: 'application/json',
+        },
+      };
+    },
+    (error) => Promise.reject(error),
+  );
+}
+
+export function getApiClient() {
+  return appHttp;
+}
