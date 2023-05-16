@@ -5,6 +5,8 @@ import { APP_ROUTES } from './config/routes';
 import { ConfluencePage } from './pages/ConfluencePage';
 import { JiraPage } from './pages/JiraPage';
 
+console.log("Current Route: ", window.location.pathname)
+
 export const router = createBrowserRouter(
   createRoutesFromElements(
     <>
