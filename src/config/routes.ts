@@ -1,4 +1,4 @@
 export const APP_ROUTES = {
-  CONFLUENCE: '/confluence',
-  JIRA: '/jira',
+  CONFLUENCE: '/front/confluence',
+  JIRA: '/front/jira',
 };
