@@ -39,7 +39,7 @@ export async function initAppClient() {
       }
       return {
         ...config,
-        baseURL: process.env.PUBLIC_URL,
+        baseURL: 'https://agpt-be.onrender.com/',
         headers: {
           ...config.headers,
           accept: 'application/json',
