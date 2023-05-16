@@ -1,11 +1,11 @@
 import axios, { AxiosInstance } from 'axios';
 
-let appHttp: AxiosInstance = axios.create({ baseURL: process.env.PUBLIC_URL });
+let appHttp: AxiosInstance = axios.create({ baseURL: process.env.BACKEND_URL });
 
 export async function initAppClient() {
   const token = await window.AP.context.getToken();
   appHttp = axios.create({
-    baseURL: process.env.PUBLIC_URL,
+    baseURL: process.env.BACKEND_URL,
     headers: {
       Authorization: `JWT ${token}`,
     },
