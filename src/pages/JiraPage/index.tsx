@@ -32,7 +32,7 @@ const parseSpecialElements = (message: string) => {
 export const JiraPageComponent = ({ messages, isLoading, formData }: any) => {
   const currentKey = formData[FormDataKeys.CP_SYSTEM];
 
-  console.log("Render JiraPageComponent")
+  console.log('Render JiraPageComponent');
 
   const handleSendBtn = () => {
     if (messages.length < 2) {
