@@ -24,20 +24,23 @@ export const InitiativeRoadmapComponent = ({ show, onClose, messages, roadmap, u
     const regex = /(`(SD|ST|ED|ET)[:A-Za-z_]*`)+?/g;
     const cleanMessage = messages[messages.length - 1].message.replaceAll(regex, '');
     appApi
-      .askOpenAI([
-        {
-          role: 'user',
-          content: cleanMessage,
-        },
-        {
-          role: 'system',
-          content:
-            'Reply only with the roadmap of the following epics with multiple MVPs and the associated ' +
-            'epics in this JSON format: \n\n' +
-            '[{ mvp: "MVP 1", from: "2023-04-26", to: "2023-06-30", epics: [{ epicName: "My epic", from: "2023-04-26", to: ' +
-            '"2026-05-1"}]}]\n',
-        },
-      ])
+      .askOpenAI(
+        [
+          {
+            role: 'user',
+            content: cleanMessage,
+          },
+          {
+            role: 'system',
+            content:
+              'Reply only with the roadmap of the following epics with multiple MVPs and the associated ' +
+              'epics in this JSON format: \n\n' +
+              '[{ mvp: "MVP 1", from: "2023-04-26", to: "2023-06-30", epics: [{ epicName: "My epic", from: "2023-04-26", to: ' +
+              '"2026-05-1"}]}]\n',
+          },
+        ],
+        'roadmap',
+      )
       .then((res) => {
         const message = res.data?.choices[0]?.message?.content ?? '';
         updateRoadmap(JSON.parse(message));

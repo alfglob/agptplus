@@ -25,12 +25,12 @@ export interface SpaceData {
 }
 
 export const appApi = {
-  askOpenAI: (messages: any) =>
+  askOpenAI: (messages: any, prompt: string, studio?: string) =>
     axiosBaseQuery({
       url: '/ext/chat',
       method: 'POST',
       instance: getApiClient(),
-    })({ messages }),
+    })({ messages, prompt, studio }),
 
   createJiraIssue: (summary: string, description: string, label?: string) =>
     axiosBaseQuery({

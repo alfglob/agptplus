@@ -20,22 +20,25 @@ export const EpicKPIComponent = ({ show, onClose, messages, kpi, updateKpi }: an
 
     setLoading(true);
     appApi
-      .askOpenAI([
-        {
-          role: 'user',
-          content: messages[messages.length - 1].message,
-        },
-        {
-          role: 'system',
-          content:
-            'Reply only with the Key Performance Indicators of the following epics generating approximate indicator' +
-            'in a numeric value or percent value (do not add any explanation in the value, you must add only the unit) ' +
-            'using the following template: \n\n' +
-            '1. `SD:KPI` `ST`<KPI description>`ET`: `SDESC`<KPI numeric value>`EDESC` `ED:KPI`\n' +
-            '2. `SD:KPI` `ST`<KPI description>`ET`: `SDESC`<KPI numeric value>`EDESC` `ED:KPI`\n' +
-            '3. `SD:KPI` `ST`<KPI description>`ET`: `SDESC`<KPI numeric value>`EDESC` `ED:KPI`\n',
-        },
-      ])
+      .askOpenAI(
+        [
+          {
+            role: 'user',
+            content: messages[messages.length - 1].message,
+          },
+          {
+            role: 'system',
+            content:
+              'Reply only with the Key Performance Indicators of the following epics generating approximate indicator' +
+              'in a numeric value or percent value (do not add any explanation in the value, you must add only the unit) ' +
+              'using the following template: \n\n' +
+              '1. `SD:KPI` `ST`<KPI description>`ET`: `SDESC`<KPI numeric value>`EDESC` `ED:KPI`\n' +
+              '2. `SD:KPI` `ST`<KPI description>`ET`: `SDESC`<KPI numeric value>`EDESC` `ED:KPI`\n' +
+              '3. `SD:KPI` `ST`<KPI description>`ET`: `SDESC`<KPI numeric value>`EDESC` `ED:KPI`\n',
+          },
+        ],
+        'kpi',
+      )
       .then((res) => {
         updateKpi(mapKpiResponse(res));
         setLoading(false);
