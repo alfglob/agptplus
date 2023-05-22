@@ -84,4 +84,23 @@ export const appApi = {
       body,
       ...(parentId ? { parentId } : {}),
     }),
+
+  getStats: async (before: number, after: number) =>
+    axiosBaseQuery({
+      url: `/metrics/stats?before=${before}&after=${after}`,
+      method: 'GET',
+      instance: getApiClient(),
+    })(),
+  getHistory: async (before: number, after: number, page: number = 1, per_page: number = 10) =>
+    axiosBaseQuery({
+      url: `/metrics/history?before=${before}&after=${after}&page=${page}&per_page=${per_page}`,
+      method: 'GET',
+      instance: getApiClient(),
+    })(),
+  getChat: async (id: string) =>
+    axiosBaseQuery({
+      url: `/metrics/chat/${id}`,
+      method: 'GET',
+      instance: getApiClient(),
+    })(),
 };

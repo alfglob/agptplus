@@ -21,6 +21,7 @@ export const ChatComponent = ({
   emptyText = '',
   placeholder = '',
   disableChat = '',
+  withoutInput = false,
 }: any) => {
   const ref = useRef(null);
   useEffect(() => {
@@ -52,7 +53,7 @@ export const ChatComponent = ({
         </Box>
       )}
       {messages.map(({ id, isGpt, message }: any) => (
-        <Message key={id} isGpt={isGpt} message={message} id={id} />
+        <Message key={id} isGpt={isGpt} message={message} id={id} disableEdit={withoutInput} />
       ))}
       {chatLoading && (
         <Box
@@ -157,46 +158,48 @@ export const ChatComponent = ({
       {messages.length ? renderMessages(ref) : renderEmptyChat()}
       <Box sx={{ paddingTop: '10px', position: 'relative' }}>
         {error && <ErrorAlert message={error} />}
-        <OutlinedInput
-          sx={{
-            textarea: {
-              color: '#747F8D',
-              background: '#EBEDEF',
-              borderRadius: '8px',
-              padding: '12px 18px',
-              outline: 'none',
-              width: 'calc(100% - 80px)',
+        {!withoutInput && (
+          <OutlinedInput
+            sx={{
+              textarea: {
+                color: '#747F8D',
+                background: '#EBEDEF',
+                borderRadius: '8px',
+                padding: '12px 18px',
+                outline: 'none',
+                width: 'calc(100% - 80px)',
+                '&:focus': {
+                  outline: 'none',
+                },
+                border: 'none',
+                maxHeight: '35px',
+                overflow: 'scroll !important',
+              },
+              fieldset: {
+                border: 'none',
+              },
+              width: 'calc(100% - 48px)',
+              padding: '0',
+              marginX: '24px',
               '&:focus': {
                 outline: 'none',
               },
-              border: 'none',
-              maxHeight: '35px',
-              overflow: 'scroll !important',
-            },
-            fieldset: {
-              border: 'none',
-            },
-            width: 'calc(100% - 48px)',
-            padding: '0',
-            marginX: '24px',
-            '&:focus': {
-              outline: 'none',
-            },
-          }}
-          placeholder={disableChat.length ? disableChat : placeholder || 'ask to alexGPT+'}
-          value={value}
-          multiline
-          onChange={onChange}
-          onKeyDown={onKeyDown}
-          disabled={chatLoading || !!disableChat}
-          endAdornment={
-            <InputAdornment position="end">
-              <IconButton edge="end" disabled={chatLoading} onClick={addMessageToChat}>
-                <Box component="img" src={ChatImg} />
-              </IconButton>
-            </InputAdornment>
-          }
-        />
+            }}
+            placeholder={disableChat.length ? disableChat : placeholder || 'ask to alexGPT+'}
+            value={value}
+            multiline
+            onChange={onChange}
+            onKeyDown={onKeyDown}
+            disabled={chatLoading || !!disableChat}
+            endAdornment={
+              <InputAdornment position="end">
+                <IconButton edge="end" disabled={chatLoading} onClick={addMessageToChat}>
+                  <Box component="img" src={ChatImg} />
+                </IconButton>
+              </InputAdornment>
+            }
+          />
+        )}
       </Box>
     </>
   );

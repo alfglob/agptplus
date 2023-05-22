@@ -33,6 +33,8 @@ export const chatReducer = (state = initialState, action: any) => {
       const messages = [...(state.messages as { id: string; message: string; isGpt: boolean }[])];
       messages[messages.length - 1].message = action.payload;
       return { ...state, messages };
+    case ChatActionTypes.SET_MESSAGES:
+      return { ...state, messages: action.payload };
     default:
       return state;
   }

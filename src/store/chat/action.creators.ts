@@ -34,6 +34,11 @@ export const updateGptMessage = (payload: string) => ({
   payload,
 });
 
+export const setMessages = (payload: string) => ({
+  type: ChatActionTypes.SET_MESSAGES,
+  payload,
+});
+
 export const chatActions = (dispatch: any) => ({
   clearChat: () => dispatch(clearChat()),
   addUserMessage: (payload: any) => dispatch(addUserMessage(payload)),
@@ -42,6 +47,7 @@ export const chatActions = (dispatch: any) => ({
   askOpenAISuccess: (payload: any) => dispatch(askOpenAISuccess(payload)),
   updateSystemMessage: (payload: string) => dispatch(updateSystemMessage(payload)),
   updateGptMessage: (payload: string) => dispatch(updateGptMessage(payload)),
+  setMessages: (payload: string) => dispatch(setMessages(payload)),
 });
 
 export const chatState = (state: any) => ({

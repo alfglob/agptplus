@@ -12,7 +12,7 @@ import LogoImg from '../../assets/images/globantLogo.svg';
 import { mapDispatchToProps, mapStateToProps } from '../../store';
 import { theme } from '../../theme';
 
-export const MessageComponent = ({ isGpt, message, updateGptMessage, messages, id }: any) => {
+export const MessageComponent = ({ isGpt, message, updateGptMessage, messages, id, disableEdit }: any) => {
   const cleanedMessage = useMemo(() => {
     if (!message) {
       return '';
@@ -24,7 +24,7 @@ export const MessageComponent = ({ isGpt, message, updateGptMessage, messages, i
   const [editing, setEditing] = useState(false);
   const [currentValue, setCurrentValue] = useState(message);
 
-  const editable = isGpt && messages[messages.length - 1].id === id;
+  const editable = isGpt && messages[messages.length - 1].id === id && !disableEdit;
 
   useEffect(() => {
     if (editing && messages[messages.length - 1].id !== id) {
