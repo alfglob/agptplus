@@ -1,5 +1,5 @@
 import { AccessTime, ChevronLeft, ChevronRight, DataObject, MonetizationOn, Person } from '@mui/icons-material';
-import { Box, MenuItem, Select, Typography } from '@mui/material';
+import { Box, Button, MenuItem, Select, Typography } from '@mui/material';
 import { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 
@@ -8,6 +8,8 @@ import { DateRangePopover } from './date/DateRangePopover';
 import { HistoryCard } from './HistoryCard';
 import { HistoryContainer } from './HistoryContainer';
 import { StatCard } from './StatCard';
+
+import { SavingTimeContainer } from './time/SavingTimeContainer';
 
 import { labels } from '../../assets/locale/en';
 import { PageContainer } from '../../components/common/PageContainer';
@@ -25,6 +27,7 @@ export const MetricsPageComponent = () => {
   const [metadata, setMetadata] = useState({ total_entries: 0, total_pages: 0 });
   const [page, setPage] = useState(1);
   const [perPage, setPerPage] = useState(10);
+  const [showTimeSaving, setShowTimeSaving] = useState(false);
 
   const [selectedChat, setSelectedChat] = useState<any>(null);
 
@@ -128,7 +131,11 @@ export const MetricsPageComponent = () => {
       }}
     >
       <Box sx={{ marginX: 16, marginY: 2, display: 'flex', flexDirection: 'column', flex: 1 }}>
-        <DateRangePopover ranges={[{ ...range, key: 'selection' }]} onChange={(r: any) => setRange(r.selection)} />
+        <Box sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
+          <DateRangePopover ranges={[{ ...range, key: 'selection' }]} onChange={(r: any) => setRange(r.selection)} />
+          <Button onClick={() => setShowTimeSaving(true)}>Show time saving</Button>
+        </Box>
+        <SavingTimeContainer show={showTimeSaving} onClose={() => setShowTimeSaving(false)} />
         <Box sx={{ display: 'grid', gridTemplateColumns: 'repeat(4, minmax(0, 1fr))', marginTop: 4 }}>
           <StatCard icon={<DataObject htmlColor="#2563EB" />} label="Requests" value={stats.requests} />
           <StatCard icon={<MonetizationOn htmlColor="#2563EB" />} label="Total Tokens" value={stats.total_tokens} />

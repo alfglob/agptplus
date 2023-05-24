@@ -99,8 +99,14 @@ export const appApi = {
     })(),
   getChat: async (id: string) =>
     axiosBaseQuery({
-      url: `/metrics/chat/${id}`,
+      url: `/metrics/chats/${id}`,
       method: 'GET',
+      instance: getApiClient(),
+    })(),
+  setChatStoryPoints: async (id: string, value: number) =>
+    axiosBaseQuery({
+      url: `/metrics/chats/${id}/storyPoints?value=${value}`,
+      method: 'PATCH',
       instance: getApiClient(),
     })(),
 };
