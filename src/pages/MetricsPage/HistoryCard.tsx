@@ -46,7 +46,7 @@ export const HistoryCard = ({ chat, onSelect }: { chat: any; onSelect: () => voi
     >
       <Box sx={{ display: 'flex', flexDirection: 'column', gridColumn: 'span 2 / span 2' }}>
         <Typography color="#0F172A" fontWeight={600} overflow="hidden" textOverflow="ellipsis" whiteSpace="nowrap">
-          {chat.user_prompt.content}
+          {chat.user_prompt?.content ?? 'No content'}
         </Typography>
         <Typography color="#38BDF8" overflow="hidden" textOverflow="ellipsis" whiteSpace="nowrap">
           {`• ${(MOCK_CONF_JIRA_PROMPT_DATA as any)[chat.studio as string]?.display_name ?? chat.studio}`}
@@ -73,7 +73,7 @@ export const HistoryCard = ({ chat, onSelect }: { chat: any; onSelect: () => voi
       />
       <Typography color="black" sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
         <Chat sx={{ marginRight: 2 }} />
-        {chat.story_points}
+        {chat.story_points ?? 0}
       </Typography>
       <TextField
         value={userStoryPoints}
