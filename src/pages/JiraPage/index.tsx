@@ -33,7 +33,7 @@ export const JiraPageComponent = ({ messages, isLoading, formData }: any) => {
   const currentKey = formData[FormDataKeys.CP_SYSTEM];
 
   const handleSendBtn = () => {
-    if (messages.length < 2) {
+    if (messages.length < 2 || !window.AP.context) {
       return;
     }
     const usType = formData[FormDataKeys.CP_US_TYPE];
@@ -72,8 +72,8 @@ export const JiraPageComponent = ({ messages, isLoading, formData }: any) => {
         flexDirection: 'column',
         height: 'calc(100vh)',
         width: 'calc(100vw - 280px)',
-        paddingTop: '48px',
-        paddingBottom: '14px',
+        paddingTop: '54px',
+        paddingBottom: '6px',
       }}
     >
       <PromptForm />
@@ -84,19 +84,21 @@ export const JiraPageComponent = ({ messages, isLoading, formData }: any) => {
         disableChat={chatDisabled ? 'Please select a studio first.' : ''}
       />
 
-      <Button
-        disabled={!buttonEnabled}
-        onClick={handleSendBtn}
-        sx={{
-          backgroundColor: '#004993',
-          color: '#fff',
-          width: 'auto',
-          marginX: '24px',
-          marginTop: '16px',
-        }}
-      >
-        {extraName}
-      </Button>
+      {window.AP.context && (
+        <Button
+          disabled={!buttonEnabled}
+          onClick={handleSendBtn}
+          sx={{
+            backgroundColor: '#004993',
+            color: '#fff',
+            width: 'auto',
+            marginX: '24px',
+            marginTop: '16px',
+          }}
+        >
+          {extraName}
+        </Button>
+      )}
       <Box
         sx={{
           marginTop: '14px',

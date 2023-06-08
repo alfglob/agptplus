@@ -50,7 +50,10 @@ export const LanguagesDialogComponent = ({ settings, updatePreferences, show, on
       <DialogContent sx={{ alignItems: 'center', display: 'flex', flexDirection: 'column' }}>
         <Box sx={{ backgroundColor: '#f0f0f0', width: '90%', height: '60vh', overflowY: 'auto', borderRadius: 6 }}>
           {SUPPORTED_LANGUAGES.map((lang) => (
-            <Box sx={{ display: 'flex', justifyContent: 'space-between', width: '100%', paddingX: 8, paddingY: 2 }}>
+            <Box
+              sx={{ display: 'flex', justifyContent: 'space-between', width: '100%', paddingX: 8, paddingY: 2 }}
+              key={lang}
+            >
               <Typography fontWeight={600} fontFamily="Arial">
                 {lang}
               </Typography>

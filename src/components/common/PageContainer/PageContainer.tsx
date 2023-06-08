@@ -24,7 +24,7 @@ export const PageContainerComponent = ({
   <>
     <Header title={headerText} />
     <Box sx={styles.pageWrapper} bgcolor={bgColor}>
-      <Box sx={{ flexGrow: 1, py: 3, color: 'white', maxHeight: '95vh', ...sx }}>
+      <Box sx={{ flexGrow: 1, py: 3, color: 'white', maxHeight: '100vh', ...sx }}>
         {title && (
           <Typography mt={2} mb={3} variant="h4" data-testid="pageTitle">
             {title}

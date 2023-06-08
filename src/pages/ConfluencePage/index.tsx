@@ -11,6 +11,10 @@ import { FormDataKeys } from '../../store/form/action.types';
 
 export const ConfluencePageComponent = ({ formData }: any) => {
   const showContainer = !!formData[FormDataKeys.CP_CONFLUENCE_SPACE] && !!formData[FormDataKeys.CP_CONFLUENCE_STUDIO];
+  if (!window.AP.context) {
+    return null;
+  }
+
   return (
     <PageContainer
       showSidebar={false}

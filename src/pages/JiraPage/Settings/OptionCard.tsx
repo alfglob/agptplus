@@ -72,31 +72,35 @@ export const OptionCardComponent = ({
           </IconButton>
         </>
       )}
-      <IconButton
-        sx={{
-          display: 'flex',
-          flexDirection: 'column',
-          color: '#1F64FF',
-          width: 86,
-          height: 86,
-          label: { display: 'flex', flexDirection: 'column' },
-        }}
-        onClick={(ev) => setAsigneEl(ev.target)}
-      >
-        {!currentSettings.asignee && <Groups fontSize="large" />}
-        {!!currentSettings.asignee && <JiraAvatar user={currentSettings.asignee} />}
-        <Typography fontSize={10} color="#AAB2CB">
-          Asignee
-        </Typography>
-      </IconButton>
-      <JiraPopover
-        anchorEl={asigneeEl}
-        onClose={() => setAsigneEl(null)}
-        value={currentSettings.asignee}
-        onChange={(val: any) => {
-          updateAsignee({ key: settingKey, value: val });
-        }}
-      />
+      {window.AP.context && (
+        <>
+          <IconButton
+            sx={{
+              display: 'flex',
+              flexDirection: 'column',
+              color: '#1F64FF',
+              width: 86,
+              height: 86,
+              label: { display: 'flex', flexDirection: 'column' },
+            }}
+            onClick={(ev) => setAsigneEl(ev.target)}
+          >
+            {!currentSettings.asignee && <Groups fontSize="large" />}
+            {!!currentSettings.asignee && <JiraAvatar user={currentSettings.asignee} />}
+            <Typography fontSize={10} color="#AAB2CB">
+              Asignee
+            </Typography>
+          </IconButton>
+          <JiraPopover
+            anchorEl={asigneeEl}
+            onClose={() => setAsigneEl(null)}
+            value={currentSettings.asignee}
+            onChange={(val: any) => {
+              updateAsignee({ key: settingKey, value: val });
+            }}
+          />
+        </>
+      )}
       <Typography color="black" sx={{ flex: 1 }} fontWeight="700" fontSize={20} fontFamily="Arial">
         {displayName}
       </Typography>

@@ -1,13 +1,15 @@
 import axios, { AxiosInstance } from 'axios';
 
-let appHttp: AxiosInstance = axios.create({ baseURL: 'https://agpt-be.onrender.com/' });
+let appHttp: AxiosInstance = axios.create({
+  baseURL: 'https://agpt-be.onrender.com/',
+});
 
 export async function initAppClient() {
-  const token = await window.AP.context.getToken();
+  const token = window.AP?.context ? await window.AP.context.getToken() : null;
   appHttp = axios.create({
     baseURL: 'https://agpt-be.onrender.com/',
     headers: {
-      Authorization: `JWT ${token}`,
+      ...(token ? { Authorization: `JWT ${token}` } : {}),
     },
   });
 
