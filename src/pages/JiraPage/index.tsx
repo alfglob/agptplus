@@ -5,6 +5,7 @@ import { PromptForm } from './PromptDetails/PromptForm';
 
 import { labels } from '../../assets/locale/en';
 import { Chat } from '../../components/Chat/Chat';
+import { ApiKeyDialog } from '../../components/common/ApiKeyDialog';
 import { ConfidentialSnackbar } from '../../components/common/ConfidentialSnackbar';
 import { PageContainer } from '../../components/common/PageContainer';
 import { appApi } from '../../services/api';
@@ -78,6 +79,7 @@ export const JiraPageComponent = ({ messages, isLoading, formData }: any) => {
     >
       <PromptForm />
       <ConfidentialSnackbar />
+      <ApiKeyDialog />
       <Chat
         emptyText="Ask AlexGPT+ to test your prompt..."
         placeholder="Test your prompt"

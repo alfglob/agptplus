@@ -30,6 +30,7 @@ export const appApi = {
       url: '/ext/chat',
       method: 'POST',
       instance: getApiClient(),
+      headers: { ai_key: localStorage.getItem('AI_KEY') ?? sessionStorage.getItem('AI_KEY') },
     })({ messages, prompt, studio }),
 
   createJiraIssue: (summary: string, description: string, label?: string) =>
@@ -38,13 +39,11 @@ export const appApi = {
       method: 'POST',
       instance: getApiClient(),
     })({
-      fields: {
-        project: 'JIR',
-        issuetype: 'Story',
-        summary,
-        description,
-        ...(label ? { labels: [label] } : {}),
-      },
+      project: 'JIR',
+      issuetype: 'Story',
+      summary,
+      description,
+      ...(label ? { labels: [label] } : {}),
     }),
 
   createScenario: (type: string, parent: string, summary: string, description: string) =>

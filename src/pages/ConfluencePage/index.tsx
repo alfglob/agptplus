@@ -5,6 +5,7 @@ import { ProjectSetupContainer } from './Confluence/ProjectSetupContainer';
 import { PromptForm } from './PromptDetails/PromptForm';
 
 import { labels } from '../../assets/locale/en';
+import { ApiKeyDialog } from '../../components/common/ApiKeyDialog';
 import { PageContainer } from '../../components/common/PageContainer';
 import { mapDispatchToProps, mapStateToProps } from '../../store';
 import { FormDataKeys } from '../../store/form/action.types';
@@ -31,6 +32,7 @@ export const ConfluencePageComponent = ({ formData }: any) => {
       }}
     >
       <PromptForm />
+      <ApiKeyDialog />
       {showContainer && <ProjectSetupContainer />}
       <Box
         sx={{

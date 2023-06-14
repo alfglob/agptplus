@@ -19,7 +19,7 @@ export async function initAppClient() {
       if (
         // process.env.NODE_ENV === 'development' && // Disabled for render in prod
         localStorage.getItem('mock') === 'true' &&
-        config.url === '/proxychat'
+        config.url === '/ext/chat'
       ) {
         // eslint-disable-next-line no-param-reassign
         config.adapter = (conf: any) =>
