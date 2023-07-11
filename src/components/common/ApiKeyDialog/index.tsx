@@ -1,9 +1,20 @@
-import { Button, Dialog, DialogActions, DialogContent, DialogTitle, TextField, Typography } from '@mui/material';
+import {
+  Button,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogTitle,
+  Tab,
+  Tabs,
+  TextField,
+  Typography,
+} from '@mui/material';
 import { useState } from 'react';
 import { connect } from 'react-redux';
 
 export const ApiKeyDialogComponent = () => {
   const [apiKey, setApiKey] = useState('');
+  const [apiType, setApiType] = useState(0);
   const [apiKeySet, setApiKeySet] = useState(localStorage.getItem('AI_KEY') ?? sessionStorage.getItem('AI_KEY'));
 
   const handleSubmit = () => {
@@ -12,8 +23,10 @@ export const ApiKeyDialogComponent = () => {
     }
 
     try {
+      localStorage.setItem('API_TYPE', apiType ? 'azure' : 'openai');
       localStorage.setItem('AI_KEY', apiKey);
     } catch (e) {
+      sessionStorage.setItem('API_TYPE', apiType ? 'azure' : 'openai');
       sessionStorage.setItem('AI_KEY', apiKey);
     } finally {
       setApiKeySet('ok');
@@ -30,8 +43,24 @@ export const ApiKeyDialogComponent = () => {
         </Typography>
         <Typography marginY={2}>
           You can get one at:
-          <a href="https://platform.openai.com/account/api-keys"> https://platform.openai.com/account/api-keys</a>
+          <a href="https://platform.openai.com/account/api-keys"> https://platform.openai.com/account/api-keys </a>
+          or in
+          <a href="https://portal.azure.com"> https://portal.azure.com</a>
         </Typography>
+        <Tabs
+          value={apiType}
+          onChange={(ev, val) => {
+            setApiType(val);
+          }}
+          aria-label="ai provider"
+          sx={{
+            width: '80%',
+            my: 2,
+          }}
+        >
+          <Tab label="openai" />
+          <Tab label="azure" />
+        </Tabs>
         <TextField
           value={apiKey}
           onChange={(ev) => setApiKey(ev.target.value)}
