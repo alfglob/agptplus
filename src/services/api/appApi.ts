@@ -30,7 +30,10 @@ export const appApi = {
       url: '/ext/chat',
       method: 'POST',
       instance: getApiClient(),
-      headers: { ai_key: localStorage.getItem('AI_KEY') ?? sessionStorage.getItem('AI_KEY') },
+      headers: { 
+        ai_key: localStorage.getItem('AI_KEY') ?? sessionStorage.getItem('AI_KEY'),
+        ai_type: localStorage.getItem('API_TYPE') ?? sessionStorage.getItem('API_TYPE'),
+      },
     })({ messages, prompt, studio }),
 
   createJiraIssue: (summary: string, description: string, label?: string) =>
