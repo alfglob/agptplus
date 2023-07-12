@@ -54,6 +54,10 @@ export const appApi = {
       url: '/jira/scenario',
       method: 'POST',
       instance: getApiClient(),
+      headers: {
+        ai_key: localStorage.getItem('AI_KEY') ?? sessionStorage.getItem('AI_KEY'),
+        ai_type: localStorage.getItem('API_TYPE') ?? sessionStorage.getItem('API_TYPE'),
+      },
     })({
       type,
       project: 'JIR',
