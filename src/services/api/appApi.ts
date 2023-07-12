@@ -30,7 +30,7 @@ export const appApi = {
       url: '/ext/chat',
       method: 'POST',
       instance: getApiClient(),
-      headers: { 
+      headers: {
         ai_key: localStorage.getItem('AI_KEY') ?? sessionStorage.getItem('AI_KEY'),
         ai_type: localStorage.getItem('API_TYPE') ?? sessionStorage.getItem('API_TYPE'),
       },
